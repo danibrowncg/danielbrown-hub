@@ -1,0 +1,50 @@
+import { StaggerGroup, StaggerItem, Reveal } from "@/components/primitives/Reveal";
+
+const features = [
+  "Diseño 100% responsive y mobile-first",
+  "Velocidad de carga optimizada",
+  "SEO básico incluido para Google",
+  "Seguridad SSL certificada",
+  "Soporte técnico 12 meses",
+  "Entrega en 3-5 días laborables",
+  "Dominio + hosting gratis (1 año)",
+  "Animaciones modernas premium",
+  "Panel autogestionable, fácil de editar",
+  "Garantía de satisfacción",
+  "Google Analytics configurado",
+  "Integración con redes sociales",
+];
+
+export function Features() {
+  return (
+    <section className="grain relative overflow-hidden px-5 py-20 sm:px-8 lg:px-16 lg:py-28">
+      <div className="mx-auto max-w-6xl">
+        <Reveal>
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-neon">06 · Por qué</p>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <h2 className="mt-3 max-w-3xl font-display text-4xl leading-[0.95] text-white sm:text-5xl lg:text-6xl">
+            POR QUÉ ELEGIR ESTE <span className="text-neon">DISEÑO</span>.
+          </h2>
+        </Reveal>
+
+        <StaggerGroup className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3" stagger={0.06}>
+          {features.map((f, i) => (
+            <StaggerItem
+              key={f}
+              direction={i % 2 === 0 ? "left" : "right"}
+              className="group flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.02] p-4 transition-all hover:border-neon/50 hover:bg-white/[0.05]"
+            >
+              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-neon/15 text-neon transition-all group-hover:scale-110 group-hover:bg-neon group-hover:text-ink">
+                <svg viewBox="0 0 24 24" fill="none" className="h-3.5 w-3.5">
+                  <path d="m5 12 5 5L20 7" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
+              <span className="text-sm leading-snug text-white/85 sm:text-base">{f}</span>
+            </StaggerItem>
+          ))}
+        </StaggerGroup>
+      </div>
+    </section>
+  );
+}
