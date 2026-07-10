@@ -13,19 +13,43 @@ const specs = [
 export function AboutDaniel() {
   const reduce = useReducedMotion();
   return (
-    <section className="relative overflow-hidden px-5 pt-6 pb-20 sm:px-8 lg:px-16 lg:pt-10 lg:pb-28">
+    <section className="relative overflow-hidden px-5 pt-10 pb-20 sm:px-8 lg:px-16 lg:pt-10 lg:pb-28">
       <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1fr_1.3fr] lg:items-center lg:gap-16">
         <Reveal direction="scale" className="relative z-10 mx-auto">
           <ScrollParallax distance={40} className="relative">
-            <div className="absolute -inset-4 rounded-3xl brand-gradient opacity-40 blur-2xl" />
+            {/* Halo blanco sutil (pulsa en opacidad) */}
+            <motion.span
+              aria-hidden="true"
+              className="absolute -inset-1 -z-10 rounded-full bg-white/15 blur-2xl"
+              animate={reduce ? undefined : { opacity: [0.4, 0.7, 0.4] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            />
+            {/* Marco circular con anillo aurora girando + flotación */}
             <motion.div
-              className="relative aspect-square w-44 overflow-hidden rounded-3xl ring-2 ring-neon/60 shadow-[0_0_55px_-6px_rgba(231,255,0,0.55)] sm:w-56 lg:w-72"
-              style={{ isolation: "isolate" }}
+              className="relative grid aspect-square w-48 place-items-center rounded-full sm:w-60 lg:w-[19rem]"
               animate={reduce ? undefined : { y: [0, -10, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              whileHover={reduce ? undefined : { scale: 1.03, rotate: -2 }}
+              whileHover={reduce ? undefined : { scale: 1.03 }}
             >
-              <img src={danielImg} alt="Daniel Brown" className="h-full w-full object-cover" loading="lazy" decoding="async" />
+              <span
+                aria-hidden="true"
+                className="absolute inset-0 rounded-full"
+                style={{
+                  background:
+                    "conic-gradient(from 0deg, transparent 0deg, #fff 70deg, transparent 150deg, transparent 210deg, rgba(255,255,255,0.55) 280deg, transparent 340deg)",
+                  animation: reduce ? undefined : "spin-slow 6s linear infinite",
+                }}
+              />
+              <span
+                aria-hidden="true"
+                className="absolute inset-[5px] rounded-full bg-ink"
+              />
+              <div
+                className="relative aspect-square w-44 overflow-hidden rounded-full sm:w-56 lg:w-72"
+                style={{ isolation: "isolate" }}
+              >
+                <img src={danielImg} alt="Daniel Brown" className="h-full w-full object-cover" loading="lazy" decoding="async" />
+              </div>
             </motion.div>
           </ScrollParallax>
         </Reveal>

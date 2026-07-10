@@ -11,7 +11,6 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { ScrollProgress } from "@/components/primitives/ScrollProgress";
 import { SiteBackground } from "@/components/primitives/SiteBackground";
 
 function NotFoundComponent() {
@@ -121,7 +120,6 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ScrollProgress />
       <SiteBackground />
       <Outlet />
     </QueryClientProvider>
