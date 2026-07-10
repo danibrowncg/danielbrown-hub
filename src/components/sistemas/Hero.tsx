@@ -28,7 +28,7 @@ export function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="grain relative isolate flex flex-col overflow-hidden px-5 pt-16 pb-8 sm:px-8 lg:px-16"
+      className="relative isolate flex flex-col overflow-hidden px-5 pt-16 pb-8 sm:px-8 lg:px-16"
     >
       <GradientBlob className="-left-32 top-10 h-80 w-80" />
       <GradientBlob className="-right-24 top-1/3 h-72 w-72" delay={2} />

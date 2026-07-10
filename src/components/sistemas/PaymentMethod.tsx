@@ -9,7 +9,7 @@ const steps = [
 
 export function PaymentMethod() {
   return (
-    <section className="grain relative overflow-hidden px-5 py-20 sm:px-8 lg:px-16 lg:py-28">
+    <section className="relative overflow-hidden px-5 py-20 sm:px-8 lg:px-16 lg:py-28">
       <div className="mx-auto max-w-5xl">
         <Reveal>
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-neon">Forma de pago</p>

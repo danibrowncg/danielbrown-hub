@@ -13,7 +13,7 @@ const specs = [
 export function AboutDaniel() {
   const reduce = useReducedMotion();
   return (
-    <section className="grain relative overflow-hidden px-5 pt-6 pb-20 sm:px-8 lg:px-16 lg:pt-10 lg:pb-28">
+    <section className="relative overflow-hidden px-5 pt-6 pb-20 sm:px-8 lg:px-16 lg:pt-10 lg:pb-28">
       <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1fr_1.3fr] lg:items-center lg:gap-16">
         <Reveal direction="scale" className="relative z-10 mx-auto">
           <ScrollParallax distance={40} className="relative">

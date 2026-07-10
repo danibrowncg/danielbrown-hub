@@ -17,7 +17,7 @@ export function FinalCta() {
   };
 
   return (
-    <section className="grain relative isolate overflow-hidden px-5 py-24 sm:px-8 lg:px-16 lg:py-32">
+    <section className="relative isolate overflow-hidden px-5 py-24 sm:px-8 lg:px-16 lg:py-32">
       <GradientBlob className="left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2" />
 
       <div className="relative mx-auto max-w-3xl text-center">

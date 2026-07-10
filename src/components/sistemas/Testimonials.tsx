@@ -38,7 +38,7 @@ export function Testimonials() {
   const [emblaRef] = useEmblaCarousel({ loop: true, align: "center" }, [Autoplay({ delay: 6000, stopOnInteraction: false })]);
 
   return (
-    <section className="grain relative overflow-hidden py-20 lg:py-28">
+    <section className="relative overflow-hidden py-20 lg:py-28">
       <div className="mx-auto mb-10 max-w-6xl px-5 sm:px-8 lg:px-16">
         <Reveal>
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-neon">Testimonios</p>

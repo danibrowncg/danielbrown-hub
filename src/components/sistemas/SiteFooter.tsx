@@ -9,7 +9,7 @@ const socials = [
 
 export function SiteFooter() {
   return (
-    <footer className="grain relative overflow-hidden border-t border-white/10 px-5 py-12 sm:px-8 lg:px-16 lg:py-16">
+    <footer className="relative overflow-hidden border-t border-white/10 px-5 py-12 sm:px-8 lg:px-16 lg:py-16">
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-10 lg:grid-cols-3">
           <div>

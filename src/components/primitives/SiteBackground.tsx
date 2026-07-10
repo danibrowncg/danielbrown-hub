@@ -13,6 +13,9 @@ import {
  *  3. Foco que sigue el cursor, interpolado con spring (solo en punteros finos).
  *  4. Viñeta inferior para asentar el contenido.
  *
+ * Además renderiza el grano de película como UNA capa fija sobre el contenido
+ * (antes era una capa con mix-blend-mode por sección; ver `grain-fixed`).
+ *
  * Solo se anima transform/opacity. Respeta prefers-reduced-motion.
  */
 export function SiteBackground() {
@@ -40,10 +43,14 @@ export function SiteBackground() {
   }, [reduce, x, y]);
 
   return (
-    <div
-      aria-hidden="true"
-      className="pointer-events-none fixed inset-0 z-0 overflow-hidden"
-    >
+    <>
+      {/* Grano de película: una única capa fija sobre todo el contenido. */}
+      <div aria-hidden="true" className="grain-fixed" />
+
+      <div
+        aria-hidden="true"
+        className="pointer-events-none fixed inset-0 z-0 overflow-hidden"
+      >
       {/* 1. Aurora */}
       <div
         className="absolute -left-[15%] -top-[12%] h-[65vh] w-[65vh] rounded-full blur-[130px]"
@@ -87,8 +94,9 @@ export function SiteBackground() {
         </motion.div>
       ) : null}
 
-      {/* 4. Viñeta inferior */}
-      <div className="absolute inset-x-0 bottom-0 h-[35vh] bg-gradient-to-t from-ink to-transparent" />
-    </div>
+        {/* 4. Viñeta inferior */}
+        <div className="absolute inset-x-0 bottom-0 h-[35vh] bg-gradient-to-t from-ink to-transparent" />
+      </div>
+    </>
   );
 }

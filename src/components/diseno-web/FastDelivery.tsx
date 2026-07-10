@@ -23,7 +23,7 @@ function Counter({ to }: { to: number }) {
 
 export function FastDelivery() {
   return (
-    <section className="grain relative overflow-hidden px-5 py-16 sm:px-8 lg:px-16 lg:py-24">
+    <section className="relative overflow-hidden px-5 py-16 sm:px-8 lg:px-16 lg:py-24">
       <div className="mx-auto max-w-5xl rounded-3xl border border-neon/30 brand-gradient p-8 text-center sm:p-12 lg:p-16">
         <motion.p
           initial={{ opacity: 0, y: 12 }}

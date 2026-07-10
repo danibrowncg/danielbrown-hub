@@ -42,7 +42,7 @@ export function HubLanding() {
   };
 
   return (
-    <main className="grain relative isolate z-10 flex min-h-[100dvh] flex-col items-center justify-center px-5 py-14 text-white">
+    <main className="relative isolate z-10 flex min-h-[100dvh] flex-col items-center justify-center px-5 py-14 text-white">
       <div className="relative z-10 flex w-full max-w-[26rem] flex-col items-center">
         {/* Avatar: anillo cónico orbitando + flotación */}
         <motion.div
