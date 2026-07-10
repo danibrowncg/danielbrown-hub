@@ -1,5 +1,6 @@
 import { Globe, Sparkles, Settings, BarChart3, type LucideIcon } from "lucide-react";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/primitives/Reveal";
+import { SpotlightOverlay } from "@/components/primitives/SpotlightOverlay";
 
 const cards: { Icon: LucideIcon; title: string; items: string[] }[] = [
   {
@@ -29,7 +30,7 @@ export function PackageIncludes() {
     <section className="grain relative overflow-hidden px-5 py-20 sm:px-8 lg:px-16 lg:py-28">
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-neon">03 · Qué incluye</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-neon">Qué incluye</p>
         </Reveal>
         <Reveal delay={0.1}>
           <h2 className="mt-3 max-w-3xl font-display text-4xl leading-[0.95] text-white sm:text-5xl lg:text-6xl">
@@ -47,9 +48,10 @@ export function PackageIncludes() {
             <StaggerItem
               key={c.title}
               direction="up"
-              className="group relative overflow-hidden rounded-2xl border border-white/10 p-6 transition-all duration-300 hover:-translate-y-2 hover:border-neon/60"
+              className="group relative overflow-hidden rounded-2xl border border-white/10 p-6 transition-all duration-300 hover:-translate-y-2 hover:border-neon/60 hover:shadow-[0_24px_60px_-24px_rgba(231,255,0,0.35)]"
             >
               <div className="absolute inset-0 brand-gradient opacity-20 transition-opacity duration-500 group-hover:opacity-40" />
+              <SpotlightOverlay />
               <div className="relative">
                 <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-neon/40 bg-neon/10 text-neon">
                   <c.Icon className="h-5 w-5" strokeWidth={1.75} />

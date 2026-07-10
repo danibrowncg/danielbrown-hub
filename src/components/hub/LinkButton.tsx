@@ -13,15 +13,23 @@ interface LinkButtonProps {
   variants?: Variants;
 }
 
-const colorClasses: Record<NonNullable<LinkButtonProps["color"]>, string> = {
-  neon: "bg-neon text-ink shadow-[0_10px_34px_-12px_rgba(231,255,0,0.6)] hover:shadow-[0_16px_50px_-8px_rgba(231,255,0,0.85)]",
+type Color = NonNullable<LinkButtonProps["color"]>;
+
+const colorClasses: Record<Color, string> = {
+  neon: "bg-neon text-ink shadow-[0_10px_34px_-12px_rgba(231,255,0,0.6)] hover:shadow-[0_18px_54px_-8px_rgba(231,255,0,0.9)]",
   white:
-    "bg-white text-ink shadow-[0_10px_34px_-12px_rgba(255,255,255,0.35)] hover:shadow-[0_16px_50px_-8px_rgba(255,255,255,0.6)]",
+    "bg-white text-ink shadow-[0_10px_34px_-12px_rgba(255,255,255,0.35)] hover:shadow-[0_18px_54px_-8px_rgba(255,255,255,0.6)]",
+};
+
+/** Color del barrido de brillo, legible sobre cada fondo. */
+const shineClasses: Record<Color, string> = {
+  neon: "via-white/45",
+  white: "via-ink/10",
 };
 
 /**
- * Pastilla minimalista (fondo sólido + texto tinta + flecha), al estilo de los
- * CTA de WhatsApp de las landings. Enlace interno o externo.
+ * Pastilla minimalista con barrido de brillo al hover, elevación y
+ * press-feedback. Enlace interno o externo.
  */
 export function LinkButton({ title, to, href, color = "neon", variants }: LinkButtonProps) {
   const reduce = useReducedMotion();
@@ -29,17 +37,22 @@ export function LinkButton({ title, to, href, color = "neon", variants }: LinkBu
 
   const content = (
     <>
-      <span className="font-display text-base uppercase tracking-wider sm:text-lg">
+      {/* Barrido de brillo: transición (interrumpible), no keyframes */}
+      <span
+        aria-hidden="true"
+        className={`pointer-events-none absolute inset-y-0 -left-full w-1/2 skew-x-[-20deg] bg-gradient-to-r from-transparent to-transparent transition-transform duration-700 ease-out group-hover:translate-x-[400%] ${shineClasses[color]}`}
+      />
+      <span className="relative font-display text-base uppercase tracking-wider sm:text-lg">
         {title}
       </span>
       {isExternal ? (
         <ArrowUpRight
-          className="h-5 w-5 shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+          className="relative h-5 w-5 shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
           strokeWidth={2.5}
         />
       ) : (
         <ArrowRight
-          className="h-5 w-5 shrink-0 transition-transform duration-300 group-hover:translate-x-1"
+          className="relative h-5 w-5 shrink-0 transition-transform duration-300 group-hover:translate-x-1"
           strokeWidth={2.5}
         />
       )}
@@ -47,7 +60,7 @@ export function LinkButton({ title, to, href, color = "neon", variants }: LinkBu
   );
 
   const className =
-    `group flex h-14 w-full items-center justify-center gap-2.5 rounded-full px-6 transition-shadow duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon focus-visible:ring-offset-2 focus-visible:ring-offset-ink ${colorClasses[color]}`;
+    `group relative flex h-14 w-full items-center justify-center gap-2.5 overflow-hidden rounded-full px-6 transition-shadow duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon focus-visible:ring-offset-2 focus-visible:ring-offset-ink ${colorClasses[color]}`;
 
   const hover = reduce ? undefined : { scale: 1.03, y: -2 };
   const tap = reduce ? undefined : { scale: 0.97 };

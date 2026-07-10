@@ -31,7 +31,7 @@ export function FastDelivery() {
           viewport={{ once: true }}
           className="text-xs font-semibold uppercase tracking-[0.3em] text-neon"
         >
-          04 · Tiempo de entrega
+          Tiempo de entrega
         </motion.p>
         <motion.h2
           initial={{ opacity: 0, scale: 0.9 }}

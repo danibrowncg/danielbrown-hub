@@ -41,7 +41,7 @@ export function Testimonials() {
     <section className="grain relative overflow-hidden py-20 lg:py-28">
       <div className="mx-auto mb-10 max-w-6xl px-5 sm:px-8 lg:px-16">
         <Reveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-neon">07 · Testimonios</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-neon">Testimonios</p>
         </Reveal>
         <Reveal delay={0.1}>
           <h2 className="mt-3 font-display text-4xl leading-[0.95] text-white sm:text-5xl lg:text-6xl">

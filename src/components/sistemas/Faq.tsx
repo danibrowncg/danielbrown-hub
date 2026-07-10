@@ -16,7 +16,7 @@ export function Faq() {
     <section className="grain relative overflow-hidden px-5 py-20 sm:px-8 lg:px-16 lg:py-28">
       <div className="mx-auto max-w-3xl">
         <Reveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-neon">09 · Dudas</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-neon">Dudas</p>
         </Reveal>
         <Reveal delay={0.1}>
           <h2 className="mt-3 font-display text-4xl leading-[0.95] text-white sm:text-5xl lg:text-6xl">

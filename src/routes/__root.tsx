@@ -12,7 +12,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { ScrollProgress } from "@/components/primitives/ScrollProgress";
-import { AuroraBackground } from "@/components/primitives/AuroraBackground";
+import { SiteBackground } from "@/components/primitives/SiteBackground";
 
 function NotFoundComponent() {
   return (
@@ -122,7 +122,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <ScrollProgress />
-      <AuroraBackground />
+      <SiteBackground />
       <Outlet />
     </QueryClientProvider>
   );

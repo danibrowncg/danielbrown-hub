@@ -151,6 +151,18 @@
   color: transparent;
 }
 
+/* Malla de puntos sutil, desvanecida hacia los bordes con una máscara radial */
+@utility dot-grid {
+  background-image: radial-gradient(
+    circle,
+    color-mix(in oklab, white 13%, transparent) 1px,
+    transparent 1px
+  );
+  background-size: 30px 30px;
+  mask-image: radial-gradient(ellipse 75% 60% at 50% 35%, black 0%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 75% 60% at 50% 35%, black 0%, transparent 78%);
+}
+
 @utility glow-neon {
   box-shadow: 0 0 0 0 color-mix(in oklab, var(--neon) 60%, transparent),
               0 10px 40px -10px color-mix(in oklab, var(--neon) 50%, transparent);
@@ -181,6 +193,11 @@
 @keyframes gradient-shift {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
+}
+
+/* Anillo cónico que orbita alrededor del avatar */
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
 }
 
 /* Fondo dinámico tipo aurora (blobs que derivan lentamente) */

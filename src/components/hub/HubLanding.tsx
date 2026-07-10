@@ -1,5 +1,4 @@
 import { motion, useReducedMotion, type Variants } from "motion/react";
-import { GradientBlob } from "@/components/primitives/GradientBlob";
 import { LinkButton } from "./LinkButton";
 import {
   InstagramIcon,
@@ -43,44 +42,71 @@ export function HubLanding() {
   };
 
   return (
-    <main className="grain relative isolate z-10 flex min-h-[100dvh] flex-col items-center justify-center overflow-hidden px-5 py-14 text-white">
-      <GradientBlob className="-left-28 top-8 h-72 w-72" />
-      <GradientBlob className="-right-24 bottom-8 h-72 w-72" delay={2} />
-
+    <main className="grain relative isolate z-10 flex min-h-[100dvh] flex-col items-center justify-center px-5 py-14 text-white">
       <div className="relative z-10 flex w-full max-w-[26rem] flex-col items-center">
-        {/* Avatar (flota sutilmente) */}
+        {/* Avatar: anillo cónico orbitando + flotación */}
         <motion.div
-          initial={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.85 }}
+          initial={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, ease: EASE }}
           className="relative"
         >
           <motion.span
             aria-hidden="true"
-            className="absolute inset-0 -z-10 rounded-full bg-neon/25 blur-2xl"
-            animate={reduce ? undefined : { opacity: [0.5, 0.85, 0.5], scale: [1, 1.08, 1] }}
+            className="absolute -inset-1 -z-10 rounded-full bg-neon/25 blur-2xl"
+            animate={reduce ? undefined : { opacity: [0.45, 0.8, 0.45] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           />
           <motion.div
-            className="h-24 w-24 overflow-hidden rounded-full ring-2 ring-neon/60 sm:h-28 sm:w-28"
-            style={{ isolation: "isolate" }}
+            className="relative grid h-[6.5rem] w-[6.5rem] place-items-center rounded-full sm:h-[7.5rem] sm:w-[7.5rem]"
             animate={reduce ? undefined : { y: [0, -7, 0] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
           >
-            <img
-              src={danielImg}
-              alt="Daniel Brown"
-              className="h-full w-full object-cover"
-              width={112}
-              height={112}
+            {/* Anillo cónico que gira */}
+            <span
+              aria-hidden="true"
+              className="absolute inset-0 rounded-full"
+              style={{
+                background:
+                  "conic-gradient(from 0deg, transparent 0deg, var(--neon) 70deg, transparent 150deg, transparent 210deg, var(--teal) 280deg, transparent 340deg)",
+                animation: reduce ? undefined : "spin-slow 6s linear infinite",
+              }}
             />
+            <span
+              aria-hidden="true"
+              className="absolute inset-[3px] rounded-full bg-ink"
+            />
+            <div
+              className="relative h-24 w-24 overflow-hidden rounded-full sm:h-28 sm:w-28"
+              style={{ isolation: "isolate" }}
+            >
+              <img
+                src={danielImg}
+                alt="Daniel Brown"
+                className="h-full w-full object-cover"
+                width={112}
+                height={112}
+              />
+            </div>
           </motion.div>
+        </motion.div>
+
+        {/* Disponibilidad */}
+        <motion.div
+          {...fadeUp(0.1)}
+          className="mt-5 inline-flex items-center gap-2 rounded-full border border-neon/30 bg-neon/[0.07] px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-neon"
+        >
+          <span className="relative flex h-1.5 w-1.5">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-neon opacity-75" />
+            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-neon" />
+          </span>
+          Disponible para nuevos proyectos
         </motion.div>
 
         {/* Nombre */}
         <motion.h1
-          {...fadeUp(0.12)}
-          className="mt-5 font-display text-3xl tracking-wide text-white sm:text-4xl"
+          {...fadeUp(0.16)}
+          className="mt-3 font-display text-4xl tracking-wide text-white sm:text-5xl"
         >
           Daniel Brown
         </motion.h1>
