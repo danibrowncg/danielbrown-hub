@@ -3,9 +3,9 @@ import Autoplay from "embla-carousel-autoplay";
 import { motion } from "motion/react";
 import { Star } from "lucide-react";
 import { Reveal } from "@/components/primitives/Reveal";
-import t1 from "@/assets/sistemas/testimonial-1.jpg";
-import t2 from "@/assets/sistemas/testimonial-2.jpg";
-import t3 from "@/assets/sistemas/testimonial-3.jpg";
+import t1 from "@/assets/sistemas/testimonial-1.webp";
+import t2 from "@/assets/sistemas/testimonial-2.webp";
+import t3 from "@/assets/sistemas/testimonial-3.webp";
 
 const testimonials = [
   {
@@ -61,7 +61,7 @@ export function Testimonials() {
               <div className="absolute inset-0 bg-ink/40" />
               <div className="relative">
                 <div className="flex items-center gap-4">
-                  <img src={t.img} alt={t.name} loading="lazy" className="h-14 w-14 rounded-full object-cover ring-2 ring-neon/60" />
+                  <img src={t.img} alt={t.name} loading="lazy" decoding="async" className="h-14 w-14 rounded-full object-cover ring-2 ring-neon/60" />
                   <div>
                     <p className="font-display text-lg uppercase text-white">{t.name}</p>
                     <p className="text-sm text-white/70">{t.company}</p>

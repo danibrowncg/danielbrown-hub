@@ -13,5 +13,3 @@ export const YT_URL = "https://youtube.com/@danielbrown_ia";
 export const COMMUNITY_WA_URL =
   "https://chat.whatsapp.com/L68XdpXWWhJ6KjFjCrlf2v?s=cl&p=i&ilr=4";
 
-// Prueba social (editable)
-export const FOLLOWERS = "5.5K";

@@ -5,7 +5,7 @@ import { Link } from "@tanstack/react-router";
 import { GradientBlob } from "@/components/primitives/GradientBlob";
 import { Magnetic } from "@/components/primitives/Magnetic";
 import { useWhatsAppLead } from "@/components/shared/WhatsAppLead";
-import danielImg from "@/assets/daniel.jpg";
+import danielImg from "@/assets/daniel.webp";
 
 const title = ["SOFTWARE", "INTELIGENTE", "CON", "IA"];
 
@@ -59,7 +59,7 @@ export function Hero() {
           className="relative z-10 h-12 w-12 overflow-hidden rounded-full ring-2 ring-neon/60"
           style={{ isolation: "isolate" }}
         >
-          <img src={danielImg} alt="Daniel Brown" className="h-full w-full object-cover" />
+          <img src={danielImg} alt="Daniel Brown" className="h-full w-full object-cover" width={48} height={48} decoding="async" />
         </motion.div>
       </div>
 

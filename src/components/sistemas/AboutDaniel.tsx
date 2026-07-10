@@ -2,7 +2,7 @@ import { motion, useReducedMotion } from "motion/react";
 import { Bot, Workflow, Rocket } from "lucide-react";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/primitives/Reveal";
 import { ScrollParallax } from "@/components/primitives/ScrollParallax";
-import danielImg from "@/assets/daniel.jpg";
+import danielImg from "@/assets/daniel.webp";
 
 const specs = [
   { Icon: Bot, title: "Automatización Inteligente", desc: "Procesos automáticos que liberan a tu equipo." },
@@ -25,7 +25,7 @@ export function AboutDaniel() {
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
               whileHover={reduce ? undefined : { scale: 1.03, rotate: -2 }}
             >
-              <img src={danielImg} alt="Daniel Brown" className="h-full w-full object-cover" loading="lazy" />
+              <img src={danielImg} alt="Daniel Brown" className="h-full w-full object-cover" loading="lazy" decoding="async" />
             </motion.div>
           </ScrollParallax>
         </Reveal>

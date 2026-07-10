@@ -3,12 +3,12 @@ import Autoplay from "embla-carousel-autoplay";
 import { useCallback, useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { Reveal } from "@/components/primitives/Reveal";
-import projectChatbot from "@/assets/sistemas/project-chatbot-ai.jpg";
-import projectAutomation from "@/assets/sistemas/project-automation.jpg";
-import projectAnalytics from "@/assets/sistemas/project-data-analytics.jpg";
-import projectErp from "@/assets/sistemas/project-erp.jpg";
-import projectDocs from "@/assets/sistemas/project-doc-processing.jpg";
-import projectRecommender from "@/assets/sistemas/project-recommender.jpg";
+import projectChatbot from "@/assets/sistemas/project-chatbot-ai.webp";
+import projectAutomation from "@/assets/sistemas/project-automation.webp";
+import projectAnalytics from "@/assets/sistemas/project-data-analytics.webp";
+import projectErp from "@/assets/sistemas/project-erp.webp";
+import projectDocs from "@/assets/sistemas/project-doc-processing.webp";
+import projectRecommender from "@/assets/sistemas/project-recommender.webp";
 
 const projects = [
   { img: projectChatbot, sector: "Chatbot IA", title: "Asistente Conversacional", desc: "Chatbot con IA que responde, califica leads y aprende de cada interacción.", result: "−70% tickets soporte" },
@@ -67,9 +67,9 @@ export function ProjectsCarousel() {
                 <img
                   src={p.img}
                   alt={p.title}
-                  loading={i < 2 ? "eager" : "lazy"}
-                  width={1280}
-                  height={896}
+                  loading={i < 2 ? "eager" : "lazy"} decoding="async"
+                  width={960}
+                  height={672}
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-transparent" />

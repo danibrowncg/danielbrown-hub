@@ -7,7 +7,7 @@ import {
   WhatsAppIcon,
 } from "./BrandIcons";
 import { IG_URL, TT_URL, YT_URL, COMMUNITY_WA_URL } from "@/lib/constants";
-import danielImg from "@/assets/daniel.jpg";
+import danielImg from "@/assets/daniel.webp";
 
 const socials = [
   { label: "Instagram", href: IG_URL, Icon: InstagramIcon },
@@ -53,7 +53,7 @@ export function HubLanding() {
         >
           <motion.span
             aria-hidden="true"
-            className="absolute -inset-1 -z-10 rounded-full bg-neon/25 blur-2xl"
+            className="absolute -inset-1 -z-10 rounded-full bg-white/20 blur-2xl"
             animate={reduce ? undefined : { opacity: [0.45, 0.8, 0.45] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           />
@@ -68,7 +68,7 @@ export function HubLanding() {
               className="absolute inset-0 rounded-full"
               style={{
                 background:
-                  "conic-gradient(from 0deg, transparent 0deg, var(--neon) 70deg, transparent 150deg, transparent 210deg, var(--teal) 280deg, transparent 340deg)",
+                  "conic-gradient(from 0deg, transparent 0deg, #fff 70deg, transparent 150deg, transparent 210deg, rgba(255,255,255,0.55) 280deg, transparent 340deg)",
                 animation: reduce ? undefined : "spin-slow 6s linear infinite",
               }}
             />
@@ -86,6 +86,8 @@ export function HubLanding() {
                 className="h-full w-full object-cover"
                 width={112}
                 height={112}
+                decoding="async"
+                fetchPriority="high"
               />
             </div>
           </motion.div>

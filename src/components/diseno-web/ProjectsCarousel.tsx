@@ -3,12 +3,12 @@ import Autoplay from "embla-carousel-autoplay";
 import { useCallback, useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { Reveal } from "@/components/primitives/Reveal";
-import projectRestaurant from "@/assets/diseno-web/project-restaurant.jpg";
-import projectFashion from "@/assets/diseno-web/project-fashion.jpg";
-import projectAgency from "@/assets/diseno-web/project-agency.jpg";
-import projectSaas from "@/assets/diseno-web/project-saas.jpg";
-import projectStartup from "@/assets/diseno-web/project-startup.jpg";
-import projectPortfolio from "@/assets/diseno-web/project-portfolio.jpg";
+import projectRestaurant from "@/assets/diseno-web/project-restaurant.webp";
+import projectFashion from "@/assets/diseno-web/project-fashion.webp";
+import projectAgency from "@/assets/diseno-web/project-agency.webp";
+import projectSaas from "@/assets/diseno-web/project-saas.webp";
+import projectStartup from "@/assets/diseno-web/project-startup.webp";
+import projectPortfolio from "@/assets/diseno-web/project-portfolio.webp";
 
 const projects = [
   { img: projectRestaurant, sector: "Gastronomía", title: "Maison Noir", desc: "Restaurante de alta cocina con sistema de reservas integrado.", result: "+52% reservas online" },
@@ -67,9 +67,9 @@ export function ProjectsCarousel() {
                 <img
                   src={p.img}
                   alt={p.title}
-                  loading={i < 2 ? "eager" : "lazy"}
-                  width={1280}
-                  height={896}
+                  loading={i < 2 ? "eager" : "lazy"} decoding="async"
+                  width={960}
+                  height={672}
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-transparent" />
