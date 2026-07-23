@@ -21,11 +21,11 @@ export function Features() {
     <section className="relative overflow-hidden px-5 py-20 sm:px-8 lg:px-16 lg:py-28">
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-violet">Por qué</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-deep">Por qué</p>
         </Reveal>
         <Reveal delay={0.1}>
           <h2 className="mt-3 max-w-3xl font-display text-4xl leading-[0.95] text-ink sm:text-5xl lg:text-6xl">
-            POR QUÉ ELEGIR ESTE <span className="text-violet">DISEÑO</span>.
+            POR QUÉ ELEGIR ESTE <span className="text-brand-grad">DISEÑO</span>.
           </h2>
         </Reveal>
 
@@ -37,7 +37,7 @@ export function Features() {
               className="group relative flex items-start gap-3 overflow-hidden rounded-xl border border-ink/10 bg-ink/[0.02] p-4 transition-all hover:border-ink/20 hover:bg-ink/[0.04]"
             >
               <SpotlightOverlay size={200} intensity={0.1} />
-              <span className="relative flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-ink text-neon transition-all group-hover:scale-110 group-hover:bg-neon group-hover:text-ink">
+              <span className="relative flex h-7 w-7 shrink-0 items-center justify-center rounded-full brand-grad text-white transition-all group-hover:scale-110">
                 <svg viewBox="0 0 24 24" fill="none" className="h-3.5 w-3.5">
                   <path d="m5 12 5 5L20 7" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>

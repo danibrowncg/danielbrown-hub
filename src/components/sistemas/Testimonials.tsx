@@ -41,11 +41,11 @@ export function Testimonials() {
     <section className="relative overflow-hidden py-20 lg:py-28">
       <div className="mx-auto mb-10 max-w-6xl px-5 sm:px-8 lg:px-16">
         <Reveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-violet">Testimonios</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-deep">Testimonios</p>
         </Reveal>
         <Reveal delay={0.1}>
           <h2 className="mt-3 font-display text-4xl leading-[0.95] text-ink sm:text-5xl lg:text-6xl">
-            LO QUE DICEN MIS <span className="text-violet">CLIENTES</span>.
+            LO QUE DICEN MIS <span className="text-brand-grad">CLIENTES</span>.
           </h2>
         </Reveal>
       </div>
@@ -60,17 +60,17 @@ export function Testimonials() {
             >
               <div className="relative">
                 <div className="flex items-center gap-4">
-                  <img src={t.img} alt={t.name} loading="lazy" decoding="async" className="h-14 w-14 rounded-full object-cover ring-2 ring-violet/40" />
+                  <img src={t.img} alt={t.name} loading="lazy" decoding="async" className="h-14 w-14 rounded-full object-cover ring-2 ring-brand-deep/40" />
                   <div>
                     <p className="font-display text-lg uppercase text-ink">{t.name}</p>
                     <p className="text-sm text-ink/60">{t.company}</p>
                   </div>
                 </div>
                 <div className="mt-4 flex items-center gap-3">
-                  <span className="rounded-full bg-violet/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-violet">
+                  <span className="rounded-full bg-brand-deep/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-brand-deep">
                     {t.sector}
                   </span>
-                  <div className="flex gap-0.5 text-violet">
+                  <div className="flex gap-0.5 text-brand-deep">
                     {Array.from({ length: 5 }).map((_, i) => (
                       <motion.span
                         key={i}
@@ -86,7 +86,7 @@ export function Testimonials() {
                 </div>
                 <p className="mt-5 text-base leading-relaxed text-ink/90">"{t.quote}"</p>
                 <p className="mt-5">
-                  <span className="inline-flex items-center rounded-full bg-ink px-3 py-1 text-sm font-semibold text-neon">
+                  <span className="inline-flex items-center rounded-full brand-grad px-3 py-1 text-sm font-semibold text-white">
                     {t.result}
                   </span>
                 </p>

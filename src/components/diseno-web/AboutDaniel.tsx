@@ -20,7 +20,7 @@ export function AboutDaniel() {
             {/* Halo blanco sutil (pulsa en opacidad) */}
             <motion.span
               aria-hidden="true"
-              className="absolute -inset-1 -z-10 rounded-full bg-violet/15 blur-2xl"
+              className="absolute -inset-1 -z-10 rounded-full bg-teal/15 blur-2xl"
               animate={reduce ? undefined : { opacity: [0.35, 0.6, 0.35] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             />
@@ -56,11 +56,11 @@ export function AboutDaniel() {
 
         <div>
           <Reveal>
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-violet">Hablemos</p>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-brand-deep">Hablemos</p>
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="font-display text-4xl leading-[0.95] text-ink sm:text-5xl lg:text-6xl">
-              HOLA, SOY <span className="text-violet">DANIEL BROWN</span>.
+              HOLA, SOY <span className="text-brand-grad">DANIEL BROWN</span>.
             </h2>
           </Reveal>
           <Reveal delay={0.2}>
@@ -77,7 +77,7 @@ export function AboutDaniel() {
                 direction="left"
                 className="group rounded-xl border border-ink/10 bg-ink/[0.02] p-4 transition-all hover:border-ink/25 hover:bg-ink/[0.04]"
               >
-                <div className="text-violet transition-transform group-hover:scale-110">
+                <div className="text-brand-deep transition-transform group-hover:scale-110">
                   <s.Icon className="h-7 w-7" strokeWidth={1.75} />
                 </div>
                 <p className="mt-2 text-sm font-semibold text-ink">{s.title}</p>

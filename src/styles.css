@@ -38,6 +38,7 @@
   --color-ink-2: var(--ink-2);
   --color-teal: var(--teal);
   --color-violet: var(--violet);
+  --color-brand-deep: var(--brand-deep);
 
   --font-display: "Anton", "Impact", sans-serif;
   --font-sans: "Poppins", system-ui, sans-serif;
@@ -50,8 +51,11 @@
   --neon: oklch(0.94 0.22 116);            /* #E7FF00 */
   --ink: oklch(0.13 0.06 290);             /* #0D0026 */
   --ink-2: oklch(0.18 0.07 290);
-  --teal: oklch(0.55 0.11 195);            /* #008080 */
-  --violet: oklch(0.34 0.22 295);          /* #4910bc */
+  --teal: #008080;                         /* color de marca (arriba-izq del degradado) */
+  --violet: #4910bc;                       /* color de marca (abajo-der del degradado) */
+  --brand-deep: #244c5e;                   /* sólido de respaldo para texto pequeño */
+  /* Degradado de marca: teal (arriba-izq) → violeta (abajo-der) */
+  --brand-grad: linear-gradient(135deg, #008080 0%, #4910bc 100%);
 
   /* Tema en CLARO. La página es blanca y el texto es tinta.
      Las superficies "card/popover" se dejan oscuras a propósito: el modal de
@@ -76,7 +80,7 @@
   --destructive-foreground: oklch(0.98 0 0);
   --border: oklch(0.13 0.06 290 / 12%);
   --input: oklch(0.13 0.06 290 / 18%);
-  --ring: var(--violet);
+  --ring: var(--brand-deep);
 }
 
 @layer base {
@@ -137,6 +141,21 @@
       320px 320px;
     background-blend-mode: soft-light;
   }
+}
+
+/* Degradado de marca como FONDO de un elemento (pastillas, chips, botones). */
+@utility brand-grad {
+  background-image: var(--brand-grad);
+}
+
+/* Degradado de marca aplicado al TEXTO (solo para texto grande/display; en
+   texto pequeño se usa el sólido --brand-deep para no perder legibilidad). */
+@utility text-brand-grad {
+  background-image: var(--brand-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 @utility brand-gradient {

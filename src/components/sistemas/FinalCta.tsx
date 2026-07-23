@@ -25,7 +25,7 @@ export function FinalCta() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-xs font-semibold uppercase tracking-[0.3em] text-violet"
+          className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-deep"
         >
           Listos para empezar
         </motion.p>
@@ -36,7 +36,7 @@ export function FinalCta() {
           transition={{ duration: 0.8 }}
           className="mt-4 font-display text-5xl uppercase leading-[0.95] text-ink sm:text-6xl lg:text-7xl"
         >
-          ¿LISTO PARA TRANSFORMAR TU NEGOCIO CON <span className="text-violet">IA</span>?
+          ¿LISTO PARA TRANSFORMAR TU NEGOCIO CON <span className="text-brand-grad">IA</span>?
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 12 }}
@@ -78,7 +78,7 @@ export function FinalCta() {
 
           <button
             onClick={copyPhone}
-            className="text-sm text-ink/70 underline-offset-4 transition-colors hover:text-violet hover:underline"
+            className="text-sm text-ink/70 underline-offset-4 transition-colors hover:text-brand-deep hover:underline"
           >
             {WA_PHONE} · toca para copiar
           </button>

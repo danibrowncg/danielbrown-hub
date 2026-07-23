@@ -53,7 +53,7 @@ export function HubLanding() {
         >
           <motion.span
             aria-hidden="true"
-            className="absolute -inset-1 -z-10 rounded-full bg-violet/20 blur-2xl"
+            className="absolute -inset-1 -z-10 rounded-full bg-teal/20 blur-2xl"
             animate={reduce ? undefined : { opacity: [0.4, 0.7, 0.4] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           />
@@ -96,7 +96,7 @@ export function HubLanding() {
         {/* Disponibilidad */}
         <motion.div
           {...fadeUp(0.1)}
-          className="mt-5 inline-flex items-center gap-2 rounded-full bg-ink px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-widest text-white shadow-[0_8px_24px_-12px_rgba(13,0,38,0.5)]"
+          className="mt-5 inline-flex items-center gap-2 rounded-full brand-grad px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-widest text-white shadow-[0_8px_24px_-12px_rgba(73,16,188,0.55)]"
         >
           <span className="relative flex h-1.5 w-1.5">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-neon opacity-75" />
@@ -108,7 +108,7 @@ export function HubLanding() {
         {/* Nombre */}
         <motion.h1
           {...fadeUp(0.16)}
-          className="mt-3 font-display text-4xl tracking-wide text-ink sm:text-5xl"
+          className="mt-3 font-display text-4xl tracking-wide text-brand-grad sm:text-5xl"
         >
           Daniel Brown
         </motion.h1>
@@ -132,7 +132,7 @@ export function HubLanding() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}
-              className="grid h-11 w-11 place-items-center rounded-full border border-ink/10 bg-ink/[0.03] text-ink/70 transition-all duration-200 hover:-translate-y-0.5 hover:border-ink hover:bg-ink hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              className="grid h-11 w-11 place-items-center rounded-full border border-ink/10 bg-ink/[0.03] text-ink/70 transition-all duration-200 hover:-translate-y-0.5 hover:border-transparent hover:brand-grad hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-deep focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               <Icon className="h-5 w-5" />
             </a>

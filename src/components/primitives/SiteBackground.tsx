@@ -51,29 +51,30 @@ export function SiteBackground() {
         aria-hidden="true"
         className="pointer-events-none fixed inset-0 z-0 overflow-hidden"
       >
-      {/* 1. Aurora — lavados de color suaves sobre el blanco (opacidad baja
-         para que aporten vida sin ensuciar el texto). */}
+      {/* 1. Degradado de marca sobre el blanco: TEAL arriba-izquierda →
+         VIOLETA abajo-derecha. Presente y visible, pero el centro queda claro
+         para que el texto siempre se lea. */}
       <div
-        className="absolute -left-[15%] -top-[12%] h-[65vh] w-[65vh] rounded-full blur-[130px]"
+        className="absolute -left-[18%] -top-[14%] h-[75vh] w-[75vh] rounded-full blur-[130px]"
         style={{
-          opacity: 0.13,
-          background: "radial-gradient(circle, var(--teal), transparent 70%)",
+          opacity: 0.28,
+          background: "radial-gradient(circle, var(--teal), transparent 68%)",
           animation: "aurora-a 26s ease-in-out infinite",
         }}
       />
       <div
-        className="absolute -right-[14%] top-[12%] h-[70vh] w-[70vh] rounded-full blur-[140px]"
+        className="absolute -right-[16%] -bottom-[16%] h-[80vh] w-[80vh] rounded-full blur-[140px]"
         style={{
-          opacity: 0.12,
-          background: "radial-gradient(circle, var(--violet), transparent 70%)",
+          opacity: 0.3,
+          background: "radial-gradient(circle, var(--violet), transparent 68%)",
           animation: "aurora-b 30s ease-in-out infinite",
         }}
       />
       <div
-        className="absolute -bottom-[20%] left-[20%] h-[55vh] w-[55vh] rounded-full blur-[130px]"
+        className="absolute right-[8%] top-[6%] h-[42vh] w-[42vh] rounded-full blur-[130px]"
         style={{
-          opacity: 0.1,
-          background: "radial-gradient(circle, var(--teal), transparent 72%)",
+          opacity: 0.12,
+          background: "radial-gradient(circle, var(--violet), transparent 72%)",
           animation: "aurora-c 34s ease-in-out infinite",
         }}
       />

@@ -40,11 +40,11 @@ export function ProjectsCarousel() {
     <section className="relative overflow-hidden py-20 lg:py-28">
       <div className="mx-auto mb-10 max-w-6xl px-5 sm:px-8 lg:px-16">
         <Reveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-violet">Portfolio</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-deep">Portfolio</p>
         </Reveal>
         <Reveal delay={0.1}>
           <h2 className="mt-3 font-display text-4xl leading-[0.95] text-ink sm:text-5xl lg:text-6xl">
-            PROYECTOS <span className="text-violet">REALES</span>.
+            PROYECTOS <span className="text-brand-grad">REALES</span>.
           </h2>
         </Reveal>
         <Reveal delay={0.2}>
@@ -94,7 +94,7 @@ export function ProjectsCarousel() {
             onClick={() => scrollTo(i)}
             aria-label={`Ir al proyecto ${i + 1}`}
             className={`h-1.5 rounded-full transition-all duration-300 ${
-              i === selected ? "w-8 bg-violet" : "w-2 bg-ink/20"
+              i === selected ? "w-8 brand-grad" : "w-2 bg-ink/20"
             }`}
           />
         ))}

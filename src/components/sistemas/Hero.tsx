@@ -49,14 +49,14 @@ export function Hero() {
               className="h-4 w-4 -translate-x-1 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100"
               strokeWidth={2.5}
             />
-            Daniel Brown<span className="text-violet">.</span>
+            Daniel Brown<span className="text-brand-deep">.</span>
           </Link>
         </motion.div>
         <motion.div
           initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
           animate={{ opacity: 1, scale: 1, rotate: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="relative z-10 h-12 w-12 overflow-hidden rounded-full ring-2 ring-violet/40"
+          className="relative z-10 h-12 w-12 overflow-hidden rounded-full ring-2 ring-brand-deep/40"
           style={{ isolation: "isolate" }}
         >
           <img src={danielImg} alt="Daniel Brown" className="h-full w-full object-cover" width={48} height={48} decoding="async" />
@@ -68,7 +68,7 @@ export function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
-        className="relative z-10 mt-10 flex items-center gap-2 self-start rounded-full bg-ink px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-widest text-white shadow-[0_8px_24px_-12px_rgba(13,0,38,0.5)] sm:text-xs"
+        className="relative z-10 mt-10 flex items-center gap-2 self-start rounded-full brand-grad px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-widest text-white shadow-[0_8px_24px_-12px_rgba(73,16,188,0.55)] sm:text-xs"
       >
         <span className="relative flex h-2 w-2">
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-neon opacity-75" />
@@ -83,7 +83,7 @@ export function Hero() {
           {title.map((word, i) => (
             <motion.span
               key={word}
-              className={`mr-3 inline-block ${word === "IA" ? "text-violet" : ""}`}
+              className={`mr-3 inline-block ${word === "IA" ? "text-brand-grad" : ""}`}
               initial={{ opacity: 0, y: 40, rotateX: reduce ? 0 : -40 }}
               animate={{ opacity: 1, y: 0, rotateX: 0 }}
               transition={{ duration: 0.7, delay: 0.1 + i * 0.12, ease: [0.22, 1, 0.36, 1] }}
@@ -95,7 +95,7 @@ export function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7 }}
-            className="text-violet"
+            className="text-brand-grad"
           >
             .
           </motion.span>

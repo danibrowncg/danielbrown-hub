@@ -29,7 +29,7 @@ export function FastDelivery() {
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-xs font-semibold uppercase tracking-[0.3em] text-violet"
+          className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-deep"
         >
           Tiempo de entrega
         </motion.p>
@@ -40,12 +40,12 @@ export function FastDelivery() {
           transition={{ duration: 0.7 }}
           className="mt-4 font-display text-4xl uppercase leading-none text-ink sm:text-5xl lg:text-6xl"
         >
-          Entrega <span className="text-violet">rápida</span>.
+          Entrega <span className="text-brand-grad">rápida</span>.
         </motion.h2>
 
         <div className="mt-8 flex items-baseline justify-center gap-2 font-display text-7xl leading-none text-ink sm:text-8xl lg:text-[10rem]">
           <Counter to={1} />
-          <span className="text-violet">–</span>
+          <span className="text-brand-deep">–</span>
           <Counter to={2} />
         </div>
         <p className="mt-2 font-display text-xl uppercase tracking-widest text-ink/80 sm:text-2xl">
@@ -57,7 +57,7 @@ export function FastDelivery() {
           whileInView={{ scaleX: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="mx-auto mt-8 h-px w-32 origin-left bg-violet"
+          className="mx-auto mt-8 h-px w-32 origin-left brand-grad"
         />
 
         <motion.p

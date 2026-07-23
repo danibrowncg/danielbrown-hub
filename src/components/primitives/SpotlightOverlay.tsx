@@ -17,7 +17,7 @@ interface SpotlightOverlayProps {
  */
 export function SpotlightOverlay({
   size = 260,
-  rgb = "73,16,188",
+  rgb = "0,128,128",
   intensity = 0.1,
 }: SpotlightOverlayProps) {
   const ref = useRef<HTMLDivElement>(null);
