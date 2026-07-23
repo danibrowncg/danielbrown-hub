@@ -20,7 +20,7 @@ export function AboutDaniel() {
             {/* Halo blanco sutil (pulsa en opacidad) */}
             <motion.span
               aria-hidden="true"
-              className="absolute -inset-1 -z-10 rounded-full bg-teal/15 blur-2xl"
+              className="absolute -inset-1 -z-10 rounded-full bg-ink/10 blur-2xl"
               animate={reduce ? undefined : { opacity: [0.35, 0.6, 0.35] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             />
@@ -36,7 +36,7 @@ export function AboutDaniel() {
                 className="absolute inset-0 rounded-full"
                 style={{
                   background:
-                    "conic-gradient(from 0deg, transparent 0deg, var(--violet) 70deg, transparent 150deg, transparent 210deg, var(--teal) 280deg, transparent 340deg)",
+                    "conic-gradient(from 0deg, transparent 0deg, var(--ink) 70deg, transparent 150deg, transparent 210deg, color-mix(in oklab, var(--ink) 55%, transparent) 280deg, transparent 340deg)",
                   animation: reduce ? undefined : "spin-slow 6s linear infinite",
                 }}
               />
@@ -56,7 +56,7 @@ export function AboutDaniel() {
 
         <div>
           <Reveal>
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-brand-deep">Hablemos</p>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-ink">Hablemos</p>
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="font-display text-4xl leading-[0.95] text-ink sm:text-5xl lg:text-6xl">
@@ -76,13 +76,13 @@ export function AboutDaniel() {
               <StaggerItem
                 key={s.title}
                 direction="left"
-                className="group rounded-xl border border-ink/10 bg-ink/[0.02] p-4 transition-all hover:border-ink/25 hover:bg-ink/[0.04]"
+                className="group rounded-xl border border-white/10 bg-ink p-4 transition-all hover:border-neon/50"
               >
-                <div className="text-brand-deep transition-transform group-hover:scale-110">
+                <div className="text-neon transition-transform group-hover:scale-110">
                   <s.Icon className="h-7 w-7" strokeWidth={1.75} />
                 </div>
-                <p className="mt-2 text-sm font-semibold text-ink">{s.title}</p>
-                <p className="mt-1 text-xs text-ink/65">{s.desc}</p>
+                <p className="mt-2 text-sm font-semibold text-white">{s.title}</p>
+                <p className="mt-1 text-xs text-white/65">{s.desc}</p>
               </StaggerItem>
             ))}
           </StaggerGroup>

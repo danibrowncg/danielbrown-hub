@@ -24,12 +24,12 @@ function Counter({ to }: { to: number }) {
 export function FastDelivery() {
   return (
     <section className="relative overflow-hidden px-5 py-16 sm:px-8 lg:px-16 lg:py-24">
-      <div className="mx-auto max-w-5xl rounded-3xl border border-ink/10 bg-ink/[0.015] p-8 text-center shadow-[0_28px_70px_-40px_rgba(13,0,38,0.3)] sm:p-12 lg:p-16">
+      <div className="mx-auto max-w-5xl rounded-3xl border border-white/10 bg-ink p-8 text-center shadow-[0_28px_70px_-40px_rgba(13,0,38,0.5)] sm:p-12 lg:p-16">
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-deep"
+          className="text-xs font-semibold uppercase tracking-[0.3em] text-neon"
         >
           Tiempo de entrega
         </motion.p>
@@ -38,17 +38,17 @@ export function FastDelivery() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="mt-4 font-display text-4xl uppercase leading-none text-ink sm:text-5xl lg:text-6xl"
+          className="mt-4 font-display text-4xl uppercase leading-none text-white sm:text-5xl lg:text-6xl"
         >
           Entrega <span className="text-brand-grad">rápida</span>.
         </motion.h2>
 
-        <div className="mt-8 flex items-baseline justify-center gap-2 font-display text-7xl leading-none text-ink sm:text-8xl lg:text-[10rem]">
+        <div className="mt-8 flex items-baseline justify-center gap-2 font-display text-7xl leading-none text-white sm:text-8xl lg:text-[10rem]">
           <Counter to={1} />
-          <span className="text-brand-deep">–</span>
+          <span className="text-neon">–</span>
           <Counter to={2} />
         </div>
-        <p className="mt-2 font-display text-xl uppercase tracking-widest text-ink/80 sm:text-2xl">
+        <p className="mt-2 font-display text-xl uppercase tracking-widest text-white/80 sm:text-2xl">
           Semanas de desarrollo
         </p>
 
@@ -65,7 +65,7 @@ export function FastDelivery() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
-          className="mx-auto mt-6 max-w-md text-sm text-ink/70 sm:text-base"
+          className="mx-auto mt-6 max-w-md text-sm text-white/70 sm:text-base"
         >
           Desarrollo ágil sin comprometer calidad. El tiempo varía según complejidad,
           personalización y funcionalidades avanzadas del sistema.

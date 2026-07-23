@@ -38,7 +38,6 @@
   --color-ink-2: var(--ink-2);
   --color-teal: var(--teal);
   --color-violet: var(--violet);
-  --color-brand-deep: var(--brand-deep);
 
   --font-display: "Anton", "Impact", sans-serif;
   --font-sans: "Poppins", system-ui, sans-serif;
@@ -53,7 +52,6 @@
   --ink-2: oklch(0.18 0.07 290);
   --teal: #008080;                         /* color de marca (arriba-izq del degradado) */
   --violet: #4910bc;                       /* color de marca (abajo-der del degradado) */
-  --brand-deep: #244c5e;                   /* sólido de respaldo para texto pequeño */
   /* Degradado de marca: teal (arriba-izq) → violeta (abajo-der) */
   --brand-grad: linear-gradient(135deg, #008080 0%, #4910bc 100%);
 
@@ -80,7 +78,7 @@
   --destructive-foreground: oklch(0.98 0 0);
   --border: oklch(0.13 0.06 290 / 12%);
   --input: oklch(0.13 0.06 290 / 18%);
-  --ring: var(--brand-deep);
+  --ring: var(--ink);
 }
 
 @layer base {
@@ -148,8 +146,7 @@
   background-image: var(--brand-grad);
 }
 
-/* Degradado de marca aplicado al TEXTO (solo para texto grande/display; en
-   texto pequeño se usa el sólido --brand-deep para no perder legibilidad). */
+/* Degradado de marca aplicado al TEXTO (solo para texto grande/display). */
 @utility text-brand-grad {
   background-image: var(--brand-grad);
   -webkit-background-clip: text;

@@ -18,7 +18,7 @@ export function SiteFooter() {
           </div>
 
           <nav className="flex flex-col gap-2 text-sm text-ink/70">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-deep">Navega</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-ink">Navega</p>
             {[
               ["Inicio", "#top"],
               ["Paquete", "#paquete"],
@@ -26,14 +26,14 @@ export function SiteFooter() {
               ["FAQ", "#faq"],
               ["Contacto", "#contacto"],
             ].map(([label, href]) => (
-              <a key={label} href={href} className="w-fit transition-colors hover:text-brand-deep">
+              <a key={label} href={href} className="w-fit transition-colors hover:text-ink">
                 {label}
               </a>
             ))}
           </nav>
 
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-deep">Conecta</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-ink">Conecta</p>
             <p className="mt-3 text-sm text-ink/70">{IG_HANDLE}</p>
             <p className="text-sm text-ink/70">{WA_PHONE}</p>
             <div className="mt-4 flex gap-3">
@@ -49,7 +49,7 @@ export function SiteFooter() {
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1, type: "spring", stiffness: 220 }}
                   whileHover={{ scale: 1.15, rotate: 8 }}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-ink/20 text-ink/80 transition-colors hover:border-transparent hover:brand-grad hover:text-white"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-ink/20 text-ink/80 transition-colors hover:border-ink hover:bg-ink hover:text-white"
                 >
                   {s.icon}
                 </motion.a>

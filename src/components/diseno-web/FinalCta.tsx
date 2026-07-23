@@ -25,7 +25,7 @@ export function FinalCta() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-deep"
+          className="text-xs font-semibold uppercase tracking-[0.3em] text-ink"
         >
           Listos para empezar
         </motion.p>
@@ -77,7 +77,7 @@ export function FinalCta() {
 
           <button
             onClick={copyPhone}
-            className="text-sm text-ink/70 underline-offset-4 transition-colors hover:text-brand-deep hover:underline"
+            className="text-sm text-ink/70 underline-offset-4 transition-colors hover:text-ink hover:underline"
           >
             {WA_PHONE} · toca para copiar
           </button>
