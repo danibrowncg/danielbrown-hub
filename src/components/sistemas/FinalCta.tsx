@@ -25,7 +25,7 @@ export function FinalCta() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-xs font-semibold uppercase tracking-[0.3em] text-neon"
+          className="text-xs font-semibold uppercase tracking-[0.3em] text-violet"
         >
           Listos para empezar
         </motion.p>
@@ -34,16 +34,16 @@ export function FinalCta() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mt-4 font-display text-5xl uppercase leading-[0.95] text-white sm:text-6xl lg:text-7xl"
+          className="mt-4 font-display text-5xl uppercase leading-[0.95] text-ink sm:text-6xl lg:text-7xl"
         >
-          ¿LISTO PARA TRANSFORMAR TU NEGOCIO CON <span className="text-neon">IA</span>?
+          ¿LISTO PARA TRANSFORMAR TU NEGOCIO CON <span className="text-violet">IA</span>?
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="mx-auto mt-5 max-w-xl text-base text-white/75 sm:text-lg"
+          className="mx-auto mt-5 max-w-xl text-base text-ink/75 sm:text-lg"
         >
           Escríbeme por WhatsApp y cuéntame tu idea. Sin compromiso, analizamos
           tu necesidad y creamos el software perfecto para tu empresa.
@@ -78,7 +78,7 @@ export function FinalCta() {
 
           <button
             onClick={copyPhone}
-            className="text-sm text-white/70 underline-offset-4 transition-colors hover:text-neon hover:underline"
+            className="text-sm text-ink/70 underline-offset-4 transition-colors hover:text-violet hover:underline"
           >
             {WA_PHONE} · toca para copiar
           </button>

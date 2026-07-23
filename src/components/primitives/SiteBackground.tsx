@@ -51,11 +51,12 @@ export function SiteBackground() {
         aria-hidden="true"
         className="pointer-events-none fixed inset-0 z-0 overflow-hidden"
       >
-      {/* 1. Aurora */}
+      {/* 1. Aurora — lavados de color suaves sobre el blanco (opacidad baja
+         para que aporten vida sin ensuciar el texto). */}
       <div
         className="absolute -left-[15%] -top-[12%] h-[65vh] w-[65vh] rounded-full blur-[130px]"
         style={{
-          opacity: 0.34,
+          opacity: 0.13,
           background: "radial-gradient(circle, var(--teal), transparent 70%)",
           animation: "aurora-a 26s ease-in-out infinite",
         }}
@@ -63,7 +64,7 @@ export function SiteBackground() {
       <div
         className="absolute -right-[14%] top-[12%] h-[70vh] w-[70vh] rounded-full blur-[140px]"
         style={{
-          opacity: 0.32,
+          opacity: 0.12,
           background: "radial-gradient(circle, var(--violet), transparent 70%)",
           animation: "aurora-b 30s ease-in-out infinite",
         }}
@@ -71,8 +72,8 @@ export function SiteBackground() {
       <div
         className="absolute -bottom-[20%] left-[20%] h-[55vh] w-[55vh] rounded-full blur-[130px]"
         style={{
-          opacity: 0.18,
-          background: "radial-gradient(circle, var(--neon), transparent 72%)",
+          opacity: 0.1,
+          background: "radial-gradient(circle, var(--teal), transparent 72%)",
           animation: "aurora-c 34s ease-in-out infinite",
         }}
       />
@@ -86,16 +87,13 @@ export function SiteBackground() {
           <div
             className="h-[34rem] w-[34rem] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[90px]"
             style={{
-              opacity: 0.1,
+              opacity: 0.06,
               background:
-                "radial-gradient(circle, var(--neon), transparent 65%)",
+                "radial-gradient(circle, var(--violet), transparent 65%)",
             }}
           />
         </motion.div>
       ) : null}
-
-        {/* 4. Viñeta inferior */}
-        <div className="absolute inset-x-0 bottom-0 h-[35vh] bg-gradient-to-t from-ink to-transparent" />
       </div>
     </>
   );

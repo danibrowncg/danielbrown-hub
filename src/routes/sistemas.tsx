@@ -53,7 +53,7 @@ export const Route = createFileRoute("/sistemas")({
 function Sistemas() {
   return (
     <WhatsAppLeadProvider variant="sistema">
-      <main id="top" className="relative z-10 text-white">
+      <main id="top" className="relative z-10 text-ink">
         <Hero />
       <AboutDaniel />
       <section id="paquete"><PackageIncludes /></section>
@@ -65,7 +65,7 @@ function Sistemas() {
       <section id="faq"><Faq /></section>
       <section id="contacto"><FinalCta /></section>
       <SiteFooter />
-        <Toaster theme="dark" position="bottom-center" />
+        <Toaster theme="light" position="bottom-center" />
       </main>
     </WhatsAppLeadProvider>
   );

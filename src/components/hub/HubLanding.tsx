@@ -42,7 +42,7 @@ export function HubLanding() {
   };
 
   return (
-    <main className="relative isolate z-10 flex min-h-[100dvh] flex-col items-center justify-center px-5 py-14 text-white">
+    <main className="relative isolate z-10 flex min-h-[100dvh] flex-col items-center justify-center px-5 py-14 text-ink">
       <div className="relative z-10 flex w-full max-w-[26rem] flex-col items-center">
         {/* Avatar: anillo cónico orbitando + flotación */}
         <motion.div
@@ -53,8 +53,8 @@ export function HubLanding() {
         >
           <motion.span
             aria-hidden="true"
-            className="absolute -inset-1 -z-10 rounded-full bg-white/20 blur-2xl"
-            animate={reduce ? undefined : { opacity: [0.45, 0.8, 0.45] }}
+            className="absolute -inset-1 -z-10 rounded-full bg-violet/20 blur-2xl"
+            animate={reduce ? undefined : { opacity: [0.4, 0.7, 0.4] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           />
           <motion.div
@@ -68,7 +68,7 @@ export function HubLanding() {
               className="absolute inset-0 rounded-full"
               style={{
                 background:
-                  "conic-gradient(from 0deg, transparent 0deg, #fff 70deg, transparent 150deg, transparent 210deg, rgba(255,255,255,0.55) 280deg, transparent 340deg)",
+                  "conic-gradient(from 0deg, transparent 0deg, var(--violet) 70deg, transparent 150deg, transparent 210deg, var(--teal) 280deg, transparent 340deg)",
                 animation: reduce ? undefined : "spin-slow 6s linear infinite",
               }}
             />
@@ -96,7 +96,7 @@ export function HubLanding() {
         {/* Disponibilidad */}
         <motion.div
           {...fadeUp(0.1)}
-          className="mt-5 inline-flex items-center gap-2 rounded-full border border-neon/30 bg-neon/[0.07] px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-neon"
+          className="mt-5 inline-flex items-center gap-2 rounded-full bg-ink px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-widest text-white shadow-[0_8px_24px_-12px_rgba(13,0,38,0.5)]"
         >
           <span className="relative flex h-1.5 w-1.5">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-neon opacity-75" />
@@ -108,7 +108,7 @@ export function HubLanding() {
         {/* Nombre */}
         <motion.h1
           {...fadeUp(0.16)}
-          className="mt-3 font-display text-4xl tracking-wide text-white sm:text-5xl"
+          className="mt-3 font-display text-4xl tracking-wide text-ink sm:text-5xl"
         >
           Daniel Brown
         </motion.h1>
@@ -116,7 +116,7 @@ export function HubLanding() {
         {/* Tagline */}
         <motion.p
           {...fadeUp(0.22)}
-          className="mt-3 max-w-[22rem] text-balance text-center text-sm leading-relaxed text-white/70 sm:text-base"
+          className="mt-3 max-w-[22rem] text-balance text-center text-sm leading-relaxed text-ink/70 sm:text-base"
         >
           🚀 Diseño Web y Sistemas con IA 🔥
           <br />
@@ -132,7 +132,7 @@ export function HubLanding() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}
-              className="grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/5 text-white/80 transition-all duration-200 hover:-translate-y-0.5 hover:border-neon/40 hover:text-neon focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
+              className="grid h-11 w-11 place-items-center rounded-full border border-ink/10 bg-ink/[0.03] text-ink/70 transition-all duration-200 hover:-translate-y-0.5 hover:border-ink hover:bg-ink hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               <Icon className="h-5 w-5" />
             </a>
@@ -160,7 +160,7 @@ export function HubLanding() {
         {/* Footer */}
         <motion.footer
           {...fadeUp(0.8)}
-          className="mt-10 text-center text-xs text-white/40"
+          className="mt-10 text-center text-xs text-ink/45"
         >
           © {new Date().getFullYear()} Daniel Brown · @danielbrown.ia
         </motion.footer>

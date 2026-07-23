@@ -40,15 +40,15 @@ export function ProjectsCarousel() {
     <section className="relative overflow-hidden py-20 lg:py-28">
       <div className="mx-auto mb-10 max-w-6xl px-5 sm:px-8 lg:px-16">
         <Reveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-neon">Portfolio</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-violet">Portfolio</p>
         </Reveal>
         <Reveal delay={0.1}>
-          <h2 className="mt-3 font-display text-4xl leading-[0.95] text-white sm:text-5xl lg:text-6xl">
-            PROYECTOS <span className="text-neon">REALES</span>.
+          <h2 className="mt-3 font-display text-4xl leading-[0.95] text-ink sm:text-5xl lg:text-6xl">
+            PROYECTOS <span className="text-violet">REALES</span>.
           </h2>
         </Reveal>
         <Reveal delay={0.2}>
-          <p className="mt-4 max-w-xl text-base text-white/65 sm:text-lg">
+          <p className="mt-4 max-w-xl text-base text-ink/65 sm:text-lg">
             Webs que ya están vendiendo. Cada una, con su propia identidad.
           </p>
         </Reveal>
@@ -59,7 +59,7 @@ export function ProjectsCarousel() {
           {projects.map((p, i) => (
             <motion.article
               key={p.title}
-              className="group relative basis-[88%] shrink-0 overflow-hidden rounded-2xl border border-white/10 transition-shadow duration-300 hover:border-neon/40 hover:shadow-[0_28px_80px_-28px_rgba(231,255,0,0.4)] sm:basis-[62%] lg:basis-[42%]"
+              className="group relative basis-[88%] shrink-0 overflow-hidden rounded-2xl border border-ink/10 shadow-[0_4px_24px_-16px_rgba(13,0,38,0.3)] transition-shadow duration-300 hover:shadow-[0_30px_80px_-40px_rgba(13,0,38,0.45)] sm:basis-[62%] lg:basis-[42%]"
               whileHover={{ y: -8 }}
               transition={{ type: "spring", stiffness: 220, damping: 20 }}
             >
@@ -94,7 +94,7 @@ export function ProjectsCarousel() {
             onClick={() => scrollTo(i)}
             aria-label={`Ir al proyecto ${i + 1}`}
             className={`h-1.5 rounded-full transition-all duration-300 ${
-              i === selected ? "w-8 bg-neon" : "w-2 bg-white/25"
+              i === selected ? "w-8 bg-violet" : "w-2 bg-ink/20"
             }`}
           />
         ))}

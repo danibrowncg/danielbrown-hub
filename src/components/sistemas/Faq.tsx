@@ -16,11 +16,11 @@ export function Faq() {
     <section className="relative overflow-hidden px-5 py-20 sm:px-8 lg:px-16 lg:py-28">
       <div className="mx-auto max-w-3xl">
         <Reveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-neon">Dudas</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-violet">Dudas</p>
         </Reveal>
         <Reveal delay={0.1}>
-          <h2 className="mt-3 font-display text-4xl leading-[0.95] text-white sm:text-5xl lg:text-6xl">
-            PREGUNTAS <span className="text-neon">FRECUENTES</span>.
+          <h2 className="mt-3 font-display text-4xl leading-[0.95] text-ink sm:text-5xl lg:text-6xl">
+            PREGUNTAS <span className="text-violet">FRECUENTES</span>.
           </h2>
         </Reveal>
 
@@ -30,12 +30,12 @@ export function Faq() {
               <StaggerItem key={f.q} direction="up">
                 <AccordionItem
                   value={`item-${i}`}
-                  className="overflow-hidden rounded-xl border border-white/10 bg-white/[0.03] px-5 transition-colors hover:border-neon/40"
+                  className="overflow-hidden rounded-xl border border-ink/10 bg-ink/[0.02] px-5 transition-colors hover:border-ink/25"
                 >
-                  <AccordionTrigger className="py-5 text-left text-base font-semibold text-white hover:no-underline sm:text-lg">
+                  <AccordionTrigger className="py-5 text-left text-base font-semibold text-ink hover:no-underline sm:text-lg">
                     {f.q}
                   </AccordionTrigger>
-                  <AccordionContent className="pb-5 text-sm text-white/70 sm:text-base">
+                  <AccordionContent className="pb-5 text-sm text-ink/70 sm:text-base">
                     {f.a}
                   </AccordionContent>
                 </AccordionItem>

@@ -41,11 +41,11 @@ export function Testimonials() {
     <section className="relative overflow-hidden py-20 lg:py-28">
       <div className="mx-auto mb-10 max-w-6xl px-5 sm:px-8 lg:px-16">
         <Reveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-neon">Testimonios</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-violet">Testimonios</p>
         </Reveal>
         <Reveal delay={0.1}>
-          <h2 className="mt-3 font-display text-4xl leading-[0.95] text-white sm:text-5xl lg:text-6xl">
-            LO QUE DICEN MIS <span className="text-neon">CLIENTES</span>.
+          <h2 className="mt-3 font-display text-4xl leading-[0.95] text-ink sm:text-5xl lg:text-6xl">
+            LO QUE DICEN MIS <span className="text-violet">CLIENTES</span>.
           </h2>
         </Reveal>
       </div>
@@ -55,23 +55,22 @@ export function Testimonials() {
           {testimonials.map((t) => (
             <motion.article
               key={t.name}
-              className="relative shrink-0 basis-[88%] overflow-hidden rounded-2xl border border-white/10 brand-gradient p-6 transition-shadow duration-300 hover:border-neon/30 hover:shadow-[0_28px_80px_-28px_rgba(231,255,0,0.35)] sm:basis-[60%] sm:p-8 lg:basis-[40%]"
+              className="relative shrink-0 basis-[88%] overflow-hidden rounded-2xl border border-ink/10 bg-ink/[0.02] p-6 shadow-[0_4px_24px_-16px_rgba(13,0,38,0.3)] transition-all duration-300 hover:border-ink/20 hover:shadow-[0_30px_80px_-40px_rgba(13,0,38,0.35)] sm:basis-[60%] sm:p-8 lg:basis-[40%]"
               whileHover={{ y: -6 }}
             >
-              <div className="absolute inset-0 bg-ink/40" />
               <div className="relative">
                 <div className="flex items-center gap-4">
-                  <img src={t.img} alt={t.name} loading="lazy" decoding="async" className="h-14 w-14 rounded-full object-cover ring-2 ring-neon/60" />
+                  <img src={t.img} alt={t.name} loading="lazy" decoding="async" className="h-14 w-14 rounded-full object-cover ring-2 ring-violet/40" />
                   <div>
-                    <p className="font-display text-lg uppercase text-white">{t.name}</p>
-                    <p className="text-sm text-white/70">{t.company}</p>
+                    <p className="font-display text-lg uppercase text-ink">{t.name}</p>
+                    <p className="text-sm text-ink/60">{t.company}</p>
                   </div>
                 </div>
                 <div className="mt-4 flex items-center gap-3">
-                  <span className="rounded-full bg-neon/20 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-neon">
+                  <span className="rounded-full bg-violet/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-violet">
                     {t.sector}
                   </span>
-                  <div className="flex gap-0.5 text-neon">
+                  <div className="flex gap-0.5 text-violet">
                     {Array.from({ length: 5 }).map((_, i) => (
                       <motion.span
                         key={i}
@@ -85,8 +84,12 @@ export function Testimonials() {
                     ))}
                   </div>
                 </div>
-                <p className="mt-5 text-base leading-relaxed text-white">"{t.quote}"</p>
-                <p className="mt-5 text-sm font-semibold text-neon">{t.result}</p>
+                <p className="mt-5 text-base leading-relaxed text-ink/90">"{t.quote}"</p>
+                <p className="mt-5">
+                  <span className="inline-flex items-center rounded-full bg-ink px-3 py-1 text-sm font-semibold text-neon">
+                    {t.result}
+                  </span>
+                </p>
               </div>
             </motion.article>
           ))}

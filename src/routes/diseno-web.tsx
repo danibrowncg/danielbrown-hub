@@ -59,7 +59,7 @@ export const Route = createFileRoute("/diseno-web")({
 function DisenoWeb() {
   return (
     <WhatsAppLeadProvider variant="web">
-      <main id="top" className="relative z-10 text-white">
+      <main id="top" className="relative z-10 text-ink">
         <Hero />
       <AboutDaniel />
       <section id="paquete"><PackageIncludes /></section>
@@ -71,7 +71,7 @@ function DisenoWeb() {
       <section id="faq"><Faq /></section>
       <section id="contacto"><FinalCta /></section>
       <SiteFooter />
-        <Toaster theme="dark" position="bottom-center" />
+        <Toaster theme="light" position="bottom-center" />
       </main>
     </WhatsAppLeadProvider>
   );

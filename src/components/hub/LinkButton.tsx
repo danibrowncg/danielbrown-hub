@@ -16,15 +16,17 @@ interface LinkButtonProps {
 type Color = NonNullable<LinkButtonProps["color"]>;
 
 const colorClasses: Record<Color, string> = {
-  neon: "bg-neon text-ink shadow-[0_10px_34px_-12px_rgba(231,255,0,0.6)] hover:shadow-[0_18px_54px_-8px_rgba(231,255,0,0.9)]",
+  neon: "bg-neon text-ink shadow-[0_10px_34px_-12px_rgba(231,255,0,0.6)] hover:shadow-[0_18px_54px_-8px_rgba(231,255,0,0.85)]",
+  // Sobre la página blanca, el botón secundario (Comunidad) es una pastilla
+  // oscura: contrasta con el blanco y deja respirar a los dos botones neón.
   white:
-    "bg-white text-ink shadow-[0_10px_34px_-12px_rgba(255,255,255,0.35)] hover:shadow-[0_18px_54px_-8px_rgba(255,255,255,0.6)]",
+    "bg-ink text-white shadow-[0_10px_34px_-14px_rgba(13,0,38,0.5)] hover:shadow-[0_18px_54px_-10px_rgba(13,0,38,0.7)]",
 };
 
 /** Color del barrido de brillo, legible sobre cada fondo. */
 const shineClasses: Record<Color, string> = {
   neon: "via-white/45",
-  white: "via-ink/10",
+  white: "via-white/25",
 };
 
 /**
@@ -60,7 +62,7 @@ export function LinkButton({ title, to, href, color = "neon", variants }: LinkBu
   );
 
   const className =
-    `group relative flex h-14 w-full items-center justify-center gap-2.5 overflow-hidden rounded-full px-6 transition-shadow duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon focus-visible:ring-offset-2 focus-visible:ring-offset-ink ${colorClasses[color]}`;
+    `group relative flex h-14 w-full items-center justify-center gap-2.5 overflow-hidden rounded-full px-6 transition-shadow duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet focus-visible:ring-offset-2 focus-visible:ring-offset-background ${colorClasses[color]}`;
 
   const hover = reduce ? undefined : { scale: 1.03, y: -2 };
   const tap = reduce ? undefined : { scale: 0.97 };

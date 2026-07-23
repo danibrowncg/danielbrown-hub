@@ -9,16 +9,16 @@ const socials = [
 
 export function SiteFooter() {
   return (
-    <footer className="relative overflow-hidden border-t border-white/10 px-5 py-12 sm:px-8 lg:px-16 lg:py-16">
+    <footer className="relative overflow-hidden border-t border-ink/10 px-5 py-12 sm:px-8 lg:px-16 lg:py-16">
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-10 lg:grid-cols-3">
           <div>
-            <p className="font-display text-3xl uppercase text-neon">Daniel Brown</p>
-            <p className="mt-2 text-sm text-white/60">Software inteligente con IA integrada.</p>
+            <p className="font-display text-3xl uppercase text-ink">Daniel Brown</p>
+            <p className="mt-2 text-sm text-ink/60">Software inteligente con IA integrada.</p>
           </div>
 
-          <nav className="flex flex-col gap-2 text-sm text-white/70">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-neon">Navega</p>
+          <nav className="flex flex-col gap-2 text-sm text-ink/70">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-violet">Navega</p>
             {[
               ["Inicio", "#top"],
               ["Paquete", "#paquete"],
@@ -26,16 +26,16 @@ export function SiteFooter() {
               ["FAQ", "#faq"],
               ["Contacto", "#contacto"],
             ].map(([label, href]) => (
-              <a key={label} href={href} className="w-fit transition-colors hover:text-neon">
+              <a key={label} href={href} className="w-fit transition-colors hover:text-violet">
                 {label}
               </a>
             ))}
           </nav>
 
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-neon">Conecta</p>
-            <p className="mt-3 text-sm text-white/70">{IG_HANDLE}</p>
-            <p className="text-sm text-white/70">{WA_PHONE}</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-violet">Conecta</p>
+            <p className="mt-3 text-sm text-ink/70">{IG_HANDLE}</p>
+            <p className="text-sm text-ink/70">{WA_PHONE}</p>
             <div className="mt-4 flex gap-3">
               {socials.map((s, i) => (
                 <motion.a
@@ -49,7 +49,7 @@ export function SiteFooter() {
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1, type: "spring", stiffness: 220 }}
                   whileHover={{ scale: 1.15, rotate: 8 }}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-neon/40 text-neon transition-colors hover:bg-neon hover:text-ink"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-ink/20 text-ink/80 transition-colors hover:border-ink hover:bg-ink hover:text-white"
                 >
                   {s.icon}
                 </motion.a>
@@ -58,7 +58,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-white/10 pt-6 text-xs text-white/40 sm:flex-row sm:items-center">
+        <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-ink/10 pt-6 text-xs text-ink/45 sm:flex-row sm:items-center">
           <p>© {new Date().getFullYear()} Daniel Brown · Todos los derechos reservados.</p>
           <p>Hecho con obsesión por el detalle.</p>
         </div>

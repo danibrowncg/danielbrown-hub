@@ -53,25 +53,30 @@
   --teal: oklch(0.55 0.11 195);            /* #008080 */
   --violet: oklch(0.34 0.22 295);          /* #4910bc */
 
-  --background: var(--ink);
-  --foreground: oklch(0.98 0 0);
-  --card: oklch(0.17 0.06 290);
+  /* Tema en CLARO. La página es blanca y el texto es tinta.
+     Las superficies "card/popover" se dejan oscuras a propósito: el modal de
+     WhatsApp es una isla oscura flotando sobre el blanco (conserva sus micro-
+     interacciones neón/verde). El acento de TEXTO sobre blanco es el violeta,
+     no el neón (amarillo sobre blanco no cumple contraste). */
+  --background: oklch(1 0 0);               /* blanco total */
+  --foreground: var(--ink);                /* texto tinta */
+  --card: oklch(0.17 0.06 290);            /* modal oscuro (intacto) */
   --card-foreground: oklch(0.98 0 0);
   --popover: oklch(0.17 0.06 290);
   --popover-foreground: oklch(0.98 0 0);
   --primary: var(--neon);
   --primary-foreground: var(--ink);
-  --secondary: oklch(0.22 0.07 290);
-  --secondary-foreground: oklch(0.98 0 0);
-  --muted: oklch(0.22 0.05 290);
-  --muted-foreground: oklch(0.72 0.02 290);
-  --accent: oklch(0.25 0.08 290);
-  --accent-foreground: oklch(0.98 0 0);
-  --destructive: oklch(0.65 0.24 25);
+  --secondary: oklch(0.96 0.008 290);
+  --secondary-foreground: var(--ink);
+  --muted: oklch(0.965 0.006 290);
+  --muted-foreground: oklch(0.45 0.03 290); /* gris-violeta legible sobre blanco */
+  --accent: oklch(0.95 0.015 290);
+  --accent-foreground: var(--ink);
+  --destructive: oklch(0.58 0.24 25);
   --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: var(--neon);
+  --border: oklch(0.13 0.06 290 / 12%);
+  --input: oklch(0.13 0.06 290 / 18%);
+  --ring: var(--violet);
 }
 
 @layer base {
@@ -121,8 +126,10 @@
     content: "";
     position: absolute;
     inset: 0;
-    opacity: 0.34;
-    mix-blend-mode: overlay;
+    /* Sobre blanco el grano se atenúa mucho (en overlay, el blanco no cambia);
+       lo mantenemos muy sutil para que solo texture los lavados de color. */
+    opacity: 0.1;
+    mix-blend-mode: multiply;
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.6' numOctaves='3' stitchTiles='stitch' seed='7'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.85 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>"),
       url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320'><filter id='n2'><feTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='2' stitchTiles='stitch' seed='3'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n2)'/></svg>");
     background-size:
@@ -154,7 +161,7 @@
 @utility dot-grid {
   background-image: radial-gradient(
     circle,
-    color-mix(in oklab, white 13%, transparent) 1px,
+    color-mix(in oklab, var(--ink) 8%, transparent) 1px,
     transparent 1px
   );
   background-size: 30px 30px;

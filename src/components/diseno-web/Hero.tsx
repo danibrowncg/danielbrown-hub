@@ -43,20 +43,20 @@ export function Hero() {
           <Link
             to="/"
             aria-label="Volver al inicio"
-            className="group inline-flex items-center gap-1.5 font-display text-lg tracking-wider text-white transition-opacity hover:opacity-80 sm:text-xl"
+            className="group inline-flex items-center gap-1.5 font-display text-lg tracking-wider text-ink transition-opacity hover:opacity-70 sm:text-xl"
           >
             <ArrowLeft
               className="h-4 w-4 -translate-x-1 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100"
               strokeWidth={2.5}
             />
-            Daniel Brown<span className="text-white">.</span>
+            Daniel Brown<span className="text-violet">.</span>
           </Link>
         </motion.div>
         <motion.div
           initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
           animate={{ opacity: 1, scale: 1, rotate: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="relative z-10 h-12 w-12 overflow-hidden rounded-full ring-2 ring-neon/60"
+          className="relative z-10 h-12 w-12 overflow-hidden rounded-full ring-2 ring-violet/40"
           style={{ isolation: "isolate" }}
         >
           <img src={danielImg} alt="Daniel Brown" className="h-full w-full object-cover" width={48} height={48} decoding="async" />
@@ -68,7 +68,7 @@ export function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
-        className="relative z-10 mt-10 flex items-center gap-2 self-start rounded-full border border-neon/40 bg-neon/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-widest text-neon sm:text-xs"
+        className="relative z-10 mt-10 flex items-center gap-2 self-start rounded-full bg-ink px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-widest text-white shadow-[0_8px_24px_-12px_rgba(13,0,38,0.5)] sm:text-xs"
       >
         <span className="relative flex h-2 w-2">
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-neon opacity-75" />
@@ -79,11 +79,11 @@ export function Hero() {
 
       {/* headline */}
       <motion.div style={scrollStyle} className="relative z-10 mt-6 flex-1">
-        <h1 className="font-display text-[15vw] leading-[0.95] tracking-tight text-white sm:text-7xl md:text-8xl lg:text-[8.5rem]">
+        <h1 className="font-display text-[15vw] leading-[0.95] tracking-tight text-ink sm:text-7xl md:text-8xl lg:text-[8.5rem]">
           {title.map((word, i) => (
             <motion.span
               key={word}
-              className={`mr-3 inline-block ${word === "CONVIERTE" ? "text-neon" : ""}`}
+              className={`mr-3 inline-block ${word === "CONVIERTE" ? "text-violet" : ""}`}
               initial={{ opacity: 0, y: 40, rotateX: reduce ? 0 : -40 }}
               animate={{ opacity: 1, y: 0, rotateX: 0 }}
               transition={{ duration: 0.7, delay: 0.1 + i * 0.12, ease: [0.22, 1, 0.36, 1] }}
@@ -95,7 +95,7 @@ export function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7 }}
-            className="text-neon"
+            className="text-violet"
           >
             .
           </motion.span>
@@ -105,7 +105,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7 }}
-          className="mt-5 max-w-xl text-base text-white/70 sm:text-lg lg:text-xl"
+          className="mt-5 max-w-xl text-base text-ink/70 sm:text-lg lg:text-xl"
         >
           Webs premium, optimizadas y estratégicas para que tu negocio venda 24/7.
           Diseño exclusivo, código limpio, resultado real.
@@ -135,7 +135,7 @@ export function Hero() {
               <ArrowRight className="relative h-5 w-5 transition-transform group-hover:translate-x-1" strokeWidth={2.5} />
             </motion.button>
           </Magnetic>
-          <span className="text-sm text-white/60">Respondo en minutos</span>
+          <span className="text-sm text-ink/60">Respondo en minutos</span>
         </motion.div>
       </motion.div>
     </section>
