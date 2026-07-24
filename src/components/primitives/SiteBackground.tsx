@@ -7,14 +7,13 @@ import {
 } from "motion/react";
 
 /**
- * Fondo global del sitio, en capas:
- *  1. Aurora: blobs de marca que derivan lentamente (CSS, fuera del hilo principal).
- *  2. Malla de puntos con máscara radial (profundidad sutil).
+ * Fondo global del sitio (blanco), en capas:
+ *  1. Lavado del degradado de marca: teal arriba-izq → violeta abajo-der.
+ *  2. Malla de puntos con máscara radial (el adorno del fondo).
  *  3. Foco que sigue el cursor, interpolado con spring (solo en punteros finos).
- *  4. Viñeta inferior para asentar el contenido.
  *
- * Además renderiza el grano de película como UNA capa fija sobre el contenido
- * (antes era una capa con mix-blend-mode por sección; ver `grain-fixed`).
+ * Sin grano ni viñeta a propósito: sobre el blanco apagaban el fondo y tapaban
+ * los puntos.
  *
  * Solo se anima transform/opacity. Respeta prefers-reduced-motion.
  */
@@ -44,9 +43,6 @@ export function SiteBackground() {
 
   return (
     <>
-      {/* Grano de película: una única capa fija sobre todo el contenido. */}
-      <div aria-hidden="true" className="grain-fixed" />
-
       <div
         aria-hidden="true"
         className="pointer-events-none fixed inset-0 z-0 overflow-hidden"

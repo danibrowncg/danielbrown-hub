@@ -1,6 +1,5 @@
 import { motion } from "motion/react";
 import { toast } from "sonner";
-import { GradientBlob } from "@/components/primitives/GradientBlob";
 import { Magnetic } from "@/components/primitives/Magnetic";
 import { useWhatsAppLead } from "@/components/shared/WhatsAppLead";
 import { WA_PHONE } from "@/lib/constants";
@@ -17,15 +16,13 @@ export function FinalCta() {
   };
 
   return (
-    <section className="relative isolate overflow-hidden px-5 py-24 sm:px-8 lg:px-16 lg:py-32">
-      <GradientBlob className="left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2" />
-
+    <section className="brand-grad relative isolate overflow-hidden px-5 py-24 sm:px-8 lg:px-16 lg:py-32">
       <div className="relative mx-auto max-w-3xl text-center">
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-xs font-semibold uppercase tracking-[0.3em] text-ink"
+          className="text-xs font-semibold uppercase tracking-[0.3em] text-white"
         >
           Listos para empezar
         </motion.p>
@@ -34,16 +31,16 @@ export function FinalCta() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mt-4 font-display text-5xl uppercase leading-[0.95] text-ink sm:text-6xl lg:text-7xl"
+          className="mt-4 font-display text-5xl uppercase leading-[0.95] text-white sm:text-6xl lg:text-7xl"
         >
-          ¿LISTO PARA TRANSFORMAR TU NEGOCIO CON <span className="text-brand-grad">IA</span>?
+          ¿LISTO PARA TRANSFORMAR TU NEGOCIO CON <span className="text-neon">IA</span>?
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="mx-auto mt-5 max-w-xl text-base text-ink/75 sm:text-lg"
+          className="mx-auto mt-5 max-w-xl text-base text-white/80 sm:text-lg"
         >
           Escríbeme por WhatsApp y cuéntame tu idea. Sin compromiso, analizamos
           tu necesidad y creamos el software perfecto para tu empresa.
@@ -78,7 +75,7 @@ export function FinalCta() {
 
           <button
             onClick={copyPhone}
-            className="text-sm text-ink/70 underline-offset-4 transition-colors hover:text-ink hover:underline"
+            className="text-sm text-white/70 underline-offset-4 transition-colors hover:text-white hover:underline"
           >
             {WA_PHONE} · toca para copiar
           </button>

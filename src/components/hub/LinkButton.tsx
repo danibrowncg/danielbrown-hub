@@ -17,16 +17,22 @@ type Color = NonNullable<LinkButtonProps["color"]>;
 
 const colorClasses: Record<Color, string> = {
   neon: "bg-neon text-ink shadow-[0_10px_34px_-12px_rgba(231,255,0,0.6)] hover:shadow-[0_18px_54px_-8px_rgba(231,255,0,0.85)]",
-  // El botón secundario (Comunidad) es una pastilla NEGRA con letras neón:
+  // El botón secundario (Comunidad) es una pastilla NEGRA con letras blancas:
   // contrasta con el blanco y deja respirar a los dos botones amarillos.
   white:
-    "bg-ink text-neon shadow-[0_10px_34px_-14px_rgba(13,0,38,0.5)] hover:shadow-[0_18px_54px_-10px_rgba(13,0,38,0.7)]",
+    "bg-ink text-white shadow-[0_10px_34px_-14px_rgba(13,0,38,0.5)] hover:shadow-[0_18px_54px_-10px_rgba(13,0,38,0.7)]",
 };
 
 /** Color del barrido de brillo, legible sobre cada fondo. */
 const shineClasses: Record<Color, string> = {
   neon: "via-white/45",
   white: "via-white/25",
+};
+
+/** La flecha se destaca en neón sobre la pastilla negra; en la neón hereda tinta. */
+const arrowClasses: Record<Color, string> = {
+  neon: "",
+  white: "text-neon",
 };
 
 /**
@@ -49,12 +55,12 @@ export function LinkButton({ title, to, href, color = "neon", variants }: LinkBu
       </span>
       {isExternal ? (
         <ArrowUpRight
-          className="relative h-5 w-5 shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+          className={`relative h-5 w-5 shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 ${arrowClasses[color]}`}
           strokeWidth={2.5}
         />
       ) : (
         <ArrowRight
-          className="relative h-5 w-5 shrink-0 transition-transform duration-300 group-hover:translate-x-1"
+          className={`relative h-5 w-5 shrink-0 transition-transform duration-300 group-hover:translate-x-1 ${arrowClasses[color]}`}
           strokeWidth={2.5}
         />
       )}

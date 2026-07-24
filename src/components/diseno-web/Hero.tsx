@@ -68,7 +68,7 @@ export function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
-        className="relative z-10 mt-10 flex items-center gap-2 self-start rounded-full bg-ink px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-widest text-neon shadow-[0_8px_24px_-12px_rgba(13,0,38,0.5)] sm:text-xs"
+        className="relative z-10 mt-10 flex items-center gap-2 self-start rounded-full bg-ink px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-widest text-white shadow-[0_8px_24px_-12px_rgba(13,0,38,0.5)] sm:text-xs"
       >
         <span className="relative flex h-2 w-2">
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-neon opacity-75" />
