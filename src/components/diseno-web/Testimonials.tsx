@@ -1,21 +1,21 @@
-import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
-import { motion } from "motion/react";
-import { Star } from "lucide-react";
-import { Reveal } from "@/components/primitives/Reveal";
+import { TestimonialGrid, type Testimonial } from "@/components/shared/TestimonialGrid";
 import t1 from "@/assets/diseno-web/testimonial-1.webp";
 import t2 from "@/assets/diseno-web/testimonial-2.webp";
 import t3 from "@/assets/diseno-web/testimonial-3.webp";
-import { Highlight } from "@/components/primitives/Highlight";
-import { Eyebrow } from "@/components/primitives/Eyebrow";
 
-const testimonials = [
+/**
+ * Para añadir un testimonio: agrega un objeto a este array. La retícula se
+ * acomoda sola (con 6 llena las dos filas). Usa SIEMPRE nombre, empresa y frase
+ * reales del cliente, con su permiso.
+ */
+const testimonials: Testimonial[] = [
   {
     img: t1,
     name: "María González",
     company: "Maison Noir",
     sector: "Restaurante",
-    quote: "Daniel entendió mi marca desde el primer mensaje. La web no parece web, parece una experiencia. Las reservas subieron una barbaridad.",
+    quote:
+      "Daniel entendió mi marca desde el primer mensaje. La web no parece web, parece una experiencia. Las reservas subieron una barbaridad.",
     result: "+52% reservas en 30 días",
   },
   {
@@ -23,7 +23,8 @@ const testimonials = [
     name: "Carlos Rivera",
     company: "Nexora",
     sector: "Startup SaaS",
-    quote: "Trabajé con 3 estudios antes. Ninguno entregó lo que Daniel. Rápido, profesional, y la web es una bestia: carga en menos de 2 segundos.",
+    quote:
+      "Trabajé con 3 estudios antes. Ninguno entregó lo que Daniel. Rápido, profesional, y la web es una bestia: carga en menos de 2 segundos.",
     result: "x2 conversiones vs anterior",
   },
   {
@@ -31,72 +32,18 @@ const testimonials = [
     name: "Valentina Cruz",
     company: "Atelier 22",
     sector: "E-commerce moda",
-    quote: "Mi tienda online por fin se ve como yo siempre la imaginé. Diseño limpio, premium, y muy fácil de actualizar yo misma.",
+    quote:
+      "Mi tienda online por fin se ve como yo siempre la imaginé. Diseño limpio, premium, y muy fácil de actualizar yo misma.",
     result: "+68% tasa de conversión",
   },
 ];
 
 export function Testimonials() {
-  const [emblaRef] = useEmblaCarousel({ loop: true, align: "center" }, [Autoplay({ delay: 6000, stopOnInteraction: false })]);
-
   return (
-    <section className="relative overflow-hidden py-20 lg:py-28">
-      <div className="mx-auto mb-10 max-w-6xl px-5 sm:px-8 lg:px-16">
-        <Reveal>
-          <Eyebrow>Testimonios</Eyebrow>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <h2 className="mt-3 font-display text-4xl leading-[0.95] text-ink sm:text-5xl lg:text-6xl">
-            LO QUE DICEN MIS <Highlight>CLIENTES</Highlight>.
-          </h2>
-        </Reveal>
-      </div>
-
-      <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex touch-pan-y gap-4 px-5 sm:gap-6 sm:px-8 lg:px-16">
-          {testimonials.map((t) => (
-            <motion.article
-              key={t.name}
-              className="relative shrink-0 basis-[88%] overflow-hidden rounded-2xl border border-white/10 bg-ink p-6 shadow-[0_12px_40px_-20px_rgba(13,0,38,0.5)] transition-all duration-300 hover:border-neon/40 hover:shadow-[0_30px_80px_-40px_rgba(13,0,38,0.6)] sm:basis-[60%] sm:p-8 lg:basis-[40%]"
-              whileHover={{ y: -6 }}
-            >
-              <div className="relative">
-                <div className="flex items-center gap-4">
-                  <img src={t.img} alt={t.name} loading="lazy" decoding="async" className="h-14 w-14 rounded-full object-cover ring-2 ring-neon/50" />
-                  <div>
-                    <p className="font-display text-lg uppercase text-white">{t.name}</p>
-                    <p className="text-sm text-white/60">{t.company}</p>
-                  </div>
-                </div>
-                <div className="mt-4 flex items-center gap-3">
-                  <span className="rounded-full bg-neon/20 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-neon">
-                    {t.sector}
-                  </span>
-                  <div className="flex gap-0.5 text-neon">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <motion.span
-                        key={i}
-                        initial={{ opacity: 0, scale: 0 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 * i, type: "spring", stiffness: 220 }}
-                      >
-                        <Star className="h-4 w-4 fill-current" strokeWidth={0} />
-                      </motion.span>
-                    ))}
-                  </div>
-                </div>
-                <p className="mt-5 text-base leading-relaxed text-white/90">"{t.quote}"</p>
-                <p className="mt-5">
-                  <span className="inline-flex items-center rounded-full bg-neon px-3 py-1 text-sm font-semibold text-ink">
-                    {t.result}
-                  </span>
-                </p>
-              </div>
-            </motion.article>
-          ))}
-        </div>
-      </div>
-    </section>
+    <TestimonialGrid
+      titleLead="LO QUE DICEN MIS"
+      titleHighlight="CLIENTES"
+      items={testimonials}
+    />
   );
 }

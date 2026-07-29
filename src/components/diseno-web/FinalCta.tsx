@@ -3,6 +3,7 @@ import { toast } from "sonner";
 import { Magnetic } from "@/components/primitives/Magnetic";
 import { useWhatsAppLead } from "@/components/shared/WhatsAppLead";
 import { WA_PHONE } from "@/lib/constants";
+import { GridPattern } from "@/components/primitives/GridPattern";
 
 export function FinalCta() {
   const { openLead } = useWhatsAppLead();
@@ -17,6 +18,7 @@ export function FinalCta() {
 
   return (
     <section className="brand-grad relative isolate overflow-hidden px-5 py-24 sm:px-8 lg:px-16 lg:py-32">
+      <GridPattern opacity={0.09} />
       <div className="relative mx-auto max-w-3xl text-center">
         <motion.p
           initial={{ opacity: 0 }}

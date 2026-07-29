@@ -226,3 +226,11 @@
   from { transform: translate3d(0, 0, 0); }
   to   { transform: translate3d(-50%, 0, 0); }
 }
+
+/* Deriva diagonal de la rejilla técnica (GridPattern). Una sola celda y
+   reinicia: como la rejilla es periódica, el salto es invisible. En CSS para
+   que corra en el compositor y no en el hilo principal. */
+@keyframes grid-drift {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(44px, 44px, 0); }
+}

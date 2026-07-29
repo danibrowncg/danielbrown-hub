@@ -1,5 +1,6 @@
 import { animate, motion, useInView, useMotionValue, useTransform, useReducedMotion } from "motion/react";
 import { useEffect, useRef } from "react";
+import { GridPattern } from "@/components/primitives/GridPattern";
 
 function Counter({ to }: { to: number }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -24,7 +25,8 @@ function Counter({ to }: { to: number }) {
 export function FastDelivery() {
   return (
     <section className="relative overflow-hidden px-5 py-16 sm:px-8 lg:px-16 lg:py-24">
-      <div className="mx-auto max-w-5xl rounded-3xl border border-white/10 bg-ink p-8 text-center shadow-[0_28px_70px_-40px_rgba(13,0,38,0.5)] sm:p-12 lg:p-16">
+      <div className="relative isolate mx-auto max-w-5xl overflow-hidden rounded-3xl border border-white/10 bg-ink p-8 text-center shadow-[0_28px_70px_-40px_rgba(13,0,38,0.5)] sm:p-12 lg:p-16">
+        <GridPattern />
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
