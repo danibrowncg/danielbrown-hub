@@ -216,3 +216,11 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Banda infinita (marquee). En CSS a propósito: es movimiento CONSTANTE, así
+   que corre fuera del hilo principal y no compite con el scroll. Una versión
+   en JS (requestAnimationFrame) reintroduciría el jank que ya corregimos. */
+@keyframes marquee-x {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}

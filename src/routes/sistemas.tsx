@@ -12,6 +12,17 @@ import { Faq } from "@/components/sistemas/Faq";
 import { FinalCta } from "@/components/sistemas/FinalCta";
 import { SiteFooter } from "@/components/sistemas/SiteFooter";
 import { WhatsAppLeadProvider } from "@/components/shared/WhatsAppLead";
+import { Marquee } from "@/components/primitives/Marquee";
+
+const CAPACIDADES = [
+  "Automatización de procesos",
+  "IA integrada",
+  "Dashboards",
+  "Integración de APIs",
+  "Chatbots",
+  "Análisis de datos",
+  "Software a medida",
+];
 
 const TITLE = "Daniel Brown · Software Inteligente con IA Integrada";
 const DESC =
@@ -55,6 +66,7 @@ function Sistemas() {
     <WhatsAppLeadProvider variant="sistema">
       <main id="top" className="relative z-10 text-ink">
         <Hero />
+      <Marquee items={CAPACIDADES} />
       <AboutDaniel />
       <section id="paquete"><PackageIncludes /></section>
       <FastDelivery />

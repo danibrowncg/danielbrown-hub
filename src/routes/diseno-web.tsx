@@ -12,6 +12,18 @@ import { Faq } from "@/components/diseno-web/Faq";
 import { FinalCta } from "@/components/diseno-web/FinalCta";
 import { SiteFooter } from "@/components/diseno-web/SiteFooter";
 import { WhatsAppLeadProvider } from "@/components/shared/WhatsAppLead";
+import { Marquee } from "@/components/primitives/Marquee";
+
+const CAPACIDADES = [
+  "Diseño UX/UI",
+  "Desarrollo web",
+  "Mobile-first",
+  "SEO técnico",
+  "Optimización de velocidad",
+  "Landing pages",
+  "E-commerce",
+  "Animaciones",
+];
 
 const TITLE = "Daniel Brown · Diseño Web Profesional que Convierte";
 const DESC =
@@ -61,6 +73,7 @@ function DisenoWeb() {
     <WhatsAppLeadProvider variant="web">
       <main id="top" className="relative z-10 text-ink">
         <Hero />
+      <Marquee items={CAPACIDADES} />
       <AboutDaniel />
       <section id="paquete"><PackageIncludes /></section>
       <FastDelivery />
