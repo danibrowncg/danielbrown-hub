@@ -7,6 +7,7 @@ import t1 from "@/assets/sistemas/testimonial-1.webp";
 import t2 from "@/assets/sistemas/testimonial-2.webp";
 import t3 from "@/assets/sistemas/testimonial-3.webp";
 import { Highlight } from "@/components/primitives/Highlight";
+import { Eyebrow } from "@/components/primitives/Eyebrow";
 
 const testimonials = [
   {
@@ -42,7 +43,7 @@ export function Testimonials() {
     <section className="relative overflow-hidden py-20 lg:py-28">
       <div className="mx-auto mb-10 max-w-6xl px-5 sm:px-8 lg:px-16">
         <Reveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-ink">Testimonios</p>
+          <Eyebrow>Testimonios</Eyebrow>
         </Reveal>
         <Reveal delay={0.1}>
           <h2 className="mt-3 font-display text-4xl leading-[0.95] text-ink sm:text-5xl lg:text-6xl">

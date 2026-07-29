@@ -2,6 +2,7 @@ import { Server, Brain, BarChart3, Rocket, type LucideIcon } from "lucide-react"
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/primitives/Reveal";
 import { SpotlightOverlay } from "@/components/primitives/SpotlightOverlay";
 import { Highlight } from "@/components/primitives/Highlight";
+import { Eyebrow } from "@/components/primitives/Eyebrow";
 
 const cards: { Icon: LucideIcon; title: string; items: string[] }[] = [
   {
@@ -31,7 +32,7 @@ export function PackageIncludes() {
     <section className="relative overflow-hidden px-5 py-20 sm:px-8 lg:px-16 lg:py-28">
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-ink">Qué incluye</p>
+          <Eyebrow>Qué incluye</Eyebrow>
         </Reveal>
         <Reveal delay={0.1}>
           <h2 className="mt-3 max-w-3xl font-display text-4xl leading-[0.95] text-ink sm:text-5xl lg:text-6xl">
@@ -49,7 +50,7 @@ export function PackageIncludes() {
             <StaggerItem
               key={c.title}
               direction="up"
-              className="group relative overflow-hidden rounded-2xl border border-ink/10 bg-ink/[0.02] p-6 shadow-[0_2px_20px_-14px_rgba(13,0,38,0.3)] transition-all duration-300 hover:-translate-y-2 hover:border-ink/20 hover:shadow-[0_30px_60px_-30px_rgba(13,0,38,0.35)]"
+              className="group relative overflow-hidden rounded-2xl border border-ink/10 bg-white p-6 shadow-[0_2px_20px_-14px_rgba(13,0,38,0.3)] transition-all duration-300 hover:-translate-y-2 hover:border-ink/20 hover:shadow-[0_30px_60px_-30px_rgba(13,0,38,0.35)]"
             >
               <SpotlightOverlay />
               <div className="relative">

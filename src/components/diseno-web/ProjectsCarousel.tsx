@@ -10,6 +10,7 @@ import projectSaas from "@/assets/diseno-web/project-saas.webp";
 import projectStartup from "@/assets/diseno-web/project-startup.webp";
 import projectPortfolio from "@/assets/diseno-web/project-portfolio.webp";
 import { Highlight } from "@/components/primitives/Highlight";
+import { Eyebrow } from "@/components/primitives/Eyebrow";
 
 const projects = [
   { img: projectRestaurant, sector: "Gastronomía", title: "Maison Noir", desc: "Restaurante de alta cocina con sistema de reservas integrado.", result: "+52% reservas online" },
@@ -41,7 +42,7 @@ export function ProjectsCarousel() {
     <section className="relative overflow-hidden py-20 lg:py-28">
       <div className="mx-auto mb-10 max-w-6xl px-5 sm:px-8 lg:px-16">
         <Reveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-ink">Portfolio</p>
+          <Eyebrow>Portfolio</Eyebrow>
         </Reveal>
         <Reveal delay={0.1}>
           <h2 className="mt-3 font-display text-4xl leading-[0.95] text-ink sm:text-5xl lg:text-6xl">

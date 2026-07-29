@@ -10,6 +10,7 @@ import projectErp from "@/assets/sistemas/project-erp.webp";
 import projectDocs from "@/assets/sistemas/project-doc-processing.webp";
 import projectRecommender from "@/assets/sistemas/project-recommender.webp";
 import { Highlight } from "@/components/primitives/Highlight";
+import { Eyebrow } from "@/components/primitives/Eyebrow";
 
 const projects = [
   { img: projectChatbot, sector: "Chatbot IA", title: "Asistente Conversacional", desc: "Chatbot con IA que responde, califica leads y aprende de cada interacción.", result: "−70% tickets soporte" },
@@ -41,7 +42,7 @@ export function ProjectsCarousel() {
     <section className="relative overflow-hidden py-20 lg:py-28">
       <div className="mx-auto mb-10 max-w-6xl px-5 sm:px-8 lg:px-16">
         <Reveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-ink">Portfolio</p>
+          <Eyebrow>Portfolio</Eyebrow>
         </Reveal>
         <Reveal delay={0.1}>
           <h2 className="mt-3 font-display text-4xl leading-[0.95] text-ink sm:text-5xl lg:text-6xl">

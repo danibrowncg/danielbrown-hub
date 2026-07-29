@@ -1,6 +1,7 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { StaggerGroup, StaggerItem, Reveal } from "@/components/primitives/Reveal";
 import { Highlight } from "@/components/primitives/Highlight";
+import { Eyebrow } from "@/components/primitives/Eyebrow";
 
 const faqs = [
   { q: "¿Cuánto tiempo toma un sistema?", a: "Entre 1 y 2 semanas en promedio. El tiempo final depende de la complejidad, personalización y funcionalidades avanzadas que necesite tu sistema." },
@@ -17,7 +18,7 @@ export function Faq() {
     <section className="relative overflow-hidden px-5 py-20 sm:px-8 lg:px-16 lg:py-28">
       <div className="mx-auto max-w-3xl">
         <Reveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-ink">Dudas</p>
+          <Eyebrow>Dudas</Eyebrow>
         </Reveal>
         <Reveal delay={0.1}>
           <h2 className="mt-3 font-display text-4xl leading-[0.95] text-ink sm:text-5xl lg:text-6xl">
@@ -31,7 +32,7 @@ export function Faq() {
               <StaggerItem key={f.q} direction="up">
                 <AccordionItem
                   value={`item-${i}`}
-                  className="overflow-hidden rounded-xl border border-ink/10 bg-ink/[0.02] px-5 transition-colors hover:border-ink/25"
+                  className="overflow-hidden rounded-xl border border-ink/10 bg-white px-5 transition-colors hover:border-ink/25"
                 >
                   <AccordionTrigger className="py-5 text-left text-base font-semibold text-ink hover:no-underline sm:text-lg">
                     {f.q}

@@ -1,6 +1,7 @@
 import type { LucideIcon } from "lucide-react";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/primitives/Reveal";
 import { Highlight } from "@/components/primitives/Highlight";
+import { Eyebrow } from "@/components/primitives/Eyebrow";
 
 export interface ProcessStep {
   Icon: LucideIcon;
@@ -38,7 +39,7 @@ export function ProcessSteps({
     <section className="relative overflow-hidden px-5 py-20 sm:px-8 lg:px-16 lg:py-28">
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-ink">{eyebrow}</p>
+          <Eyebrow>{eyebrow}</Eyebrow>
         </Reveal>
         <Reveal delay={0.1}>
           <h2 className="mt-3 max-w-3xl font-display text-4xl leading-[0.95] text-ink sm:text-5xl lg:text-6xl">
@@ -54,7 +55,7 @@ export function ProcessSteps({
             <StaggerItem
               key={s.title}
               direction="up"
-              className="group relative rounded-2xl border border-ink/10 bg-ink/[0.02] p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-ink/20 hover:shadow-[0_24px_60px_-32px_rgba(13,0,38,0.35)]"
+              className="group relative rounded-2xl border border-ink/10 bg-white p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-ink/20 hover:shadow-[0_24px_60px_-32px_rgba(13,0,38,0.35)]"
             >
               {/* Número + icono en isla oscura: ancla visual de cada paso */}
               <div className="flex items-center gap-3">

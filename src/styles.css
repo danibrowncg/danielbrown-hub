@@ -145,16 +145,18 @@
   color: transparent;
 }
 
-/* Malla de puntos sutil, desvanecida hacia los bordes con una máscara radial */
+/* Malla de puntos: el único adorno del fondo blanco. Al quitar el lavado de
+   color, los puntos pueden tener algo más de presencia sin ensuciar. La máscara
+   cubre la página de forma pareja y solo desvanece contra los bordes. */
 @utility dot-grid {
   background-image: radial-gradient(
     circle,
-    color-mix(in oklab, var(--ink) 8%, transparent) 1px,
+    color-mix(in oklab, var(--ink) 11%, transparent) 1px,
     transparent 1px
   );
-  background-size: 30px 30px;
-  mask-image: radial-gradient(ellipse 75% 60% at 50% 35%, black 0%, transparent 78%);
-  -webkit-mask-image: radial-gradient(ellipse 75% 60% at 50% 35%, black 0%, transparent 78%);
+  background-size: 26px 26px;
+  mask-image: radial-gradient(ellipse 92% 82% at 50% 45%, black 42%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 92% 82% at 50% 45%, black 42%, transparent 100%);
 }
 
 @utility glow-neon {

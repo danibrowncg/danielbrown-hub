@@ -4,6 +4,7 @@ import { Reveal, StaggerGroup, StaggerItem } from "@/components/primitives/Revea
 import { ScrollParallax } from "@/components/primitives/ScrollParallax";
 import danielImg from "@/assets/daniel.webp";
 import { Highlight } from "@/components/primitives/Highlight";
+import { Eyebrow } from "@/components/primitives/Eyebrow";
 
 const specs = [
   { Icon: Layers, title: "Diseño UX/UI", desc: "Interfaces premium pensadas para convertir." },
@@ -57,7 +58,7 @@ export function AboutDaniel() {
 
         <div>
           <Reveal>
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-ink">Hablemos</p>
+            <Eyebrow>Hablemos</Eyebrow>
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="font-display text-4xl leading-[0.95] text-ink sm:text-5xl lg:text-6xl">

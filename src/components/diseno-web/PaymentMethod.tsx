@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { ShieldCheck } from "lucide-react";
 import { Reveal } from "@/components/primitives/Reveal";
 import { Highlight } from "@/components/primitives/Highlight";
+import { Eyebrow } from "@/components/primitives/Eyebrow";
 
 const steps = [
   { n: "01", title: "50% al iniciar", desc: "Reservas tu proyecto y arrancamos el desarrollo." },
@@ -13,7 +14,7 @@ export function PaymentMethod() {
     <section className="relative overflow-hidden px-5 py-20 sm:px-8 lg:px-16 lg:py-28">
       <div className="mx-auto max-w-5xl">
         <Reveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-ink">Forma de pago</p>
+          <Eyebrow>Forma de pago</Eyebrow>
         </Reveal>
         <Reveal delay={0.1}>
           <h2 className="mt-3 max-w-3xl font-display text-4xl leading-[0.95] text-ink sm:text-5xl lg:text-6xl">

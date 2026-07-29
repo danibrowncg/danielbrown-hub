@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { IG_URL, TT_URL, WA_URL, WA_PHONE, IG_HANDLE } from "@/lib/constants";
+import { Eyebrow } from "@/components/primitives/Eyebrow";
 
 const socials = [
   { label: "Instagram", href: IG_URL, icon: (<svg viewBox="0 0 24 24" fill="none" className="h-5 w-5"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" strokeWidth="2" /><circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="2" /><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" /></svg>) },
@@ -18,7 +19,7 @@ export function SiteFooter() {
           </div>
 
           <nav className="flex flex-col gap-2 text-sm text-ink/70">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-ink">Navega</p>
+            <Eyebrow>Navega</Eyebrow>
             {[
               ["Inicio", "#top"],
               ["Paquete", "#paquete"],
@@ -33,7 +34,7 @@ export function SiteFooter() {
           </nav>
 
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-ink">Conecta</p>
+            <Eyebrow>Conecta</Eyebrow>
             <p className="mt-3 text-sm text-ink/70">{IG_HANDLE}</p>
             <p className="text-sm text-ink/70">{WA_PHONE}</p>
             <div className="mt-4 flex gap-3">
