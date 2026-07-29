@@ -108,6 +108,15 @@ function RootShell({ children }: { children: ReactNode }) {
         <HeadContent />
       </head>
       <body>
+        {/* Salto al contenido: invisible hasta que se navega con teclado. Sin
+            esto, quien usa teclado o lector de pantalla tiene que recorrer todo
+            el encabezado en cada página. */}
+        <a
+          href="#top"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-ink focus:px-5 focus:py-3 focus:text-sm focus:font-semibold focus:text-neon focus:outline-none focus:ring-2 focus:ring-neon focus:ring-offset-2"
+        >
+          Saltar al contenido
+        </a>
         {children}
         <Scripts />
       </body>
