@@ -9,6 +9,7 @@ import projectAnalytics from "@/assets/sistemas/project-data-analytics.webp";
 import projectErp from "@/assets/sistemas/project-erp.webp";
 import projectDocs from "@/assets/sistemas/project-doc-processing.webp";
 import projectRecommender from "@/assets/sistemas/project-recommender.webp";
+import { Highlight } from "@/components/primitives/Highlight";
 
 const projects = [
   { img: projectChatbot, sector: "Chatbot IA", title: "Asistente Conversacional", desc: "Chatbot con IA que responde, califica leads y aprende de cada interacción.", result: "−70% tickets soporte" },
@@ -44,7 +45,7 @@ export function ProjectsCarousel() {
         </Reveal>
         <Reveal delay={0.1}>
           <h2 className="mt-3 font-display text-4xl leading-[0.95] text-ink sm:text-5xl lg:text-6xl">
-            PROYECTOS <span className="text-brand-grad">REALES</span>.
+            PROYECTOS <Highlight>REALES</Highlight>.
           </h2>
         </Reveal>
         <Reveal delay={0.2}>

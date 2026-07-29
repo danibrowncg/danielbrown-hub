@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { ShieldCheck } from "lucide-react";
 import { Reveal } from "@/components/primitives/Reveal";
+import { Highlight } from "@/components/primitives/Highlight";
 
 const steps = [
   { n: "01", title: "50% al iniciar", desc: "Reservas tu proyecto y arrancamos el desarrollo." },
@@ -16,7 +17,7 @@ export function PaymentMethod() {
         </Reveal>
         <Reveal delay={0.1}>
           <h2 className="mt-3 max-w-3xl font-display text-4xl leading-[0.95] text-ink sm:text-5xl lg:text-6xl">
-            CÓMO FUNCIONA EL <span className="text-brand-grad">PAGO</span>.
+            CÓMO FUNCIONA EL <Highlight>PAGO</Highlight>.
           </h2>
         </Reveal>
 
@@ -39,7 +40,7 @@ export function PaymentMethod() {
         </div>
 
         <Reveal delay={0.3} className="mt-10 flex flex-col items-center gap-2 text-center">
-          <p className="inline-flex items-center gap-2 font-display text-2xl uppercase text-brand-grad sm:text-3xl"><ShieldCheck className="h-7 w-7 text-teal" strokeWidth={2} /> Satisfacción garantizada</p>
+          <p className="inline-flex items-center gap-2 font-display text-2xl uppercase text-ink sm:text-3xl"><ShieldCheck className="h-7 w-7 text-ink" strokeWidth={2} /> Satisfacción garantizada</p>
           <p className="text-sm text-ink/70 sm:text-base">
             Solo pagas el saldo cuando tu web esté aprobada y lista para usar.
           </p>

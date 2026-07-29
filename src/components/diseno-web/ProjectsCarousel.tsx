@@ -9,6 +9,7 @@ import projectAgency from "@/assets/diseno-web/project-agency.webp";
 import projectSaas from "@/assets/diseno-web/project-saas.webp";
 import projectStartup from "@/assets/diseno-web/project-startup.webp";
 import projectPortfolio from "@/assets/diseno-web/project-portfolio.webp";
+import { Highlight } from "@/components/primitives/Highlight";
 
 const projects = [
   { img: projectRestaurant, sector: "Gastronomía", title: "Maison Noir", desc: "Restaurante de alta cocina con sistema de reservas integrado.", result: "+52% reservas online" },
@@ -44,7 +45,7 @@ export function ProjectsCarousel() {
         </Reveal>
         <Reveal delay={0.1}>
           <h2 className="mt-3 font-display text-4xl leading-[0.95] text-ink sm:text-5xl lg:text-6xl">
-            PROYECTOS <span className="text-brand-grad">REALES</span>.
+            PROYECTOS <Highlight>REALES</Highlight>.
           </h2>
         </Reveal>
         <Reveal delay={0.2}>

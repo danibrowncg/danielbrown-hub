@@ -3,6 +3,7 @@ import { Layers, Code2, Target } from "lucide-react";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/primitives/Reveal";
 import { ScrollParallax } from "@/components/primitives/ScrollParallax";
 import danielImg from "@/assets/daniel.webp";
+import { Highlight } from "@/components/primitives/Highlight";
 
 const specs = [
   { Icon: Layers, title: "Diseño UX/UI", desc: "Interfaces premium pensadas para convertir." },
@@ -60,7 +61,7 @@ export function AboutDaniel() {
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="font-display text-4xl leading-[0.95] text-ink sm:text-5xl lg:text-6xl">
-              HOLA, SOY <span className="text-brand-grad">DANIEL BROWN</span>.
+              HOLA, SOY <Highlight>DANIEL BROWN</Highlight>.
             </h2>
           </Reveal>
           <Reveal delay={0.2}>

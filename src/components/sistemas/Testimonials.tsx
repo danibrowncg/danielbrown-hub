@@ -6,6 +6,7 @@ import { Reveal } from "@/components/primitives/Reveal";
 import t1 from "@/assets/sistemas/testimonial-1.webp";
 import t2 from "@/assets/sistemas/testimonial-2.webp";
 import t3 from "@/assets/sistemas/testimonial-3.webp";
+import { Highlight } from "@/components/primitives/Highlight";
 
 const testimonials = [
   {
@@ -45,7 +46,7 @@ export function Testimonials() {
         </Reveal>
         <Reveal delay={0.1}>
           <h2 className="mt-3 font-display text-4xl leading-[0.95] text-ink sm:text-5xl lg:text-6xl">
-            LO QUE DICEN MIS <span className="text-brand-grad">CLIENTES</span>.
+            LO QUE DICEN MIS <Highlight>CLIENTES</Highlight>.
           </h2>
         </Reveal>
       </div>

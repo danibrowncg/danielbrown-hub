@@ -1,5 +1,6 @@
 import { StaggerGroup, StaggerItem, Reveal } from "@/components/primitives/Reveal";
 import { SpotlightOverlay } from "@/components/primitives/SpotlightOverlay";
+import { Highlight } from "@/components/primitives/Highlight";
 
 const features = [
   "Software inteligente con IA integrada",
@@ -25,7 +26,7 @@ export function Features() {
         </Reveal>
         <Reveal delay={0.1}>
           <h2 className="mt-3 max-w-3xl font-display text-4xl leading-[0.95] text-ink sm:text-5xl lg:text-6xl">
-            POR QUÉ ELEGIR ESTE <span className="text-brand-grad">SISTEMA</span>.
+            POR QUÉ ELEGIR ESTE <Highlight>SISTEMA</Highlight>.
           </h2>
         </Reveal>
 

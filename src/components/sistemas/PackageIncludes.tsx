@@ -1,6 +1,7 @@
 import { Server, Brain, BarChart3, Rocket, type LucideIcon } from "lucide-react";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/primitives/Reveal";
 import { SpotlightOverlay } from "@/components/primitives/SpotlightOverlay";
+import { Highlight } from "@/components/primitives/Highlight";
 
 const cards: { Icon: LucideIcon; title: string; items: string[] }[] = [
   {
@@ -34,7 +35,7 @@ export function PackageIncludes() {
         </Reveal>
         <Reveal delay={0.1}>
           <h2 className="mt-3 max-w-3xl font-display text-4xl leading-[0.95] text-ink sm:text-5xl lg:text-6xl">
-            TODO LO QUE <span className="text-brand-grad">RECIBES</span>.
+            TODO LO QUE <Highlight>RECIBES</Highlight>.
           </h2>
         </Reveal>
         <Reveal delay={0.2}>

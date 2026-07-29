@@ -1,5 +1,6 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { StaggerGroup, StaggerItem, Reveal } from "@/components/primitives/Reveal";
+import { Highlight } from "@/components/primitives/Highlight";
 
 const faqs = [
   { q: "¿Cuánto tiempo toma un sistema?", a: "Entre 1 y 2 semanas en promedio. El tiempo final depende de la complejidad, personalización y funcionalidades avanzadas que necesite tu sistema." },
@@ -20,7 +21,7 @@ export function Faq() {
         </Reveal>
         <Reveal delay={0.1}>
           <h2 className="mt-3 font-display text-4xl leading-[0.95] text-ink sm:text-5xl lg:text-6xl">
-            PREGUNTAS <span className="text-brand-grad">FRECUENTES</span>.
+            PREGUNTAS <Highlight>FRECUENTES</Highlight>.
           </h2>
         </Reveal>
 
