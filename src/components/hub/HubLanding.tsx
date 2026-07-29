@@ -44,6 +44,14 @@ export function HubLanding() {
   return (
     <main className="relative isolate z-10 flex min-h-[100dvh] flex-col items-center justify-center px-5 py-14 text-ink">
       <div className="relative z-10 flex w-full max-w-[26rem] flex-col items-center">
+        {/* Tarjeta elevada: despega el contenido de la trama de puntos y crea
+            una jerarquía figura/fondo nítida — el mismo recurso que subió el
+            nivel de las tarjetas de las landings. */}
+        <div className="relative w-full overflow-hidden rounded-[1.75rem] border border-ink/10 bg-white px-6 pb-9 pt-10 shadow-[0_30px_80px_-42px_rgba(13,0,38,0.3)] sm:px-8">
+          {/* Filete de marca: el degradado, en su dosis mínima */}
+          <span aria-hidden="true" className="brand-grad absolute inset-x-0 top-0 h-1" />
+
+          <div className="flex flex-col items-center">
         {/* Avatar: anillo cónico orbitando + flotación */}
         <motion.div
           initial={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.9 }}
@@ -156,6 +164,9 @@ export function HubLanding() {
             title="Comunidad de WhatsApp"
           />
         </motion.nav>
+
+          </div>
+        </div>
 
         {/* Footer */}
         <motion.footer
