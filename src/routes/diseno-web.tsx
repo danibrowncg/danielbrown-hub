@@ -13,6 +13,35 @@ import { FinalCta } from "@/components/diseno-web/FinalCta";
 import { SiteFooter } from "@/components/diseno-web/SiteFooter";
 import { WhatsAppLeadProvider } from "@/components/shared/WhatsAppLead";
 import { Marquee } from "@/components/primitives/Marquee";
+import { ProcessSteps, type ProcessStep } from "@/components/shared/ProcessSteps";
+import { MessageCircle, PenTool, Code2, Rocket } from "lucide-react";
+
+const PASOS: ProcessStep[] = [
+  {
+    Icon: MessageCircle,
+    title: "Hablamos",
+    desc: "Me cuentas qué vendes y a quién. Sin tecnicismos y sin compromiso.",
+    entrega: "Propuesta con alcance y precio cerrado.",
+  },
+  {
+    Icon: PenTool,
+    title: "Diseño",
+    desc: "Diseño la web completa antes de escribir una línea de código. Ajustamos hasta que te guste.",
+    entrega: "Diseño de todas las pantallas para aprobar.",
+  },
+  {
+    Icon: Code2,
+    title: "Desarrollo",
+    desc: "Construyo la web ya aprobada: rápida, responsive y optimizada para Google.",
+    entrega: "Enlace de prueba para revisarla en vivo.",
+  },
+  {
+    Icon: Rocket,
+    title: "Entrega",
+    desc: "Publico la web en tu dominio y te enseño a manejarla. Quedas con soporte 12 meses.",
+    entrega: "Web publicada, accesos y soporte.",
+  },
+];
 
 const CAPACIDADES = [
   "Diseño UX/UI",
@@ -80,6 +109,13 @@ function DisenoWeb() {
       <section id="portfolio"><ProjectsCarousel /></section>
       <Features />
       <Testimonials />
+      <ProcessSteps
+        eyebrow="Cómo trabajamos"
+        titleLead="ASÍ SERÁ TU"
+        titleHighlight="PROYECTO"
+        intro="Sin sorpresas: sabes qué pasa en cada etapa y qué recibes al terminar cada una."
+        steps={PASOS}
+      />
       <PaymentMethod />
       <section id="faq"><Faq /></section>
       <section id="contacto"><FinalCta /></section>
