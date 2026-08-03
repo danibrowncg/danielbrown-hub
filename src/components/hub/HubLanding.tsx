@@ -161,7 +161,7 @@ export function HubLanding() {
             variants={listItem}
             href={COMMUNITY_WA_URL}
             color="white"
-            title="Comunidad de WhatsApp"
+            title="Comunidad Gratuita"
           />
         </motion.nav>
 
