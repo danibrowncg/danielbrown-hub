@@ -3,9 +3,9 @@ import Autoplay from "embla-carousel-autoplay";
 import { motion } from "motion/react";
 import { Star } from "lucide-react";
 import { Reveal } from "@/components/primitives/Reveal";
-import t1 from "@/assets/diseno-web/testimonial-1.webp";
-import t2 from "@/assets/diseno-web/testimonial-2.webp";
-import t3 from "@/assets/diseno-web/testimonial-3.webp";
+import t1 from "@/assets/servicios/testimonial-1.webp";
+import t2 from "@/assets/servicios/testimonial-2.webp";
+import t3 from "@/assets/servicios/testimonial-3.webp";
 import { Highlight } from "@/components/primitives/Highlight";
 import { Eyebrow } from "@/components/primitives/Eyebrow";
 

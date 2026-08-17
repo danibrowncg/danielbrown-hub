@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SistemasRouteImport } from './routes/sistemas'
+import { Route as ServiciosRouteImport } from './routes/servicios'
 import { Route as DisenoWebRouteImport } from './routes/diseno-web'
 import { Route as IndexRouteImport } from './routes/index'
 
 const SistemasRoute = SistemasRouteImport.update({
   id: '/sistemas',
   path: '/sistemas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServiciosRoute = ServiciosRouteImport.update({
+  id: '/servicios',
+  path: '/servicios',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DisenoWebRoute = DisenoWebRouteImport.update({
@@ -32,30 +38,34 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/diseno-web': typeof DisenoWebRoute
+  '/servicios': typeof ServiciosRoute
   '/sistemas': typeof SistemasRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/diseno-web': typeof DisenoWebRoute
+  '/servicios': typeof ServiciosRoute
   '/sistemas': typeof SistemasRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/diseno-web': typeof DisenoWebRoute
+  '/servicios': typeof ServiciosRoute
   '/sistemas': typeof SistemasRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/diseno-web' | '/sistemas'
+  fullPaths: '/' | '/diseno-web' | '/servicios' | '/sistemas'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/diseno-web' | '/sistemas'
-  id: '__root__' | '/' | '/diseno-web' | '/sistemas'
+  to: '/' | '/diseno-web' | '/servicios' | '/sistemas'
+  id: '__root__' | '/' | '/diseno-web' | '/servicios' | '/sistemas'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DisenoWebRoute: typeof DisenoWebRoute
+  ServiciosRoute: typeof ServiciosRoute
   SistemasRoute: typeof SistemasRoute
 }
 
@@ -66,6 +76,13 @@ declare module '@tanstack/react-router' {
       path: '/sistemas'
       fullPath: '/sistemas'
       preLoaderRoute: typeof SistemasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/servicios': {
+      id: '/servicios'
+      path: '/servicios'
+      fullPath: '/servicios'
+      preLoaderRoute: typeof ServiciosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/diseno-web': {
@@ -88,6 +105,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DisenoWebRoute: DisenoWebRoute,
+  ServiciosRoute: ServiciosRoute,
   SistemasRoute: SistemasRoute,
 }
 export const routeTree = rootRouteImport

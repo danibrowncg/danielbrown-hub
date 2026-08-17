@@ -35,7 +35,7 @@ export function FinalCta() {
           transition={{ duration: 0.8 }}
           className="mt-4 font-display text-5xl uppercase leading-[0.95] text-white sm:text-6xl lg:text-7xl"
         >
-          ¿LISTO PARA TU <span className="text-neon">WEB</span>?
+          ¿EMPEZAMOS TU <span className="text-neon">PROYECTO</span>?
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 12 }}
@@ -44,7 +44,7 @@ export function FinalCta() {
           transition={{ delay: 0.2 }}
           className="mx-auto mt-5 max-w-xl text-base text-white/80 sm:text-lg"
         >
-          Escríbeme por WhatsApp y definamos tu proyecto. Respondo en minutos, sin compromiso.
+          Cuéntame qué necesitas —web, chatbot, app o sistema— y te digo cómo lo resolvemos. Respondo en minutos, sin compromiso.
         </motion.p>
 
         <motion.div

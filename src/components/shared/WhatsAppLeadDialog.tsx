@@ -1,6 +1,6 @@
 import { useState, type FormEvent, type ReactNode } from "react";
 import { motion, useReducedMotion, type Variants } from "motion/react";
-import { User, Store, Target, Check } from "lucide-react";
+import { User, Store, Target, Check, Globe, Bot, Smartphone, Workflow, type LucideIcon } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -11,10 +11,7 @@ import {
 import { WA_PHONE_RAW } from "@/lib/constants";
 import danielImg from "@/assets/daniel.webp";
 
-export type LeadVariant = "web" | "sistema";
-
 interface WhatsAppLeadDialogProps {
-  variant: LeadVariant;
   open: boolean;
   onOpenChange: (open: boolean) => void;
 }
@@ -23,29 +20,31 @@ const phone = WA_PHONE_RAW.replace(/\D/g, "");
 const EASE = [0.23, 1, 0.32, 1] as const;
 const WA_GREEN = "#25D366";
 
-/** Construye el mensaje-plantilla profesional (con emojis) para wa.me. */
-function buildMessage(
-  variant: LeadVariant,
-  data: { nombre: string; negocio: string; objetivo: string },
-) {
-  const origen = variant === "web" ? "*Diseño Web* 🚀" : "*Sistemas con IA* 🤖";
-  const linea3 =
-    variant === "web"
-      ? "🎯 *Quiero mi página web para:*"
-      : "🎯 *Quiero mi sistema para:*";
-  const cierre =
-    variant === "web"
-      ? "¿Me ayudas a cotizar mi proyecto? 💛"
-      : "¿Me ayudas con más información? 💛";
+/** Servicios entre los que elige el visitante. El `label` viaja al mensaje. */
+const SERVICIOS: { id: string; label: string; Icon: LucideIcon; emoji: string }[] = [
+  { id: "web", label: "Una página web", Icon: Globe, emoji: "🌐" },
+  { id: "chatbot", label: "Un chatbot con IA", Icon: Bot, emoji: "🤖" },
+  { id: "app", label: "Una aplicación", Icon: Smartphone, emoji: "📱" },
+  { id: "sistema", label: "Un sistema automatizado", Icon: Workflow, emoji: "⚙️" },
+];
 
+/** Construye el mensaje-plantilla profesional (con emojis) para wa.me. */
+function buildMessage(data: {
+  servicio: string;
+  nombre: string;
+  negocio: string;
+  objetivo: string;
+}) {
+  const s = SERVICIOS.find((x) => x.id === data.servicio);
   return [
-    `¡Hola Daniel! 👋 Vengo desde tu web de ${origen}`,
+    "¡Hola Daniel! 👋 Vengo desde tu web y quiero cotizar un proyecto.",
     "",
+    `${s?.emoji ?? "✨"} *Quiero:* ${s?.label ?? "un proyecto"}`,
     `👤 *Nombre:* ${data.nombre}`,
-    `🏢 *Tipo de negocio:* ${data.negocio}`,
-    `${linea3} ${data.objetivo}`,
+    `🏢 *Mi negocio:* ${data.negocio}`,
+    `🎯 *Lo necesito para:* ${data.objetivo}`,
     "",
-    cierre,
+    "¿Me ayudas a cotizarlo? 💛",
   ].join("\n");
 }
 
@@ -54,33 +53,25 @@ const fieldVariants: Variants = {
   show: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.45, delay: 0.12 + i * 0.08, ease: EASE },
+    transition: { duration: 0.45, delay: 0.12 + i * 0.07, ease: EASE },
   }),
 };
 
-function LeadForm({ variant, onDone }: { variant: LeadVariant; onDone: () => void }) {
+function LeadForm({ onDone }: { onDone: () => void }) {
   const reduce = useReducedMotion();
+  const [servicio, setServicio] = useState("");
   const [nombre, setNombre] = useState("");
   const [negocio, setNegocio] = useState("");
   const [objetivo, setObjetivo] = useState("");
 
-  const values = [nombre, negocio, objetivo];
-  const filledCount = values.filter((v) => v.trim() !== "").length;
-  const complete = filledCount === 3;
-
-  const objetivoLabel =
-    variant === "web"
-      ? "¿Para qué quieres tu página web?"
-      : "¿Para qué quieres el sistema o software?";
-  const objetivoPlaceholder =
-    variant === "web"
-      ? "Vender online, captar clientes, mostrar mi portafolio…"
-      : "Automatizar pedidos, un chatbot con IA, analizar datos…";
+  const values = [servicio, nombre, negocio, objetivo];
+  const complete = values.every((v) => v.trim() !== "");
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!complete) return;
-    const message = buildMessage(variant, {
+    const message = buildMessage({
+      servicio,
       nombre: nombre.trim(),
       negocio: negocio.trim(),
       objetivo: objetivo.trim(),
@@ -97,7 +88,7 @@ function LeadForm({ variant, onDone }: { variant: LeadVariant; onDone: () => voi
 
   return (
     <form onSubmit={handleSubmit} className="mt-5 flex flex-col gap-4">
-      {/* Progreso: 3 segmentos que se llenan al completar cada campo */}
+      {/* Progreso: un segmento por campo completado */}
       <motion.div {...anim(0)} className="flex items-center gap-1.5">
         {values.map((v, i) => (
           <span key={i} className="h-1 flex-1 overflow-hidden rounded-full bg-white/10">
@@ -112,7 +103,39 @@ function LeadForm({ variant, onDone }: { variant: LeadVariant; onDone: () => voi
         ))}
       </motion.div>
 
+      {/* Paso 1: qué quiere. Va primero porque es la decisión que ordena todo
+          lo demás, y en botones (no en un select) para que se resuelva de un
+          toque en móvil. */}
       <motion.div {...anim(1)}>
+        <p className="mb-2 text-[13px] font-medium text-white/70">¿Qué quieres crear?</p>
+        <div className="grid grid-cols-2 gap-2" role="radiogroup" aria-label="¿Qué quieres crear?">
+          {SERVICIOS.map((s) => {
+            const activo = servicio === s.id;
+            return (
+              <button
+                key={s.id}
+                type="button"
+                role="radio"
+                aria-checked={activo}
+                onClick={() => setServicio(s.id)}
+                className={`flex items-center gap-2.5 rounded-xl border p-3 text-left transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-neon ${
+                  activo
+                    ? "border-neon bg-neon/10 text-white"
+                    : "border-white/12 bg-white/[0.04] text-white/70 hover:border-white/25 hover:bg-white/[0.07]"
+                }`}
+              >
+                <s.Icon
+                  className={`h-5 w-5 shrink-0 transition-colors ${activo ? "text-neon" : "text-white/40"}`}
+                  strokeWidth={1.75}
+                />
+                <span className="text-[13px] font-medium leading-tight">{s.label}</span>
+              </button>
+            );
+          })}
+        </div>
+      </motion.div>
+
+      <motion.div {...anim(2)}>
         <Field
           icon={<User className="h-5 w-5" strokeWidth={1.75} />}
           htmlFor="lead-nombre"
@@ -134,7 +157,7 @@ function LeadForm({ variant, onDone }: { variant: LeadVariant; onDone: () => voi
         </Field>
       </motion.div>
 
-      <motion.div {...anim(2)}>
+      <motion.div {...anim(3)}>
         <Field
           icon={<Store className="h-5 w-5" strokeWidth={1.75} />}
           htmlFor="lead-negocio"
@@ -155,11 +178,11 @@ function LeadForm({ variant, onDone }: { variant: LeadVariant; onDone: () => voi
         </Field>
       </motion.div>
 
-      <motion.div {...anim(3)}>
+      <motion.div {...anim(4)}>
         <Field
           icon={<Target className="h-5 w-5" strokeWidth={1.75} />}
           htmlFor="lead-objetivo"
-          label={objetivoLabel}
+          label="¿Para qué lo necesitas?"
           filled={objetivo.trim() !== ""}
           reduce={!!reduce}
           alignTop
@@ -171,14 +194,14 @@ function LeadForm({ variant, onDone }: { variant: LeadVariant; onDone: () => voi
             rows={2}
             value={objetivo}
             onChange={(e) => setObjetivo(e.target.value)}
-            placeholder={objetivoPlaceholder}
+            placeholder="Vender online, atender clientes automático, ahorrar tiempo…"
             className={`${inputClass} resize-none`}
           />
         </Field>
       </motion.div>
 
       <motion.button
-        {...anim(4)}
+        {...anim(5)}
         type="submit"
         disabled={!complete}
         whileHover={complete && !reduce ? { scale: 1.02 } : undefined}
@@ -189,7 +212,6 @@ function LeadForm({ variant, onDone }: { variant: LeadVariant; onDone: () => voi
             : "cursor-not-allowed bg-neon/25 text-ink/50 shadow-none"
         }`}
       >
-        {/* Barrido de brillo en hover (solo cuando ya se puede enviar) */}
         {complete ? (
           <span
             aria-hidden="true"
@@ -241,15 +263,12 @@ function Field({
           {icon}
         </span>
         {children}
-        {/* Check verde al completar (feedback) */}
         <motion.span
           aria-hidden="true"
           initial={false}
           animate={{ scale: filled ? 1 : 0, opacity: filled ? 1 : 0 }}
           transition={
-            reduce
-              ? { duration: 0.12 }
-              : { type: "spring", duration: 0.4, bounce: 0.4 }
+            reduce ? { duration: 0.12 } : { type: "spring", duration: 0.4, bounce: 0.4 }
           }
           className={`pointer-events-none absolute right-3 grid h-5 w-5 place-items-center rounded-full ${sidePos}`}
           style={{ backgroundColor: WA_GREEN }}
@@ -261,12 +280,11 @@ function Field({
   );
 }
 
-export function WhatsAppLeadDialog({ variant, open, onOpenChange }: WhatsAppLeadDialogProps) {
+export function WhatsAppLeadDialog({ open, onOpenChange }: WhatsAppLeadDialogProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-h-[92dvh] max-w-[calc(100%-1.5rem)] gap-0 overflow-y-auto rounded-3xl border-white/10 bg-card p-0 text-white sm:max-w-md">
-        {/* Acento superior de marca */}
-        <div className="brand-gradient h-1.5 w-full" />
+        <div className="brand-grad h-1.5 w-full" />
         <div className="p-6 sm:p-7">
           {/* Header estilo contacto de WhatsApp: refuerza que hablarás con Daniel */}
           <DialogHeader className="text-left">
@@ -305,7 +323,7 @@ export function WhatsAppLeadDialog({ variant, open, onOpenChange }: WhatsAppLead
             Cuéntame de tu proyecto y te dejo un mensaje listo para enviarme por WhatsApp.
           </p>
 
-          <LeadForm variant={variant} onDone={() => onOpenChange(false)} />
+          <LeadForm onDone={() => onOpenChange(false)} />
         </div>
       </DialogContent>
     </Dialog>

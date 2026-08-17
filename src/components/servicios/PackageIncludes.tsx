@@ -1,4 +1,4 @@
-import { Server, Brain, BarChart3, Rocket, type LucideIcon } from "lucide-react";
+import { Globe, Sparkles, Settings, BarChart3, type LucideIcon } from "lucide-react";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/primitives/Reveal";
 import { SpotlightOverlay } from "@/components/primitives/SpotlightOverlay";
 import { Highlight } from "@/components/primitives/Highlight";
@@ -6,24 +6,24 @@ import { Eyebrow } from "@/components/primitives/Eyebrow";
 
 const cards: { Icon: LucideIcon; title: string; items: string[] }[] = [
   {
-    Icon: Server,
-    title: "Hosting + Dominio",
-    items: ["Hosting del sistema (infraestructura robusta)", "Dominio personalizado (1 año incluido)", "Infraestructura segura y escalable"],
+    Icon: Globe,
+    title: "Dominio + Hosting",
+    items: ["Dominio personalizado (12 meses)", "Hosting de alta velocidad", "Certificado SSL (HTTPS)"],
   },
   {
-    Icon: Brain,
-    title: "Software Inteligente",
-    items: ["Sistema automático inteligente", "IA integrada y funcional", "Interfaz intuitiva y profesional"],
+    Icon: Sparkles,
+    title: "Diseño Premium",
+    items: ["100% responsive mobile-first", "Animaciones modernas incluidas", "Interfaz exclusiva, sin plantillas"],
+  },
+  {
+    Icon: Settings,
+    title: "Soporte + SEO",
+    items: ["Soporte técnico 12 meses", "SEO básico para Google", "Optimización de velocidad"],
   },
   {
     Icon: BarChart3,
-    title: "Características Avanzadas",
-    items: ["Análisis y reportes automáticos", "Procesamiento inteligente de datos", "Integración con APIs externas"],
-  },
-  {
-    Icon: Rocket,
-    title: "Deployment + Training",
-    items: ["Deployment y lanzamiento del sistema", "Documentación completa", "Training básico de uso"],
+    title: "Extras incluidos",
+    items: ["Google Analytics configurado", "Integración redes sociales", "Formulario de contacto + backup"],
   },
 ];
 
@@ -41,7 +41,7 @@ export function PackageIncludes() {
         </Reveal>
         <Reveal delay={0.2}>
           <p className="mt-4 max-w-xl text-base text-ink/65 sm:text-lg">
-            Un paquete completo. Llave en mano. Sin sorpresas ni costos ocultos.
+            Llave en mano: lo dejo funcionando y listo para usar. Sin sorpresas ni costos ocultos.
           </p>
         </Reveal>
 

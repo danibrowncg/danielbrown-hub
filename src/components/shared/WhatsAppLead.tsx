@@ -5,7 +5,7 @@ import {
   useCallback,
   type ReactNode,
 } from "react";
-import { WhatsAppLeadDialog, type LeadVariant } from "./WhatsAppLeadDialog";
+import { WhatsAppLeadDialog } from "./WhatsAppLeadDialog";
 
 const LeadContext = createContext<{ openLead: () => void }>({
   openLead: () => {},
@@ -15,23 +15,20 @@ const LeadContext = createContext<{ openLead: () => void }>({
 export const useWhatsAppLead = () => useContext(LeadContext);
 
 /**
- * Envuelve una landing y captura un lead mínimo (nombre, negocio, objetivo)
- * antes de mandar al usuario a WhatsApp con un mensaje-plantilla ya escrito.
+ * Envuelve la landing y captura un lead mínimo (servicio, nombre, negocio,
+ * objetivo) antes de mandar al usuario a WhatsApp con un mensaje ya escrito.
+ *
+ * Ya no recibe `variant`: al unificarse las dos landings en una sola, el tipo
+ * de proyecto lo elige el propio visitante dentro del formulario.
  */
-export function WhatsAppLeadProvider({
-  variant,
-  children,
-}: {
-  variant: LeadVariant;
-  children: ReactNode;
-}) {
+export function WhatsAppLeadProvider({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
   const openLead = useCallback(() => setOpen(true), []);
 
   return (
     <LeadContext.Provider value={{ openLead }}>
       {children}
-      <WhatsAppLeadDialog variant={variant} open={open} onOpenChange={setOpen} />
+      <WhatsAppLeadDialog open={open} onOpenChange={setOpen} />
     </LeadContext.Provider>
   );
 }

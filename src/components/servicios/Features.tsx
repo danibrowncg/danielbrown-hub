@@ -4,18 +4,18 @@ import { Highlight } from "@/components/primitives/Highlight";
 import { Eyebrow } from "@/components/primitives/Eyebrow";
 
 const features = [
-  "Software inteligente con IA integrada",
-  "Automatización de procesos empresariales",
-  "Custom solutions personalizadas",
-  "Análisis de datos en tiempo real",
-  "Infraestructura segura y escalable",
-  "Integración con APIs y plataformas externas",
-  "Dominio + hosting 1 año incluido",
-  "Interfaz intuitiva y profesional",
-  "Desarrollo rápido (1-2 semanas)",
+  "Diseño 100% responsive y mobile-first",
+  "Velocidad de carga optimizada",
+  "Chatbot conectado a WhatsApp",
+  "Atención automática 24/7",
+  "SEO básico incluido para Google",
+  "Seguridad SSL certificada",
+  "Soporte técnico 12 meses",
+  "Entrega rápida y sin vueltas",
+  "Dominio + hosting gratis (1 año)",
+  "Panel fácil de administrar",
+  "Integración con tus plataformas",
   "Garantía de satisfacción",
-  "Dashboards y reportes inteligentes",
-  "Documentación y training incluido",
 ];
 
 export function Features() {
@@ -27,7 +27,7 @@ export function Features() {
         </Reveal>
         <Reveal delay={0.1}>
           <h2 className="mt-3 max-w-3xl font-display text-4xl leading-[0.95] text-ink sm:text-5xl lg:text-6xl">
-            POR QUÉ ELEGIR ESTE <Highlight>SISTEMA</Highlight>.
+            POR QUÉ TRABAJAR <Highlight>CONMIGO</Highlight>.
           </h2>
         </Reveal>
 

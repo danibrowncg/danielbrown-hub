@@ -3,22 +3,22 @@ import Autoplay from "embla-carousel-autoplay";
 import { useCallback, useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { Reveal } from "@/components/primitives/Reveal";
-import projectRestaurant from "@/assets/diseno-web/project-restaurant.webp";
-import projectFashion from "@/assets/diseno-web/project-fashion.webp";
-import projectAgency from "@/assets/diseno-web/project-agency.webp";
-import projectSaas from "@/assets/diseno-web/project-saas.webp";
-import projectStartup from "@/assets/diseno-web/project-startup.webp";
-import projectPortfolio from "@/assets/diseno-web/project-portfolio.webp";
+import projectRestaurant from "@/assets/servicios/project-restaurant.webp";
+import projectFashion from "@/assets/servicios/project-fashion.webp";
+import projectAgency from "@/assets/servicios/project-agency.webp";
+import projectChatbot from "@/assets/servicios/project-chatbot-ai.webp";
+import projectAutomation from "@/assets/servicios/project-automation.webp";
+import projectErp from "@/assets/servicios/project-erp.webp";
 import { Highlight } from "@/components/primitives/Highlight";
 import { Eyebrow } from "@/components/primitives/Eyebrow";
 
 const projects = [
-  { img: projectRestaurant, sector: "Gastronomía", title: "Maison Noir", desc: "Restaurante de alta cocina con sistema de reservas integrado.", result: "+52% reservas online" },
-  { img: projectFashion, sector: "Fashion E-commerce", title: "Atelier 22", desc: "Tienda de moda de lujo con checkout optimizado.", result: "+68% conversión" },
-  { img: projectAgency, sector: "Agencia Creativa", title: "North&Co Studio", desc: "Portfolio de agencia con showcase interactivo.", result: "x3 leads cualificados" },
-  { img: projectSaas, sector: "SaaS", title: "Pulse Analytics", desc: "Dashboard B2B con onboarding y planes de pago.", result: "+40% trial → paid" },
-  { img: projectStartup, sector: "Startup Tech", title: "Nexora", desc: "Landing de producto con animaciones cinemáticas.", result: "LCP 1.2s · 95 Lighthouse" },
-  { img: projectPortfolio, sector: "Portfolio", title: "Aurel Voss", desc: "Portfolio de fotógrafa con galería editorial.", result: "+120% tiempo en sitio" },
+  { img: projectRestaurant, sector: "Página web", title: "Maison Noir", desc: "Restaurante de alta cocina con sistema de reservas integrado.", result: "+52% reservas online" },
+  { img: projectChatbot, sector: "Chatbot con IA", title: "Asistente de WhatsApp", desc: "Atiende, responde dudas y agenda clientes automáticamente, 24/7.", result: "−70% mensajes manuales" },
+  { img: projectFashion, sector: "Tienda online", title: "Atelier 22", desc: "Tienda de moda con checkout optimizado para móvil.", result: "+68% conversión" },
+  { img: projectAutomation, sector: "Automatización", title: "Workflow Engine", desc: "Pedidos, alertas y procesos internos en piloto automático.", result: "x12 velocidad de proceso" },
+  { img: projectAgency, sector: "Web corporativa", title: "North&Co Studio", desc: "Sitio de agencia con showcase interactivo de proyectos.", result: "x3 leads cualificados" },
+  { img: projectErp, sector: "Sistema a medida", title: "Orion ERP", desc: "Panel de control con métricas, inventario y reportes automáticos.", result: "+45% eficiencia operativa" },
 ];
 
 export function ProjectsCarousel() {
@@ -51,7 +51,7 @@ export function ProjectsCarousel() {
         </Reveal>
         <Reveal delay={0.2}>
           <p className="mt-4 max-w-xl text-base text-ink/65 sm:text-lg">
-            Webs que ya están vendiendo. Cada una, con su propia identidad.
+            Webs, chatbots y sistemas funcionando en negocios reales.
           </p>
         </Reveal>
       </div>

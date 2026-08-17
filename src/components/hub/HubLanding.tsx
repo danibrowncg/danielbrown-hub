@@ -155,8 +155,7 @@ export function HubLanding() {
           animate="show"
           className="mt-8 flex w-full flex-col gap-3.5"
         >
-          <LinkButton variants={listItem} to="/diseno-web" title="Diseño Web" />
-          <LinkButton variants={listItem} to="/sistemas" title="Sistemas con IA" />
+          <LinkButton variants={listItem} to="/servicios" title="Contratar mis servicios" />
           <LinkButton
             variants={listItem}
             href={COMMUNITY_WA_URL}

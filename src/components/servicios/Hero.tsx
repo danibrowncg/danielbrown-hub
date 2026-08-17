@@ -7,7 +7,7 @@ import { Magnetic } from "@/components/primitives/Magnetic";
 import { useWhatsAppLead } from "@/components/shared/WhatsAppLead";
 import danielImg from "@/assets/daniel.webp";
 
-const title = ["DISEÑO", "WEB", "QUE", "CONVIERTE"];
+const title = ["WEBS,", "APPS", "Y", "SISTEMAS"];
 
 export function Hero() {
   const reduce = useReducedMotion();
@@ -74,7 +74,7 @@ export function Hero() {
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-neon opacity-75" />
           <span className="relative inline-flex h-2 w-2 rounded-full bg-neon" />
         </span>
-        Desde $220 · Entrega 3-5 días
+        Webs desde $220 · Chatbots con IA · Entrega rápida
       </motion.div>
 
       {/* headline */}
@@ -83,7 +83,7 @@ export function Hero() {
           {title.map((word, i) => (
             <motion.span
               key={word}
-              className={`mr-3 inline-block ${word === "CONVIERTE" ? "text-brand-grad" : ""}`}
+              className={`mr-3 inline-block ${word === "SISTEMAS" ? "text-brand-grad" : ""}`}
               initial={{ opacity: 0, y: 40, rotateX: reduce ? 0 : -40 }}
               animate={{ opacity: 1, y: 0, rotateX: 0 }}
               transition={{ duration: 0.7, delay: 0.1 + i * 0.12, ease: [0.22, 1, 0.36, 1] }}
@@ -107,8 +107,8 @@ export function Hero() {
           transition={{ delay: 0.7 }}
           className="mt-5 max-w-xl text-base text-ink/70 sm:text-lg lg:text-xl"
         >
-          Webs premium, optimizadas y estratégicas para que tu negocio venda 24/7.
-          Diseño exclusivo, código limpio, resultado real.
+          Páginas web que venden, chatbots con IA que atienden a tus clientes y
+          sistemas que automatizan tu operación. Todo a medida, sin plantillas.
         </motion.p>
 
         {/* CTA */}
