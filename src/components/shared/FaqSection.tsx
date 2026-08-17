@@ -13,6 +13,13 @@ interface FaqSectionProps {
   items: FaqItem[];
   /** Texto de apoyo bajo el título. */
   intro: string;
+  /** Texto del enlace de cierre. */
+  ctaLabel?: string;
+  /**
+   * Qué abre el enlace de cierre. Por defecto el formulario de servicios; la
+   * landing de mentoría pasa el suyo.
+   */
+  onCta?: () => void;
 }
 
 /**
@@ -30,8 +37,11 @@ interface FaqSectionProps {
  * Cierra con una salida a WhatsApp: quien llega al final del FAQ y sigue con
  * dudas es justo quien está a punto de escribir.
  */
-export function FaqSection({ items, intro }: FaqSectionProps) {
+export function FaqSection({ items, intro, ctaLabel, onCta }: FaqSectionProps) {
+  // Fuera del provider el hook devuelve un no-op, así que es seguro llamarlo
+  // siempre y dejar que `onCta` mande cuando venga.
   const { openLead } = useWhatsAppLead();
+  const accion = onCta ?? openLead;
 
   return (
     <section className="relative overflow-hidden px-5 py-20 sm:px-8 lg:px-16 lg:py-28">
@@ -52,10 +62,10 @@ export function FaqSection({ items, intro }: FaqSectionProps) {
           <Reveal delay={0.3}>
             <button
               type="button"
-              onClick={openLead}
+              onClick={accion}
               className="mt-6 inline-flex items-center gap-2 border-b border-ink/25 pb-0.5 text-sm font-semibold text-ink transition-colors hover:border-ink hover:text-ink"
             >
-              ¿Tienes otra duda? Escríbeme
+              {ctaLabel ?? "¿Tienes otra duda? Escríbeme"}
               <span aria-hidden="true">→</span>
             </button>
           </Reveal>
