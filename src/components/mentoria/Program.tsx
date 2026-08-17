@@ -1,3 +1,4 @@
+import { motion, useReducedMotion } from "motion/react";
 import { Compass, Hammer, Palette, Rocket, X, Check, type LucideIcon } from "lucide-react";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/primitives/Reveal";
 import { Highlight } from "@/components/primitives/Highlight";
@@ -39,6 +40,8 @@ const comparativa = [
 ];
 
 export function Program() {
+  const reduce = useReducedMotion();
+
   return (
     <>
       {/* ---------- Qué vas a lograr ---------- */}
@@ -82,7 +85,9 @@ export function Program() {
       </section>
 
       {/* ---------- Cómo funciona ---------- */}
-      <section id="como-funciona" className="relative overflow-hidden px-5 py-20 sm:px-8 lg:px-16 lg:py-28">
+      {/* Sin overflow-hidden: Motion lo tomaría como contenedor de scroll y el
+          raíl de progreso se quedaría congelado en 0. */}
+      <section id="como-funciona" className="relative px-5 py-20 sm:px-8 lg:px-16 lg:py-28">
         <div className="mx-auto max-w-6xl">
           <Reveal>
             <Eyebrow>Cómo funciona</Eyebrow>
@@ -99,7 +104,23 @@ export function Program() {
             </p>
           </Reveal>
 
-          <StaggerGroup className="mt-12 flex flex-col gap-4" stagger={0.09}>
+          <div className="relative mt-12 lg:pl-12">
+            {/* Raíl: solo en escritorio, donde hay margen para que respire */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute left-[1.1rem] top-2 hidden h-[calc(100%-1rem)] w-px bg-ink/10 lg:block"
+            >
+              <motion.div
+                className="brand-grad h-full w-full rounded-full"
+                style={{ originY: 0 }}
+                initial={{ scaleY: reduce ? 1 : 0 }}
+                whileInView={{ scaleY: 1 }}
+                viewport={{ once: true, margin: "-120px" }}
+                transition={{ duration: reduce ? 0 : 1.6, ease: [0.23, 1, 0.32, 1] }}
+              />
+            </div>
+
+            <StaggerGroup className="flex flex-col gap-4" stagger={0.09}>
             {llamadas.map((l, i) => (
               <StaggerItem
                 key={l.titulo}
@@ -129,7 +150,8 @@ export function Program() {
                 </div>
               </StaggerItem>
             ))}
-          </StaggerGroup>
+            </StaggerGroup>
+          </div>
         </div>
       </section>
     </>

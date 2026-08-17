@@ -1,20 +1,11 @@
 import { motion, useReducedMotion } from "motion/react";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import { TerminalWindow, type TerminalLine } from "@/components/primitives/TerminalWindow";
+import { VideoBox } from "./VideoBox";
 import { Magnetic } from "@/components/primitives/Magnetic";
 import { useMentoriaApply } from "@/components/shared/MentoriaApply";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
-
-/** El recorrido completo del programa, contado en 20 segundos de terminal. */
-const LINEAS: TerminalLine[] = [
-  { kind: "prompt", text: "quiero una web donde mis clientes reserven turno" },
-  { kind: "out", text: "Definiendo alcance y stack…" },
-  { kind: "out", text: "Construyendo reservas, calendario y avisos…" },
-  { kind: "out", text: "Publicando en producción…" },
-  { kind: "ok", text: "✓ Listo. Tu proyecto está online." },
-];
 
 const titulo = ["CONSTRUYE", "TU", "PRIMER"];
 
@@ -110,9 +101,9 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Elemento firma */}
+          {/* Video de presentación: quien llega puede darle play sin leer nada */}
           <motion.div {...fade(0.4)}>
-            <TerminalWindow lines={LINEAS} />
+            <VideoBox />
           </motion.div>
         </div>
       </div>

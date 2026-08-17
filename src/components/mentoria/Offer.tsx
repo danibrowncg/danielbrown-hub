@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import { FileText, Map, MessageCircle, DoorOpen, Gift, Check, type LucideIcon } from "lucide-react";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/primitives/Reveal";
 import { Highlight } from "@/components/primitives/Highlight";
@@ -86,7 +87,13 @@ export function Offer() {
       {/* ---------- Precio ---------- */}
       <section id="precio" className="relative overflow-hidden px-5 py-20 sm:px-8 lg:px-16 lg:py-28">
         <div className="mx-auto max-w-3xl">
-          <div className="relative isolate overflow-hidden rounded-3xl bg-ink p-8 text-center shadow-[0_40px_90px_-45px_rgba(13,0,38,0.6)] sm:p-12">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96, y: 24 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
+            className="relative isolate overflow-hidden rounded-3xl bg-ink p-8 text-center shadow-[0_40px_90px_-45px_rgba(13,0,38,0.6)] sm:p-12"
+          >
             <GridPattern />
 
             <div className="relative">
@@ -95,6 +102,8 @@ export function Offer() {
               </p>
 
               <div className="mt-5 flex items-baseline justify-center gap-2">
+                {/* Estático a propósito: un contador mostraría "$0" si la animación
+                    no llega a correr, y un precio equivocado cuesta la venta. */}
                 <span className="font-display text-7xl leading-none text-white sm:text-8xl">
                   $225
                 </span>
@@ -111,13 +120,26 @@ export function Offer() {
                   "Resúmenes y guías por escrito",
                   "Tu proyecto publicado en producción",
                   "50% de descuento en Creadores Digitales IA",
-                ].map((t) => (
-                  <li key={t} className="flex items-start gap-2.5 text-sm text-white/85">
-                    <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-neon">
+                ].map((t, i) => (
+                  <motion.li
+                    key={t}
+                    className="flex items-start gap-2.5 text-sm text-white/85"
+                    initial={{ opacity: 0, x: -12 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.35 + i * 0.08, duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
+                  >
+                    <motion.span
+                      className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-neon"
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.4 + i * 0.08, type: "spring", duration: 0.45, bounce: 0.45 }}
+                    >
                       <Check className="h-3.5 w-3.5 text-ink" strokeWidth={3} />
-                    </span>
+                    </motion.span>
                     {t}
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
 
@@ -134,7 +156,7 @@ export function Offer() {
                 poder dedicarle tiempo real a cada persona.
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
     </>

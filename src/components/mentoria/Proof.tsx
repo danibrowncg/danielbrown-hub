@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from "motion/react";
-import { Play, Quote, Camera, Star } from "lucide-react";
+import { Quote, Camera, Star } from "lucide-react";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/primitives/Reveal";
 import { ScrollParallax } from "@/components/primitives/ScrollParallax";
 import { Highlight } from "@/components/primitives/Highlight";
@@ -90,52 +90,13 @@ export function Proof() {
             <Reveal delay={0.2}>
               <p className="mt-5 max-w-xl text-base text-ink/70 sm:text-lg">
                 Soy Daniel Brown. Creo contenido sobre IA aplicada y Claude Code para una
-                comunidad de <span className="font-semibold text-ink">+4.500 personas</span>{" "}
-                {/* TODO: ajusta esta cifra cuando cambie */}
+                comunidad de <span className="font-semibold text-ink">+10.000 personas</span>{" "}
                 que sigue ese trabajo, y construyo software, chatbots y webs para negocios
                 reales. No enseño teoría de algo que leí: te enseño exactamente lo que uso
                 para trabajar.
               </p>
             </Reveal>
           </div>
-        </div>
-      </section>
-
-      {/* ---------- Video ---------- */}
-      <section className="relative overflow-hidden px-5 py-20 sm:px-8 lg:px-16 lg:py-28">
-        <div className="mx-auto max-w-4xl">
-          <Reveal>
-            <Eyebrow>En mis palabras</Eyebrow>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <h2 className="mt-3 font-display text-4xl leading-[0.95] text-ink sm:text-5xl">
-              TE LO CUENTO <Highlight>YO MISMO</Highlight>.
-            </h2>
-          </Reveal>
-
-          <Reveal delay={0.2}>
-            {/*
-              TODO — VIDEO REAL
-              Opción A (archivo propio): reemplaza este bloque por
-                <video src="/mentoria.mp4" poster="/mentoria-poster.jpg" controls className="h-full w-full object-cover" />
-              Opción B (YouTube): reemplázalo por un <iframe src="https://www.youtube.com/embed/TU_ID" …/>
-            */}
-            <div className="group relative mt-10 aspect-video overflow-hidden rounded-2xl border border-ink/10 bg-ink">
-              <div className="absolute inset-0 grid place-items-center">
-                <div className="text-center">
-                  <span className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-neon text-ink transition-transform group-hover:scale-110">
-                    <Play className="ml-1 h-7 w-7" fill="currentColor" strokeWidth={0} />
-                  </span>
-                  <p className="mt-4 font-display text-lg uppercase tracking-wide text-white/80">
-                    Video pendiente
-                  </p>
-                  <p className="mt-1 font-mono text-xs text-white/40">
-                    TODO: insertar video en Proof.tsx
-                  </p>
-                </div>
-              </div>
-            </div>
-          </Reveal>
         </div>
       </section>
 

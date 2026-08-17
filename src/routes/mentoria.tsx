@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Hero } from "@/components/mentoria/Hero";
+import { TerminalBlock } from "@/components/mentoria/TerminalBlock";
 import { Program } from "@/components/mentoria/Program";
 import { Offer } from "@/components/mentoria/Offer";
 import { Proof } from "@/components/mentoria/Proof";
@@ -46,6 +47,7 @@ function Mentoria() {
       <main id="top" className="relative z-10 text-ink">
         <Hero />
         <Marquee items={RECORRIDO} duration={30} />
+        <TerminalBlock />
         <Program />
         <Offer />
         <Proof />

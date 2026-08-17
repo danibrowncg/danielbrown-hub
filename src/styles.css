@@ -98,6 +98,10 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    /* NO mover esto a `html`: al hacerlo, html pasa a `overflow-y: auto` y
+       IntersectionObserver deja de disparar, con lo que TODAS las animaciones
+       de entrada (`whileInView`) se quedan congeladas y el contenido nunca se
+       revela (precio en $0, listas invisibles). Probado y revertido. */
     overflow-x: hidden;
   }
 
