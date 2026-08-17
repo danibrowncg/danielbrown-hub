@@ -62,9 +62,12 @@
      no el neón (amarillo sobre blanco no cumple contraste). */
   --background: oklch(1 0 0);               /* blanco total */
   --foreground: var(--ink);                /* texto tinta */
-  --card: oklch(0.17 0.06 290);            /* modal oscuro (intacto) */
+  /* El modal usa exactamente la misma tinta que el resto de islas oscuras del
+     sitio (pastillas, tarjetas de testimonios, panel de entrega). Antes era un
+     tono más claro y saturado que se leía azul marino y rompía la paleta. */
+  --card: var(--ink);
   --card-foreground: oklch(0.98 0 0);
-  --popover: oklch(0.17 0.06 290);
+  --popover: var(--ink);
   --popover-foreground: oklch(0.98 0 0);
   --primary: var(--neon);
   --primary-foreground: var(--ink);
