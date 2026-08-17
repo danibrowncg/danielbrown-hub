@@ -28,7 +28,7 @@ export const useMentoriaApply = () => useContext(ApplyContext);
 /** Mensaje con negritas de WhatsApp (asteriscos) listo para enviar. */
 function buildMessage(d: { nombre: string; tipo: string; idea: string; nivel: string }) {
   return [
-    "¡Hola Daniel! Quiero aplicar a *Sprint MVP* 🚀",
+    "¡Hola Daniel! Quiero aplicar a la *Mentoría MVP* 🚀",
     "",
     `*Nombre:* ${d.nombre}`,
     `*Qué quiero construir:* ${d.tipo}`,
@@ -122,7 +122,7 @@ function ApplyDialog({
         <div className="p-6 sm:p-8">
           <DialogHeader className="text-left">
             <DialogTitle className="font-display text-2xl uppercase tracking-wide text-white">
-              Aplicar a Sprint MVP
+              Aplicar a la Mentoría MVP
             </DialogTitle>
             <DialogDescription className="text-sm text-white/55">
               4 preguntas rápidas. Al terminar te abro WhatsApp con todo escrito.

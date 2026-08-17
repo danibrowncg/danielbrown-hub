@@ -91,7 +91,7 @@ export function Offer() {
 
             <div className="relative">
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-neon">
-                Sprint MVP
+                Mentoría MVP
               </p>
 
               <div className="mt-5 flex items-baseline justify-center gap-2">
@@ -106,7 +106,7 @@ export function Offer() {
 
               <ul className="mx-auto mt-8 flex max-w-sm flex-col gap-2.5 text-left">
                 {[
-                  "4 llamadas 1:1 de 60-90 minutos",
+                  "4 llamadas de mentoría 1:1 de 60-90 minutos",
                   "Soporte por WhatsApp todo el programa",
                   "Resúmenes y guías por escrito",
                   "Tu proyecto publicado en producción",

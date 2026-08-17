@@ -43,15 +43,10 @@ export function HubLanding() {
 
   return (
     <main className="relative isolate z-10 flex min-h-[100dvh] flex-col items-center justify-center px-5 py-14 text-ink">
+      {/* Sin tarjeta contenedora a propósito: el contenido respira directo sobre
+          el fondo. Un marco extra aquí competía con los botones, que son lo
+          único que esta página necesita que se mire. */}
       <div className="relative z-10 flex w-full max-w-[26rem] flex-col items-center">
-        {/* Tarjeta elevada: despega el contenido de la trama de puntos y crea
-            una jerarquía figura/fondo nítida — el mismo recurso que subió el
-            nivel de las tarjetas de las landings. */}
-        <div className="relative w-full overflow-hidden rounded-[1.75rem] border border-ink/10 bg-white px-6 pb-9 pt-10 shadow-[0_30px_80px_-42px_rgba(13,0,38,0.3)] sm:px-8">
-          {/* Filete de marca: el degradado, en su dosis mínima */}
-          <span aria-hidden="true" className="brand-grad absolute inset-x-0 top-0 h-1" />
-
-          <div className="flex flex-col items-center">
         {/* Avatar: anillo cónico orbitando + flotación */}
         <motion.div
           initial={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.9 }}
@@ -126,9 +121,9 @@ export function HubLanding() {
           {...fadeUp(0.22)}
           className="mt-3 max-w-[22rem] text-balance text-center text-sm leading-relaxed text-ink/70 sm:text-base"
         >
-          🚀 Diseño Web y Sistemas con IA 🔥
+          Diseño web y sistemas con IA para negocios.
           <br />
-          Aprende a dominar Claude y la IA para tu día a día y negocios 📈
+          Aprende a dominar Claude y la IA en tu día a día.
         </motion.p>
 
         {/* Redes */}
@@ -164,9 +159,6 @@ export function HubLanding() {
             title="Comunidad Gratuita"
           />
         </motion.nav>
-
-          </div>
-        </div>
 
         {/* Footer */}
         <motion.footer

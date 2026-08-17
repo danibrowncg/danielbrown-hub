@@ -16,7 +16,7 @@ const LINEAS: TerminalLine[] = [
   { kind: "ok", text: "✓ Listo. Tu proyecto está online." },
 ];
 
-const titulo = ["DEL", "PROMPT", "AL"];
+const titulo = ["CONSTRUYE", "TU", "PRIMER"];
 
 export function Hero() {
   const reduce = useReducedMotion();
@@ -78,14 +78,14 @@ export function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.65, delay: 0.45, ease: EASE }}
               >
-                PRODUCTO
+                SISTEMA
               </motion.span>
             </h1>
 
             <motion.p {...fade(0.55)} className="mt-5 max-w-xl text-base text-ink/70 sm:text-lg">
-              En 4 semanas construimos juntos tu primer proyecto real con Claude Code —
-              una web, un software, un sistema o una app— y lo dejamos publicado y
-              funcionando. En vivo, uno a uno, no un curso grabado.
+              Mentoría 1:1 de 4 semanas en la que construimos juntos tu primer proyecto
+              real con Claude Code —una web, un software, un sistema o una app— y lo
+              dejamos publicado y funcionando. En vivo, conmigo, no un curso grabado.
             </motion.p>
 
             <motion.div {...fade(0.65)} className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">

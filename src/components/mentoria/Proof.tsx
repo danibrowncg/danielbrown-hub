@@ -1,24 +1,41 @@
 import { motion, useReducedMotion } from "motion/react";
-import { Play, Quote, Camera } from "lucide-react";
+import { Play, Quote, Camera, Star } from "lucide-react";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/primitives/Reveal";
 import { ScrollParallax } from "@/components/primitives/ScrollParallax";
 import { Highlight } from "@/components/primitives/Highlight";
 import { Eyebrow } from "@/components/primitives/Eyebrow";
 import danielImg from "@/assets/daniel.webp";
+import tMiguel from "@/assets/mentoria/t-miguel.webp";
+import tLorena from "@/assets/mentoria/t-lorena.webp";
+import tRonald from "@/assets/mentoria/t-ronald.webp";
+import clase1 from "@/assets/mentoria/clase-1.webp";
+import clase2 from "@/assets/mentoria/clase-2.webp";
+import clase3 from "@/assets/mentoria/clase-3.webp";
 
-/**
- * TODO — TESTIMONIOS REALES
- * Sustituye cada objeto por un testimonio real, con permiso de la persona.
- * Deja el array vacío si aún no tienes ninguno: la sección se oculta sola.
- */
-const testimonios: { nombre: string; proyecto: string; texto: string }[] = [];
+/** Testimonios reales de alumnos, publicados con su permiso. */
+const testimonios: { nombre: string; foto: string; texto: string }[] = [
+  {
+    nombre: "Miguel Rodríguez",
+    foto: tMiguel,
+    texto:
+      "Más que agradecido y satisfecho, 100% recomendable, vale totalmente la inversión. Mucha atención y amabilidad de parte de Daniel.",
+  },
+  {
+    nombre: "Lorena Mejías",
+    foto: tLorena,
+    texto:
+      "Es increíble todo lo que aprendes por una inversión tan baja. Estoy muy satisfecha y emocionada de lo aprendido, y de lo que me espera con esta nueva habilidad adquirida.",
+  },
+  {
+    nombre: "Ronald Castellanos",
+    foto: tRonald,
+    texto:
+      "Realmente muy buena mentoría. Es súper completa y adquieres una habilidad que podrás monetizar fácilmente.",
+  },
+];
 
-/**
- * TODO — FOTOS DE CLASES EN VIVO
- * Añade aquí las rutas de tus fotos dando clases (impórtalas desde
- * `@/assets/mentoria/…`). Con el array vacío se muestran marcadores.
- */
-const fotos: string[] = [];
+/** Capturas reales de las llamadas de mentoría. */
+const fotos: string[] = [clase1, clase2, clase3];
 
 export function Proof() {
   const reduce = useReducedMotion();
@@ -136,46 +153,53 @@ export function Proof() {
 
           {/* Testimonios */}
           <StaggerGroup className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" stagger={0.08}>
-            {(testimonios.length ? testimonios : Array.from({ length: 3 })).map((t, i) => {
-              const real = testimonios.length > 0;
-              const d = t as { nombre: string; proyecto: string; texto: string } | undefined;
-              return (
-                <StaggerItem
-                  key={i}
-                  direction="up"
-                  className={`relative flex flex-col rounded-2xl border p-6 ${
-                    real
-                      ? "border-white/10 bg-ink"
-                      : "border-dashed border-ink/20 bg-ink/[0.02]"
-                  }`}
-                >
-                  <Quote
-                    aria-hidden="true"
-                    className={`absolute right-5 top-5 h-7 w-7 ${real ? "text-white/[0.07]" : "text-ink/10"}`}
-                    fill="currentColor"
-                    strokeWidth={2.5}
+            {testimonios.map((t) => (
+              <StaggerItem
+                key={t.nombre}
+                direction="up"
+                className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-ink p-6 shadow-[0_12px_40px_-24px_rgba(13,0,38,0.5)] transition-all duration-300 hover:-translate-y-1.5 hover:border-neon/40"
+              >
+                <Quote
+                  aria-hidden="true"
+                  className="absolute right-5 top-5 h-8 w-8 text-white/[0.07] transition-colors group-hover:text-neon/20"
+                  fill="currentColor"
+                  strokeWidth={2.5}
+                />
+
+                <div className="flex gap-0.5 text-neon" aria-label="5 de 5 estrellas">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <motion.span
+                      key={i}
+                      initial={{ opacity: 0, scale: 0.4 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.06 * i, type: "spring", duration: 0.5, bounce: 0.35 }}
+                    >
+                      <Star className="h-4 w-4 fill-current" strokeWidth={0} />
+                    </motion.span>
+                  ))}
+                </div>
+
+                <p className="relative mt-4 flex-1 text-base leading-relaxed text-white/90">
+                  "{t.texto}"
+                </p>
+
+                <div className="mt-5 flex items-center gap-3 border-t border-white/10 pt-4">
+                  <img
+                    src={t.foto}
+                    alt={t.nombre}
+                    loading="lazy"
+                    decoding="async"
+                    width={44}
+                    height={44}
+                    className="h-11 w-11 rounded-full object-cover ring-2 ring-neon/40"
                   />
-                  {real ? (
-                    <>
-                      <p className="flex-1 text-base leading-relaxed text-white/90">"{d!.texto}"</p>
-                      <div className="mt-5 border-t border-white/10 pt-4">
-                        <p className="font-display text-base uppercase text-white">{d!.nombre}</p>
-                        <p className="text-xs text-white/55">{d!.proyecto}</p>
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      <p className="flex-1 text-sm leading-relaxed text-ink/40">
-                        Aquí irá el testimonio de un alumno, con su nombre y qué construyó.
-                      </p>
-                      <p className="mt-5 border-t border-ink/10 pt-4 font-mono text-xs text-ink/35">
-                        TODO: testimonio {i + 1} en Proof.tsx
-                      </p>
-                    </>
-                  )}
-                </StaggerItem>
-              );
-            })}
+                  <p className="font-display text-base uppercase leading-tight text-white">
+                    {t.nombre}
+                  </p>
+                </div>
+              </StaggerItem>
+            ))}
           </StaggerGroup>
 
           {/* Fotos de clases */}
@@ -185,30 +209,21 @@ export function Proof() {
             </p>
           </Reveal>
           <StaggerGroup className="mt-4 grid gap-4 sm:grid-cols-3" stagger={0.07}>
-            {(fotos.length ? fotos : Array.from({ length: 3 })).map((f, i) => (
+            {fotos.map((f, i) => (
               <StaggerItem
                 key={i}
                 direction="up"
-                className={`relative aspect-[4/3] overflow-hidden rounded-2xl ${
-                  fotos.length ? "border border-ink/10" : "grid place-items-center border border-dashed border-ink/20 bg-ink/[0.02]"
-                }`}
+                className="overflow-hidden rounded-2xl border border-ink/10 shadow-[0_4px_24px_-16px_rgba(13,0,38,0.3)]"
               >
-                {fotos.length ? (
-                  <img
-                    src={f as string}
-                    alt="Clase en vivo de la mentoría"
-                    loading="lazy"
-                    decoding="async"
-                    className="h-full w-full object-cover"
-                  />
-                ) : (
-                  <div className="text-center">
-                    <Camera className="mx-auto h-7 w-7 text-ink/20" strokeWidth={1.75} />
-                    <p className="mt-2 font-mono text-xs text-ink/35">
-                      TODO: foto {i + 1}
-                    </p>
-                  </div>
-                )}
+                <img
+                  src={f}
+                  alt={`Llamada de mentoría en vivo ${i + 1}`}
+                  loading="lazy"
+                  decoding="async"
+                  width={800}
+                  height={533}
+                  className="aspect-[3/2] w-full object-cover transition-transform duration-700 hover:scale-[1.04]"
+                />
               </StaggerItem>
             ))}
           </StaggerGroup>
