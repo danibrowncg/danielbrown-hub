@@ -11,6 +11,8 @@ interface TerminalWindowProps {
   lines: TerminalLine[];
   /** ms por carácter al teclear las líneas de tipo `prompt`. */
   speed?: number;
+  /** Segundos de pausa antes de repetir la secuencia. 0 = no repetir. */
+  loopDelay?: number;
   className?: string;
 }
 
@@ -27,7 +29,7 @@ interface TerminalWindowProps {
  * golpe, como en una terminal real. Con `prefers-reduced-motion` se muestra el
  * estado final completo sin teclear.
  */
-export function TerminalWindow({ lines, speed = 28, className = "" }: TerminalWindowProps) {
+export function TerminalWindow({ lines, speed = 28, loopDelay = 3, className = "" }: TerminalWindowProps) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const reduce = useReducedMotion();
@@ -42,7 +44,16 @@ export function TerminalWindow({ lines, speed = 28, className = "" }: TerminalWi
       setChars(Infinity);
       return;
     }
-    if (shown >= lines.length) return;
+    // Terminada la secuencia: pausa y vuelve a empezar, para que el bloque
+    // nunca quede estático. Con reduced-motion se queda en el estado final.
+    if (shown >= lines.length) {
+      if (!loopDelay || reduce) return;
+      const t = setTimeout(() => {
+        setShown(0);
+        setChars(0);
+      }, loopDelay * 1000);
+      return () => clearTimeout(t);
+    }
 
     const line = lines[shown];
     // Las respuestas del sistema no se teclean: aparecen completas tras una pausa.
@@ -59,7 +70,7 @@ export function TerminalWindow({ lines, speed = 28, className = "" }: TerminalWi
       setChars(0);
     }, 420);
     return () => clearTimeout(t);
-  }, [inView, reduce, shown, chars, lines, speed]);
+  }, [inView, reduce, shown, chars, lines, speed, loopDelay]);
 
   return (
     <div

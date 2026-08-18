@@ -35,46 +35,54 @@ export function Offer() {
   return (
     <>
       {/* ---------- Qué incluye ---------- */}
-      <section className="relative overflow-hidden px-5 py-20 sm:px-8 lg:px-16 lg:py-28">
-        <div className="mx-auto max-w-6xl">
+      <section className="relative overflow-hidden px-5 py-16 sm:px-8 lg:px-16 lg:py-24">
+        <div className="mx-auto max-w-5xl">
           <Reveal>
             <Eyebrow>Qué incluye</Eyebrow>
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="mt-3 max-w-3xl font-display text-4xl leading-[0.95] text-ink sm:text-5xl lg:text-6xl">
+            <h2 className="mt-3 max-w-3xl font-display text-4xl leading-[0.95] text-ink sm:text-5xl">
               MÁS QUE <Highlight>CUATRO LLAMADAS</Highlight>.
             </h2>
           </Reveal>
 
-          <StaggerGroup className="mt-12 grid gap-4 sm:grid-cols-2" stagger={0.08}>
+          <StaggerGroup className="mt-9 grid grid-cols-2 gap-2.5 sm:gap-4" stagger={0.08}>
             {incluye.map((it) => (
               <StaggerItem
                 key={it.titulo}
                 direction="up"
-                className="group rounded-2xl border border-ink/10 bg-white p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-ink/20 hover:shadow-[0_24px_60px_-32px_rgba(13,0,38,0.35)]"
+                className="group rounded-2xl border border-ink/10 bg-white p-4 transition-all duration-300 hover:-translate-y-1.5 hover:border-ink/20 hover:shadow-[0_24px_60px_-32px_rgba(13,0,38,0.35)] sm:p-6"
               >
-                <span className="grid h-11 w-11 place-items-center rounded-xl bg-ink text-neon shadow-[0_10px_24px_-12px_rgba(13,0,38,0.5)] transition-transform group-hover:scale-105">
+                <motion.span
+                  className="grid h-10 w-10 place-items-center rounded-xl bg-ink text-neon shadow-[0_10px_24px_-12px_rgba(13,0,38,0.5)] sm:h-11 sm:w-11"
+                  whileHover={{ scale: 1.1, rotate: -6 }}
+                  transition={{ type: "spring", stiffness: 320, damping: 18 }}
+                >
                   <it.Icon className="h-5 w-5" strokeWidth={1.75} />
-                </span>
-                <h3 className="mt-4 font-display text-xl uppercase tracking-wide text-ink">
+                </motion.span>
+                <h3 className="mt-3 font-display text-base uppercase leading-tight tracking-wide text-ink sm:mt-4 sm:text-xl">
                   {it.titulo}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink/70">{it.desc}</p>
+                <p className="mt-1.5 text-[13px] leading-snug text-ink/70 sm:mt-2 sm:text-sm sm:leading-relaxed">{it.desc}</p>
               </StaggerItem>
             ))}
           </StaggerGroup>
 
           {/* Bono: se nombra y punto, sin explicar la comunidad */}
           <Reveal delay={0.2}>
-            <div className="mt-4 flex items-start gap-4 rounded-2xl border border-neon/40 bg-neon/[0.07] p-6">
-              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-ink text-neon">
+            <div className="mt-2.5 flex items-start gap-3.5 rounded-2xl border border-neon/40 bg-neon/[0.07] p-4 sm:mt-4 sm:gap-4 sm:p-6">
+              <motion.span
+                className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-ink text-neon sm:h-11 sm:w-11"
+                animate={{ rotate: [0, -8, 8, 0] }}
+                transition={{ duration: 2.4, repeat: Infinity, repeatDelay: 3, ease: "easeInOut" }}
+              >
                 <Gift className="h-5 w-5" strokeWidth={1.75} />
-              </span>
+              </motion.span>
               <div>
-                <h3 className="font-display text-xl uppercase tracking-wide text-ink">
+                <h3 className="font-display text-base uppercase tracking-wide text-ink sm:text-xl">
                   Bono: 50% de descuento
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink/70">
+                <p className="mt-1.5 text-[13px] leading-snug text-ink/70 sm:mt-2 sm:text-sm sm:leading-relaxed">
                   Entras con la mitad de precio a mi próxima comunidad de pago,{" "}
                   <span className="font-semibold text-ink">Creadores Digitales IA</span>.
                 </p>
