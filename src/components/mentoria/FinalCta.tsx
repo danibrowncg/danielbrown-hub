@@ -30,7 +30,7 @@ export function FinalCta() {
           transition={{ duration: 0.8 }}
           className="mt-4 font-display text-5xl uppercase leading-[0.95] text-white sm:text-6xl lg:text-7xl"
         >
-          EN 4 SEMANAS PUEDES TENERLO <span className="text-neon">LISTO</span>.
+          EN 4 SEMANAS PUEDES TENERLO <span className="text-neon">LISTO</span>
         </motion.h2>
 
         <motion.p

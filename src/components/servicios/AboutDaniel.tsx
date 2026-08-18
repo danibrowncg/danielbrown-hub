@@ -62,7 +62,7 @@ export function AboutDaniel() {
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="font-display text-4xl leading-[0.95] text-ink sm:text-5xl lg:text-6xl">
-              HOLA, SOY <Highlight>DANIEL BROWN</Highlight>.
+              HOLA, SOY <Highlight>DANIEL BROWN</Highlight>
             </h2>
           </Reveal>
           <Reveal delay={0.2}>

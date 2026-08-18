@@ -75,8 +75,13 @@ export function TerminalWindow({ lines, speed = 28, loopDelay = 3, className = "
   return (
     <div
       ref={ref}
-      className={`overflow-hidden rounded-2xl border border-white/10 bg-ink shadow-[0_30px_80px_-40px_rgba(13,0,38,0.6)] ${className}`}
+      className={`relative overflow-hidden rounded-2xl border border-white/10 bg-ink shadow-[0_30px_80px_-40px_rgba(13,0,38,0.6)] ${className}`}
     >
+      {/* Filete de marca en el canto: el mismo recurso que la tarjeta de
+          precio y la llamada abierta, para que el degradado se lea como
+          sistema y no como un color suelto. */}
+      <span aria-hidden="true" className="brand-grad absolute inset-x-0 top-0 z-10 h-[2px]" />
+
       {/* Barra de título: los tres puntos hacen que se lea como terminal al instante */}
       <div className="flex items-center gap-2 border-b border-white/10 px-4 py-3">
         <span className="h-3 w-3 rounded-full bg-white/20" />

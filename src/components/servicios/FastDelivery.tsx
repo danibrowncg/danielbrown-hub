@@ -42,7 +42,7 @@ export function FastDelivery() {
           transition={{ duration: 0.7 }}
           className="mt-4 font-display text-4xl uppercase leading-none text-white sm:text-5xl lg:text-6xl"
         >
-          Entrega <span className="text-neon">rápida</span>.
+          Entrega <span className="text-neon">rápida</span>
         </motion.h2>
 
         <div className="mt-8 flex items-baseline justify-center gap-2 font-display text-7xl leading-none text-white sm:text-8xl lg:text-[10rem]">

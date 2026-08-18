@@ -8,6 +8,7 @@ import { Faq } from "@/components/mentoria/Faq";
 import { FinalCta } from "@/components/mentoria/FinalCta";
 import { SiteFooter } from "@/components/servicios/SiteFooter";
 import { Marquee } from "@/components/primitives/Marquee";
+import { ScrollProgress } from "@/components/primitives/ScrollProgress";
 import { MentoriaApplyProvider } from "@/components/shared/MentoriaApply";
 
 const RECORRIDO = [
@@ -44,6 +45,7 @@ export const Route = createFileRoute("/mentoria")({
 function Mentoria() {
   return (
     <MentoriaApplyProvider>
+      <ScrollProgress />
       <main id="top" className="relative z-10 text-ink">
         <Hero />
         <Marquee items={RECORRIDO} duration={30} />

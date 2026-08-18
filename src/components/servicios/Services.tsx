@@ -63,7 +63,7 @@ export function Services() {
         </Reveal>
         <Reveal delay={0.1}>
           <h2 className="mt-3 max-w-3xl font-display text-4xl leading-[0.95] text-ink sm:text-5xl lg:text-6xl">
-            SOLUCIONES QUE HACEN <Highlight>CRECER</Highlight> TU NEGOCIO.
+            SOLUCIONES QUE HACEN <Highlight>CRECER</Highlight> TU NEGOCIO
           </h2>
         </Reveal>
         <Reveal delay={0.2}>

@@ -42,7 +42,7 @@ export function Offer() {
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="mt-3 max-w-3xl font-display text-4xl leading-[0.95] text-ink sm:text-5xl">
-              MÁS QUE <Highlight>CUATRO LLAMADAS</Highlight>.
+              MÁS QUE <Highlight>CUATRO LLAMADAS</Highlight>
             </h2>
           </Reveal>
 
@@ -103,6 +103,7 @@ export function Offer() {
             className="relative isolate overflow-hidden rounded-3xl bg-ink p-8 text-center shadow-[0_40px_90px_-45px_rgba(13,0,38,0.6)] sm:p-12"
           >
             <GridPattern />
+            <span aria-hidden="true" className="brand-grad absolute inset-x-0 top-0 h-[2px]" />
 
             <div className="relative">
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-neon">

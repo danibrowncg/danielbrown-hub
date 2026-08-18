@@ -53,7 +53,7 @@ export function FaqSection({ items, intro, ctaLabel, onCta }: FaqSectionProps) {
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="mt-3 font-display text-4xl leading-[0.95] text-ink sm:text-5xl">
-              PREGUNTAS <Highlight>FRECUENTES</Highlight>.
+              PREGUNTAS <Highlight>FRECUENTES</Highlight>
             </h2>
           </Reveal>
           <Reveal delay={0.2}>

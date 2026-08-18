@@ -18,7 +18,7 @@ export function PaymentMethod() {
         </Reveal>
         <Reveal delay={0.1}>
           <h2 className="mt-3 max-w-3xl font-display text-4xl leading-[0.95] text-ink sm:text-5xl lg:text-6xl">
-            CÓMO FUNCIONA EL <Highlight>PAGO</Highlight>.
+            CÓMO FUNCIONA EL <Highlight>PAGO</Highlight>
           </h2>
         </Reveal>
 

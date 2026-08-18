@@ -46,7 +46,7 @@ export function ProjectsCarousel() {
         </Reveal>
         <Reveal delay={0.1}>
           <h2 className="mt-3 font-display text-4xl leading-[0.95] text-ink sm:text-5xl lg:text-6xl">
-            PROYECTOS <Highlight>REALES</Highlight>.
+            PROYECTOS <Highlight>REALES</Highlight>
           </h2>
         </Reveal>
         <Reveal delay={0.2}>

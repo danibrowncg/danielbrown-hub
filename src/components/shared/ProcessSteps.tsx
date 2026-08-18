@@ -43,7 +43,7 @@ export function ProcessSteps({
         </Reveal>
         <Reveal delay={0.1}>
           <h2 className="mt-3 max-w-3xl font-display text-4xl leading-[0.95] text-ink sm:text-5xl lg:text-6xl">
-            {titleLead} <Highlight>{titleHighlight}</Highlight>.
+            {titleLead} <Highlight>{titleHighlight}</Highlight>
           </h2>
         </Reveal>
         <Reveal delay={0.2}>

@@ -84,7 +84,7 @@ export function Proof() {
             </Reveal>
             <Reveal delay={0.1}>
               <h2 className="mt-3 font-display text-4xl leading-[0.95] text-ink sm:text-5xl">
-                CONSTRUYO ESTO <Highlight>TODOS LOS DÍAS</Highlight>.
+                CONSTRUYO ESTO <Highlight>TODOS LOS DÍAS</Highlight>
               </h2>
             </Reveal>
             <Reveal delay={0.2}>
@@ -108,7 +108,7 @@ export function Proof() {
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="mt-3 max-w-3xl font-display text-4xl leading-[0.95] text-ink sm:text-5xl lg:text-6xl">
-              CÓMO SE VE POR <Highlight>DENTRO</Highlight>.
+              CÓMO SE VE POR <Highlight>DENTRO</Highlight>
             </h2>
           </Reveal>
 

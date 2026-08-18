@@ -60,7 +60,7 @@ export function Program() {
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="mt-3 max-w-3xl font-display text-4xl leading-[0.95] text-ink sm:text-5xl">
-              TERMINAS CON ALGO <Highlight>FUNCIONANDO</Highlight>.
+              TERMINAS CON ALGO <Highlight>FUNCIONANDO</Highlight>
             </h2>
           </Reveal>
 
@@ -100,7 +100,7 @@ export function Program() {
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="mt-3 max-w-3xl font-display text-4xl leading-[0.95] text-ink sm:text-5xl">
-              CUATRO LLAMADAS, <Highlight>CUATRO SEMANAS</Highlight>.
+              CUATRO LLAMADAS, <Highlight>CUATRO SEMANAS</Highlight>
             </h2>
           </Reveal>
           <Reveal delay={0.2}>
@@ -115,10 +115,19 @@ export function Program() {
               return (
                 <StaggerItem key={l.titulo} direction="up">
                   <div
-                    className={`overflow-hidden rounded-xl border bg-white transition-colors duration-300 ${
+                    className={`relative overflow-hidden rounded-xl border bg-white transition-colors duration-300 ${
                       activa ? "border-ink/25" : "border-ink/10 hover:border-ink/20"
                     }`}
                   >
+                    {/* Se dibuja de izquierda a derecha al abrir: marca cuál
+                        está activa sin añadir un color más a la lista. */}
+                    <motion.span
+                      aria-hidden="true"
+                      className="brand-grad absolute inset-x-0 top-0 z-10 h-[2px] origin-left"
+                      initial={false}
+                      animate={{ scaleX: activa ? 1 : 0 }}
+                      transition={{ duration: 0.4, ease: EASE }}
+                    />
                     <button
                       type="button"
                       onClick={() => setAbierta(activa ? -1 : i)}
@@ -139,7 +148,11 @@ export function Program() {
                         {l.titulo}
                       </span>
 
-                      <span className="hidden font-display text-2xl leading-none text-ink/15 tabular-nums sm:block">
+                      <span
+                        className={`hidden font-display text-2xl leading-none tabular-nums transition-colors duration-300 sm:block ${
+                          activa ? "text-brand-grad" : "text-ink/15"
+                        }`}
+                      >
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <motion.span
