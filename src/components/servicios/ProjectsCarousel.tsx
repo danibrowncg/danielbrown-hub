@@ -1,7 +1,8 @@
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { useCallback, useEffect, useState } from "react";
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
+import { Instagram, ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/primitives/Reveal";
 import projectRestaurant from "@/assets/servicios/project-restaurant.webp";
 import projectFashion from "@/assets/servicios/project-fashion.webp";
@@ -11,6 +12,7 @@ import projectAutomation from "@/assets/servicios/project-automation.webp";
 import projectErp from "@/assets/servicios/project-erp.webp";
 import { Highlight } from "@/components/primitives/Highlight";
 import { Eyebrow } from "@/components/primitives/Eyebrow";
+import { IG_URL } from "@/lib/constants";
 
 const projects = [
   { img: projectRestaurant, sector: "Página web", title: "Maison Noir", desc: "Restaurante de alta cocina con sistema de reservas integrado.", result: "+52% reservas online" },
@@ -22,6 +24,7 @@ const projects = [
 ];
 
 export function ProjectsCarousel() {
+  const reduce = useReducedMotion();
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { loop: true, align: "start" },
     [Autoplay({ delay: 5500, stopOnInteraction: false })],
@@ -40,19 +43,53 @@ export function ProjectsCarousel() {
 
   return (
     <section className="relative overflow-hidden py-20 lg:py-28">
-      <div className="mx-auto mb-10 max-w-6xl px-5 sm:px-8 lg:px-16">
-        <Reveal>
-          <Eyebrow>Portfolio</Eyebrow>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <h2 className="mt-3 font-display text-4xl leading-[0.95] text-ink sm:text-5xl lg:text-6xl">
-            PROYECTOS <Highlight>REALES</Highlight>
-          </h2>
-        </Reveal>
-        <Reveal delay={0.2}>
-          <p className="mt-4 max-w-xl text-base text-ink/65 sm:text-lg">
-            Webs, chatbots y sistemas funcionando en negocios reales.
-          </p>
+      <div className="mx-auto mb-10 flex max-w-6xl flex-col gap-6 px-5 sm:flex-row sm:items-end sm:justify-between sm:gap-10 sm:px-8 lg:px-16">
+        <div>
+          <Reveal>
+            <Eyebrow>Portfolio</Eyebrow>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <h2 className="mt-3 font-display text-4xl leading-[0.95] text-ink sm:text-5xl lg:text-6xl">
+              PROYECTOS <Highlight>REALES</Highlight>
+            </h2>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <p className="mt-4 max-w-xl text-base text-ink/65 sm:text-lg">
+              Webs, chatbots y sistemas funcionando en negocios reales.
+            </p>
+          </Reveal>
+        </div>
+
+        {/* Va en la cabecera, no al final del carrusel: quien quiere ver más lo
+            encuentra sin arrastrar nada. En reposo es la pastilla negra del
+            resto del sitio; el degradado de marca entra solo al pasar por
+            encima, así llama la atención sin gritar. */}
+        <Reveal delay={0.3}>
+          <motion.a
+            href={IG_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Ver más proyectos en el Instagram de Daniel Brown (se abre en una pestaña nueva)"
+            className="group relative inline-flex shrink-0 items-center gap-2.5 overflow-hidden rounded-full bg-ink py-3 pl-5 pr-4 text-sm font-semibold text-white shadow-[0_14px_34px_-20px_rgba(13,0,38,0.7)] sm:pl-6 sm:pr-5"
+            whileHover={reduce ? undefined : { y: -3 }}
+            whileTap={{ scale: 0.97 }}
+            transition={{ type: "spring", stiffness: 320, damping: 20 }}
+          >
+            <span
+              aria-hidden="true"
+              className="brand-grad absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+            />
+            <Instagram className="relative h-4 w-4 shrink-0 text-neon" strokeWidth={2} />
+            <span className="relative whitespace-nowrap">Ver más proyectos</span>
+            <motion.span
+              aria-hidden="true"
+              className="relative inline-block"
+              animate={reduce ? undefined : { x: [0, 3, 0], y: [0, -3, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 2, ease: "easeInOut" }}
+            >
+              <ArrowUpRight className="h-4 w-4 text-neon" strokeWidth={2.5} />
+            </motion.span>
+          </motion.a>
         </Reveal>
       </div>
 
