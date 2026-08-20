@@ -110,16 +110,23 @@ export function Offer() {
                 Mentoría MVP
               </p>
 
-              <div className="mt-5 flex items-baseline justify-center gap-2">
-                {/* Estático a propósito: un contador mostraría "$0" si la animación
-                    no llega a correr, y un precio equivocado cuesta la venta. */}
-                <span className="font-display text-7xl leading-none text-white sm:text-8xl">
-                  $225
-                </span>
-                <span className="font-display text-2xl text-white/50">USD</span>
-              </div>
-              <p className="mt-2 font-display text-lg uppercase tracking-widest text-white/80">
-                Pago único · 4 semanas
+              {/* Donde iba el precio va la promesa. Al quitar la cifra, la
+                  tarjeta necesita conservar su ancla visual: si este hueco se
+                  deja pequeño, la tarjeta pierde el punto al que va el ojo y
+                  con él la fuerza de la oferta. */}
+              <motion.p
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.15, duration: 0.55, ease: [0.23, 1, 0.32, 1] }}
+                className="mt-5 font-display text-5xl uppercase leading-[0.92] text-white sm:text-6xl"
+              >
+                Tu proyecto
+                <br />
+                <span className="text-neon">publicado</span>
+              </motion.p>
+              <p className="mt-3 font-display text-lg uppercase tracking-widest text-white/80">
+                Mentoría 1:1 · 4 semanas
               </p>
 
               <ul className="mx-auto mt-8 flex max-w-sm flex-col gap-2.5 text-left">
@@ -162,7 +169,8 @@ export function Offer() {
 
               <p className="mt-4 text-sm text-white/55">
                 Solo tomo <span className="font-semibold text-neon">5 cupos al mes</span> para
-                poder dedicarle tiempo real a cada persona.
+                poder dedicarle tiempo real a cada persona. Escríbeme y te cuento
+                los detalles, sin compromiso.
               </p>
             </div>
           </motion.div>

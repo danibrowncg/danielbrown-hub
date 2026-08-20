@@ -97,7 +97,7 @@ export function Hero() {
                   <ArrowRight className="relative h-5 w-5 transition-transform group-hover:translate-x-1" strokeWidth={2.5} />
                 </motion.button>
               </Magnetic>
-              <span className="text-sm text-ink/60">$225 · pago único · 4 semanas</span>
+              <span className="text-sm text-ink/60">4 semanas · 1:1 · sin compromiso</span>
             </motion.div>
           </div>
 

@@ -22,7 +22,7 @@ const RECORRIDO = [
 
 const TITLE = "Mentoría MVP · Mentoría 1:1 con Daniel Brown — construye tu primer sistema en 4 semanas";
 const DESC =
-  "Mentoría personalizada 1:1 de 4 semanas: construimos juntos tu primer sistema real con Claude Code —web, software, sistema o app— y lo dejamos publicado. $225 USD, solo 5 cupos al mes.";
+  "Mentoría personalizada 1:1 de 4 semanas: construimos juntos tu primer sistema real con Claude Code —web, software, sistema o app— y lo dejamos publicado. Solo 5 cupos al mes.";
 
 export const Route = createFileRoute("/mentoria")({
   head: () => ({

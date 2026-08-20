@@ -67,7 +67,7 @@ export function FinalCta() {
               <span className="relative">Aplicar ahora</span>
             </motion.button>
           </Magnetic>
-          <p className="text-sm text-white/70">$225 USD · pago único · sin permanencia</p>
+          <p className="text-sm text-white/70">Sin permanencia · te respondo yo mismo</p>
         </motion.div>
       </div>
     </section>
