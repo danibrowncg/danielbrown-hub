@@ -152,11 +152,13 @@ export function HubLanding() {
         >
           <LinkButton variants={listItem} to="/servicios" title="Contratar mis servicios" />
           <LinkButton variants={listItem} to="/mentoria" title="Mentoría personalizada" />
+          {/* Titila solo este: es lo que la mayoría viene buscando. */}
           <LinkButton
             variants={listItem}
             href={COMMUNITY_WA_URL}
             color="white"
             title="Comunidad Gratuita"
+            pulse
           />
         </motion.nav>
 

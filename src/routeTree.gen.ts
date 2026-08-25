@@ -9,12 +9,18 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TkRouteImport } from './routes/tk'
 import { Route as SistemasRouteImport } from './routes/sistemas'
 import { Route as ServiciosRouteImport } from './routes/servicios'
 import { Route as MentoriaRouteImport } from './routes/mentoria'
 import { Route as DisenoWebRouteImport } from './routes/diseno-web'
 import { Route as IndexRouteImport } from './routes/index'
 
+const TkRoute = TkRouteImport.update({
+  id: '/tk',
+  path: '/tk',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SistemasRoute = SistemasRouteImport.update({
   id: '/sistemas',
   path: '/sistemas',
@@ -47,6 +53,7 @@ export interface FileRoutesByFullPath {
   '/mentoria': typeof MentoriaRoute
   '/servicios': typeof ServiciosRoute
   '/sistemas': typeof SistemasRoute
+  '/tk': typeof TkRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -54,6 +61,7 @@ export interface FileRoutesByTo {
   '/mentoria': typeof MentoriaRoute
   '/servicios': typeof ServiciosRoute
   '/sistemas': typeof SistemasRoute
+  '/tk': typeof TkRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -62,14 +70,22 @@ export interface FileRoutesById {
   '/mentoria': typeof MentoriaRoute
   '/servicios': typeof ServiciosRoute
   '/sistemas': typeof SistemasRoute
+  '/tk': typeof TkRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/diseno-web' | '/mentoria' | '/servicios' | '/sistemas'
+  fullPaths:
+    '/' | '/diseno-web' | '/mentoria' | '/servicios' | '/sistemas' | '/tk'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/diseno-web' | '/mentoria' | '/servicios' | '/sistemas'
+  to: '/' | '/diseno-web' | '/mentoria' | '/servicios' | '/sistemas' | '/tk'
   id:
-    '__root__' | '/' | '/diseno-web' | '/mentoria' | '/servicios' | '/sistemas'
+    | '__root__'
+    | '/'
+    | '/diseno-web'
+    | '/mentoria'
+    | '/servicios'
+    | '/sistemas'
+    | '/tk'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -78,10 +94,18 @@ export interface RootRouteChildren {
   MentoriaRoute: typeof MentoriaRoute
   ServiciosRoute: typeof ServiciosRoute
   SistemasRoute: typeof SistemasRoute
+  TkRoute: typeof TkRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/tk': {
+      id: '/tk'
+      path: '/tk'
+      fullPath: '/tk'
+      preLoaderRoute: typeof TkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sistemas': {
       id: '/sistemas'
       path: '/sistemas'
@@ -126,6 +150,7 @@ const rootRouteChildren: RootRouteChildren = {
   MentoriaRoute: MentoriaRoute,
   ServiciosRoute: ServiciosRoute,
   SistemasRoute: SistemasRoute,
+  TkRoute: TkRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

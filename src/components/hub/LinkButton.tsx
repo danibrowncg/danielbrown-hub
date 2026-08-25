@@ -10,6 +10,11 @@ interface LinkButtonProps {
   href?: string;
   /** Color de la pastilla. "neon" (por defecto) o "white". */
   color?: "neon" | "white";
+  /**
+   * Titileo continuo, el mismo de los CTA de servicios y mentoría.
+   * Reservado para UN botón por pantalla: si titilan varios dejan de destacar.
+   */
+  pulse?: boolean;
   variants?: Variants;
 }
 
@@ -39,7 +44,7 @@ const arrowClasses: Record<Color, string> = {
  * Pastilla minimalista con barrido de brillo al hover, elevación y
  * press-feedback. Enlace interno o externo.
  */
-export function LinkButton({ title, to, href, color = "neon", variants }: LinkButtonProps) {
+export function LinkButton({ title, to, href, color = "neon", pulse = false, variants }: LinkButtonProps) {
   const reduce = useReducedMotion();
   const isExternal = Boolean(href);
 
@@ -70,6 +75,14 @@ export function LinkButton({ title, to, href, color = "neon", variants }: LinkBu
   const className =
     `group relative flex h-14 w-full items-center justify-center gap-2.5 overflow-hidden rounded-full px-6 transition-shadow duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-background ${colorClasses[color]}`;
 
+  // El halo del titileo es neón en ambos casos: sobre el fondo blanco del hub
+  // un aro amarillo saliendo de la pastilla negra es justo lo que se ve desde
+  // lejos, que es para lo que está.
+  const pulseStyle =
+    pulse && !reduce
+      ? { animation: "pulse-neon 2.2s ease-in-out infinite" }
+      : undefined;
+
   const hover = reduce ? undefined : { scale: 1.03, y: -2 };
   const tap = reduce ? undefined : { scale: 0.97 };
   const transition = { type: "spring" as const, stiffness: 340, damping: 24 };
@@ -81,6 +94,7 @@ export function LinkButton({ title, to, href, color = "neon", variants }: LinkBu
         target="_blank"
         rel="noopener noreferrer"
         className={className}
+        style={pulseStyle}
         variants={variants}
         whileHover={hover}
         whileTap={tap}
@@ -93,7 +107,7 @@ export function LinkButton({ title, to, href, color = "neon", variants }: LinkBu
 
   return (
     <motion.div variants={variants} whileHover={hover} whileTap={tap} transition={transition}>
-      <Link to={to!} className={className}>
+      <Link to={to!} className={className} style={pulseStyle}>
         {content}
       </Link>
     </motion.div>
