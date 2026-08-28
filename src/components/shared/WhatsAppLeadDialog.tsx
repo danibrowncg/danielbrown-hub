@@ -28,7 +28,14 @@ const SERVICIOS: { id: string; label: string; Icon: LucideIcon; emoji: string }[
   { id: "sistema", label: "Un sistema automatizado", Icon: Workflow, emoji: "⚙️" },
 ];
 
-/** Construye el mensaje-plantilla profesional (con emojis) para wa.me. */
+/**
+ * Mensaje-plantilla para wa.me.
+ *
+ * Los emojis que quedan son ETIQUETAS: cada uno marca un campo (quién, qué
+ * negocio, para qué) y ayuda a leer el mensaje de un vistazo en WhatsApp. Nada
+ * decorativo — el cierre iba con un corazón y se leía poco serio para un primer
+ * contacto comercial.
+ */
 function buildMessage(data: {
   servicio: string;
   nombre: string;
@@ -39,12 +46,12 @@ function buildMessage(data: {
   return [
     "¡Hola Daniel! 👋 Vengo desde tu web y quiero cotizar un proyecto.",
     "",
-    `${s?.emoji ?? "✨"} *Quiero:* ${s?.label ?? "un proyecto"}`,
+    `${s?.emoji ?? "💼"} *Quiero:* ${s?.label ?? "un proyecto"}`,
     `👤 *Nombre:* ${data.nombre}`,
     `🏢 *Mi negocio:* ${data.negocio}`,
     `🎯 *Lo necesito para:* ${data.objetivo}`,
     "",
-    "¿Me ayudas a cotizarlo? 💛",
+    "Quedo atento a tu respuesta.",
   ].join("\n");
 }
 
@@ -91,9 +98,9 @@ function LeadForm({ onDone }: { onDone: () => void }) {
       {/* Progreso: un segmento por campo completado */}
       <motion.div {...anim(0)} className="flex items-center gap-1.5">
         {values.map((v, i) => (
-          <span key={i} className="h-1 flex-1 overflow-hidden rounded-full bg-white/10">
+          <span key={i} className="h-1 flex-1 overflow-hidden rounded-full bg-ink/10">
             <motion.span
-              className="block h-full rounded-full bg-neon"
+              className="brand-grad block h-full rounded-full"
               style={{ originX: 0 }}
               initial={false}
               animate={{ scaleX: v.trim() ? 1 : 0 }}
@@ -107,7 +114,7 @@ function LeadForm({ onDone }: { onDone: () => void }) {
           lo demás, y en botones (no en un select) para que se resuelva de un
           toque en móvil. */}
       <motion.div {...anim(1)}>
-        <p className="mb-2 text-[13px] font-medium text-white/70">¿Qué quieres crear?</p>
+        <p className="mb-2 text-[13px] font-medium text-ink/70">¿Qué quieres crear?</p>
         <div className="grid grid-cols-2 gap-2" role="radiogroup" aria-label="¿Qué quieres crear?">
           {SERVICIOS.map((s) => {
             const activo = servicio === s.id;
@@ -120,12 +127,12 @@ function LeadForm({ onDone }: { onDone: () => void }) {
                 onClick={() => setServicio(s.id)}
                 className={`flex items-center gap-2.5 rounded-xl border p-3 text-left transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-neon ${
                   activo
-                    ? "border-neon bg-neon/10 text-white"
-                    : "border-white/12 bg-white/[0.04] text-white/70 hover:border-white/25 hover:bg-white/[0.07]"
+                    ? "border-ink bg-ink text-white shadow-[0_10px_26px_-14px_rgba(13,0,38,0.6)]"
+                    : "border-ink/12 bg-ink/[0.02] text-ink/70 hover:border-ink/30 hover:bg-ink/[0.04]"
                 }`}
               >
                 <s.Icon
-                  className={`h-5 w-5 shrink-0 transition-colors ${activo ? "text-neon" : "text-white/40"}`}
+                  className={`h-5 w-5 shrink-0 transition-colors ${activo ? "text-neon" : "text-ink/35"}`}
                   strokeWidth={1.75}
                 />
                 <span className="text-[13px] font-medium leading-tight">{s.label}</span>
@@ -209,7 +216,7 @@ function LeadForm({ onDone }: { onDone: () => void }) {
         className={`group relative mt-1 inline-flex h-14 items-center justify-center gap-2.5 overflow-hidden rounded-full px-6 text-base font-bold uppercase tracking-wider transition-[background-color,box-shadow,color] duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon focus-visible:ring-offset-2 focus-visible:ring-offset-card ${
           complete
             ? "bg-neon text-ink shadow-[0_12px_38px_-12px_rgba(231,255,0,0.8)]"
-            : "cursor-not-allowed bg-neon/25 text-ink/50 shadow-none"
+            : "cursor-not-allowed bg-neon/40 text-ink/70 shadow-none"
         }`}
       >
         {complete ? (
@@ -223,7 +230,7 @@ function LeadForm({ onDone }: { onDone: () => void }) {
         </svg>
         <span className="relative">Ir a WhatsApp</span>
       </motion.button>
-      <p className="text-center text-xs text-white/40">
+      <p className="text-center text-xs text-ink/60">
         Se abrirá WhatsApp con tu mensaje ya redactado, listo para enviar.
       </p>
     </form>
@@ -231,7 +238,7 @@ function LeadForm({ onDone }: { onDone: () => void }) {
 }
 
 const inputClass =
-  "w-full bg-transparent py-3 pl-11 pr-11 text-base text-white placeholder:text-white/35 focus:outline-none";
+  "w-full bg-transparent py-3 pl-11 pr-11 text-base text-ink placeholder:text-ink/35 focus:outline-none";
 
 function Field({
   icon,
@@ -253,12 +260,12 @@ function Field({
   const sidePos = alignTop ? "top-3.5" : "top-1/2 -translate-y-1/2";
   return (
     <div>
-      <label htmlFor={htmlFor} className="mb-1.5 block text-[13px] font-medium text-white/70">
+      <label htmlFor={htmlFor} className="mb-1.5 block text-[13px] font-medium text-ink/70">
         {label}
       </label>
-      <div className="group relative flex rounded-xl border border-white/12 bg-white/[0.04] transition-all duration-200 focus-within:border-neon/70 focus-within:bg-white/[0.07] focus-within:ring-2 focus-within:ring-neon/20 focus-within:shadow-[0_0_0_4px_rgba(231,255,0,0.05)]">
+      <div className="group relative flex rounded-xl border border-ink/12 bg-ink/[0.02] transition-all duration-200 focus-within:border-ink focus-within:bg-white focus-within:ring-4 focus-within:ring-neon/30">
         <span
-          className={`pointer-events-none absolute left-3.5 text-white/35 transition-colors duration-200 group-focus-within:text-neon ${sidePos}`}
+          className={`pointer-events-none absolute left-3.5 text-ink/30 transition-colors duration-200 group-focus-within:text-ink ${sidePos}`}
         >
           {icon}
         </span>
@@ -273,7 +280,7 @@ function Field({
           className={`pointer-events-none absolute right-3 grid h-5 w-5 place-items-center rounded-full ${sidePos}`}
           style={{ backgroundColor: WA_GREEN }}
         >
-          <Check className="h-3.5 w-3.5 text-ink" strokeWidth={3} />
+          <Check className="h-3.5 w-3.5 text-white" strokeWidth={3} />
         </motion.span>
       </div>
     </div>
@@ -283,7 +290,7 @@ function Field({
 export function WhatsAppLeadDialog({ open, onOpenChange }: WhatsAppLeadDialogProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-h-[92dvh] max-w-[calc(100%-1.5rem)] gap-0 overflow-y-auto rounded-3xl border-white/10 bg-card p-0 text-white sm:max-w-md">
+      <DialogContent className="max-h-[92dvh] max-w-[calc(100%-1.5rem)] gap-0 overflow-y-auto rounded-3xl border-ink/10 bg-card p-0 text-ink sm:max-w-md">
         <div className="brand-grad h-1.5 w-full" />
         <div className="p-6 sm:p-7">
           {/* Header estilo contacto de WhatsApp: refuerza que hablarás con Daniel */}
@@ -296,7 +303,7 @@ export function WhatsAppLeadDialog({ open, onOpenChange }: WhatsAppLeadDialogPro
                   width={48}
                   height={48}
                   decoding="async"
-                  className="h-12 w-12 rounded-full object-cover ring-2 ring-white/15"
+                  className="h-12 w-12 rounded-full object-cover ring-2 ring-ink/10"
                 />
                 <span
                   className="absolute -bottom-0.5 -right-0.5 flex h-3.5 w-3.5 items-center justify-center rounded-full ring-2 ring-card"
@@ -309,17 +316,17 @@ export function WhatsAppLeadDialog({ open, onOpenChange }: WhatsAppLeadDialogPro
                 </span>
               </div>
               <div className="min-w-0">
-                <DialogTitle className="font-display text-xl tracking-wide text-white">
+                <DialogTitle className="font-display text-xl tracking-wide text-ink">
                   Daniel Brown
                 </DialogTitle>
-                <DialogDescription className="text-xs text-white/55">
+                <DialogDescription className="text-xs text-ink/55">
                   En línea · responde en minutos
                 </DialogDescription>
               </div>
             </div>
           </DialogHeader>
 
-          <p className="mt-4 text-sm leading-relaxed text-white/60">
+          <p className="mt-4 text-sm leading-relaxed text-ink/60">
             Cuéntame de tu proyecto y te dejo un mensaje listo para enviarme por WhatsApp.
           </p>
 

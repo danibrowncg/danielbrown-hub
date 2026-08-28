@@ -56,19 +56,18 @@
   --brand-grad: linear-gradient(135deg, #008080 0%, #4910bc 100%);
 
   /* Tema en CLARO. La página es blanca y el texto es tinta.
-     Las superficies "card/popover" se dejan oscuras a propósito: el modal de
-     WhatsApp es una isla oscura flotando sobre el blanco (conserva sus micro-
-     interacciones neón/verde). El acento de TEXTO sobre blanco es el violeta,
-     no el neón (amarillo sobre blanco no cumple contraste). */
+     El acento de TEXTO sobre blanco es el violeta, no el neón (amarillo sobre
+     blanco no cumple contraste); el neón se reserva para rellenos y acciones. */
   --background: oklch(1 0 0);               /* blanco total */
   --foreground: var(--ink);                /* texto tinta */
-  /* El modal usa exactamente la misma tinta que el resto de islas oscuras del
-     sitio (pastillas, tarjetas de testimonios, panel de entrega). Antes era un
-     tono más claro y saturado que se leía azul marino y rompía la paleta. */
-  --card: var(--ink);
-  --card-foreground: oklch(0.98 0 0);
-  --popover: var(--ink);
-  --popover-foreground: oklch(0.98 0 0);
+  /* Los modales (los dos formularios de WhatsApp) son BLANCOS, como el resto
+     del sitio. Antes eran islas oscuras y se leían azul marino, que era
+     justo lo que rompía la paleta. Dentro se estructuran igual que las
+     landings: tinta para el texto, neón solo para la acción. */
+  --card: oklch(1 0 0);
+  --card-foreground: var(--ink);
+  --popover: oklch(1 0 0);
+  --popover-foreground: var(--ink);
   --primary: var(--neon);
   --primary-foreground: var(--ink);
   --secondary: oklch(0.96 0.008 290);
