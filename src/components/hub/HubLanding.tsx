@@ -6,14 +6,14 @@ import {
   YouTubeIcon,
   WhatsAppIcon,
 } from "./BrandIcons";
-import { IG_URL, TT_URL, YT_URL, COMMUNITY_WA_URL } from "@/lib/constants";
+import { IG_URL, TT_URL, YT_URL, WA_URL, COMMUNITY_WA_URL } from "@/lib/constants";
 import danielImg from "@/assets/daniel.webp";
 
 const socials = [
   { label: "Instagram", href: IG_URL, Icon: InstagramIcon },
   { label: "TikTok", href: TT_URL, Icon: TikTokIcon },
   { label: "YouTube", href: YT_URL, Icon: YouTubeIcon },
-  { label: "WhatsApp", href: COMMUNITY_WA_URL, Icon: WhatsAppIcon },
+  { label: "WhatsApp", href: WA_URL, Icon: WhatsAppIcon },
 ];
 
 const EASE = [0.23, 1, 0.32, 1] as const;
