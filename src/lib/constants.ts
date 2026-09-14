@@ -11,5 +11,5 @@ export const YT_URL = "https://youtube.com/@danielbrown_ia";
 
 // Comunidad gratuita de WhatsApp (grupo donde enseñas Claude/IA) — botón del hub
 export const COMMUNITY_WA_URL =
-  "https://chat.whatsapp.com/JfUKbtVZbH8IgCfNv2EqC1?s=cl&p=i&mlu=4&ilr=4";
+  "https://chat.whatsapp.com/Idie9JEH2KACj0FH5WoRQG?s=cl&p=i&mlu=4&ilr=4";
 
