@@ -9,37 +9,17 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as TkRouteImport } from './routes/tk'
-import { Route as SistemasRouteImport } from './routes/sistemas'
-import { Route as ServiciosRouteImport } from './routes/servicios'
-import { Route as MentoriaRouteImport } from './routes/mentoria'
-import { Route as MasterclassRouteImport } from './routes/masterclass'
-import { Route as DisenoWebRouteImport } from './routes/diseno-web'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DisenoWebRouteImport } from './routes/diseno-web'
+import { Route as MasterclassRouteImport } from './routes/masterclass'
+import { Route as MentoriaRouteImport } from './routes/mentoria'
+import { Route as ServiciosRouteImport } from './routes/servicios'
+import { Route as SistemasRouteImport } from './routes/sistemas'
+import { Route as TkRouteImport } from './routes/tk'
 
-const TkRoute = TkRouteImport.update({
-  id: '/tk',
-  path: '/tk',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SistemasRoute = SistemasRouteImport.update({
-  id: '/sistemas',
-  path: '/sistemas',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ServiciosRoute = ServiciosRouteImport.update({
-  id: '/servicios',
-  path: '/servicios',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MentoriaRoute = MentoriaRouteImport.update({
-  id: '/mentoria',
-  path: '/mentoria',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MasterclassRoute = MasterclassRouteImport.update({
-  id: '/masterclass',
-  path: '/masterclass',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DisenoWebRoute = DisenoWebRouteImport.update({
@@ -47,9 +27,29 @@ const DisenoWebRoute = DisenoWebRouteImport.update({
   path: '/diseno-web',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const MasterclassRoute = MasterclassRouteImport.update({
+  id: '/masterclass',
+  path: '/masterclass',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MentoriaRoute = MentoriaRouteImport.update({
+  id: '/mentoria',
+  path: '/mentoria',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServiciosRoute = ServiciosRouteImport.update({
+  id: '/servicios',
+  path: '/servicios',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SistemasRoute = SistemasRouteImport.update({
+  id: '/sistemas',
+  path: '/sistemas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TkRoute = TkRouteImport.update({
+  id: '/tk',
+  path: '/tk',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -123,39 +123,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/tk': {
-      id: '/tk'
-      path: '/tk'
-      fullPath: '/tk'
-      preLoaderRoute: typeof TkRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sistemas': {
-      id: '/sistemas'
-      path: '/sistemas'
-      fullPath: '/sistemas'
-      preLoaderRoute: typeof SistemasRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/servicios': {
-      id: '/servicios'
-      path: '/servicios'
-      fullPath: '/servicios'
-      preLoaderRoute: typeof ServiciosRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/mentoria': {
-      id: '/mentoria'
-      path: '/mentoria'
-      fullPath: '/mentoria'
-      preLoaderRoute: typeof MentoriaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/masterclass': {
-      id: '/masterclass'
-      path: '/masterclass'
-      fullPath: '/masterclass'
-      preLoaderRoute: typeof MasterclassRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/diseno-web': {
@@ -165,11 +137,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DisenoWebRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/masterclass': {
+      id: '/masterclass'
+      path: '/masterclass'
+      fullPath: '/masterclass'
+      preLoaderRoute: typeof MasterclassRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentoria': {
+      id: '/mentoria'
+      path: '/mentoria'
+      fullPath: '/mentoria'
+      preLoaderRoute: typeof MentoriaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/servicios': {
+      id: '/servicios'
+      path: '/servicios'
+      fullPath: '/servicios'
+      preLoaderRoute: typeof ServiciosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sistemas': {
+      id: '/sistemas'
+      path: '/sistemas'
+      fullPath: '/sistemas'
+      preLoaderRoute: typeof SistemasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tk': {
+      id: '/tk'
+      path: '/tk'
+      fullPath: '/tk'
+      preLoaderRoute: typeof TkRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
