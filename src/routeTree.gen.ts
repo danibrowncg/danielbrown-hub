@@ -13,6 +13,7 @@ import { Route as TkRouteImport } from './routes/tk'
 import { Route as SistemasRouteImport } from './routes/sistemas'
 import { Route as ServiciosRouteImport } from './routes/servicios'
 import { Route as MentoriaRouteImport } from './routes/mentoria'
+import { Route as MasterclassRouteImport } from './routes/masterclass'
 import { Route as DisenoWebRouteImport } from './routes/diseno-web'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -36,6 +37,11 @@ const MentoriaRoute = MentoriaRouteImport.update({
   path: '/mentoria',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MasterclassRoute = MasterclassRouteImport.update({
+  id: '/masterclass',
+  path: '/masterclass',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DisenoWebRoute = DisenoWebRouteImport.update({
   id: '/diseno-web',
   path: '/diseno-web',
@@ -50,6 +56,7 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/diseno-web': typeof DisenoWebRoute
+  '/masterclass': typeof MasterclassRoute
   '/mentoria': typeof MentoriaRoute
   '/servicios': typeof ServiciosRoute
   '/sistemas': typeof SistemasRoute
@@ -58,6 +65,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/diseno-web': typeof DisenoWebRoute
+  '/masterclass': typeof MasterclassRoute
   '/mentoria': typeof MentoriaRoute
   '/servicios': typeof ServiciosRoute
   '/sistemas': typeof SistemasRoute
@@ -67,6 +75,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/diseno-web': typeof DisenoWebRoute
+  '/masterclass': typeof MasterclassRoute
   '/mentoria': typeof MentoriaRoute
   '/servicios': typeof ServiciosRoute
   '/sistemas': typeof SistemasRoute
@@ -75,13 +84,27 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/diseno-web' | '/mentoria' | '/servicios' | '/sistemas' | '/tk'
+    | '/'
+    | '/diseno-web'
+    | '/masterclass'
+    | '/mentoria'
+    | '/servicios'
+    | '/sistemas'
+    | '/tk'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/diseno-web' | '/mentoria' | '/servicios' | '/sistemas' | '/tk'
+  to:
+    | '/'
+    | '/diseno-web'
+    | '/masterclass'
+    | '/mentoria'
+    | '/servicios'
+    | '/sistemas'
+    | '/tk'
   id:
     | '__root__'
     | '/'
     | '/diseno-web'
+    | '/masterclass'
     | '/mentoria'
     | '/servicios'
     | '/sistemas'
@@ -91,6 +114,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DisenoWebRoute: typeof DisenoWebRoute
+  MasterclassRoute: typeof MasterclassRoute
   MentoriaRoute: typeof MentoriaRoute
   ServiciosRoute: typeof ServiciosRoute
   SistemasRoute: typeof SistemasRoute
@@ -127,6 +151,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MentoriaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/masterclass': {
+      id: '/masterclass'
+      path: '/masterclass'
+      fullPath: '/masterclass'
+      preLoaderRoute: typeof MasterclassRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/diseno-web': {
       id: '/diseno-web'
       path: '/diseno-web'
@@ -147,6 +178,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DisenoWebRoute: DisenoWebRoute,
+  MasterclassRoute: MasterclassRoute,
   MentoriaRoute: MentoriaRoute,
   ServiciosRoute: ServiciosRoute,
   SistemasRoute: SistemasRoute,

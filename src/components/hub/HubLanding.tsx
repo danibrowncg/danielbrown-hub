@@ -151,7 +151,7 @@ export function HubLanding() {
           className="mt-8 flex w-full flex-col gap-3.5"
         >
           <LinkButton variants={listItem} to="/servicios" title="Contratar mis servicios" />
-          <LinkButton variants={listItem} to="/mentoria" title="Mentoría personalizada" />
+          <LinkButton variants={listItem} to="/masterclass" title="Masterclass gratuita" />
           {/* Titila solo este: es lo que la mayoría viene buscando. */}
           <LinkButton
             variants={listItem}

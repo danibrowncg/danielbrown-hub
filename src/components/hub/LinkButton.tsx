@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { motion, useReducedMotion, type Variants } from "motion/react";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
@@ -15,6 +16,8 @@ interface LinkButtonProps {
    * Reservado para UN botón por pantalla: si titilan varios dejan de destacar.
    */
   pulse?: boolean;
+  /** Icono delante del texto, para anticipar a dónde lleva (p. ej. WhatsApp). */
+  icon?: ReactNode;
   variants?: Variants;
 }
 
@@ -44,7 +47,7 @@ const arrowClasses: Record<Color, string> = {
  * Pastilla minimalista con barrido de brillo al hover, elevación y
  * press-feedback. Enlace interno o externo.
  */
-export function LinkButton({ title, to, href, color = "neon", pulse = false, variants }: LinkButtonProps) {
+export function LinkButton({ title, to, href, color = "neon", pulse = false, icon, variants }: LinkButtonProps) {
   const reduce = useReducedMotion();
   const isExternal = Boolean(href);
 
@@ -55,6 +58,7 @@ export function LinkButton({ title, to, href, color = "neon", pulse = false, var
         aria-hidden="true"
         className={`pointer-events-none absolute inset-y-0 -left-full w-1/2 skew-x-[-20deg] bg-gradient-to-r from-transparent to-transparent transition-transform duration-700 ease-out group-hover:translate-x-[400%] ${shineClasses[color]}`}
       />
+      {icon ? <span className="relative grid shrink-0 place-items-center">{icon}</span> : null}
       <span className="relative font-display text-base uppercase tracking-wider sm:text-lg">
         {title}
       </span>

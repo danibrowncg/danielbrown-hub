@@ -3,6 +3,10 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+/* Pantallas bajas: un teléfono normal dentro del navegador de Instagram o
+   TikTok deja unos 650-700px de alto útil. Sirve para compactar lo justo y
+   que la acción principal no quede bajo el pliegue. */
+@custom-variant short (@media (max-height: 720px));
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -239,4 +243,62 @@
 @keyframes grid-drift {
   from { transform: translate3d(0, 0, 0); }
   to   { transform: translate3d(44px, 44px, 0); }
+}
+
+/* ---------- Página de la masterclass ---------- */
+
+/* Entrada escalonada del contenido. En CSS a propósito, por dos razones:
+   (1) corre en el compositor mientras el navegador todavía está hidratando
+       React, que es justo cuando una animación en JS pierde fotogramas;
+   (2) no depende de JS: si el script tarda o falla, el contenido aparece
+       igual, en vez de quedarse invisible esperando una animación.
+   El orden se marca con `--i` en cada elemento. */
+@keyframes rise-in {
+  from { opacity: 0; transform: translate3d(0, 16px, 0); }
+}
+@utility rise-in {
+  animation: rise-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(var(--i, 0) * 70ms);
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+/* Cifras del contador: la que sale sube y se desenfoca, la que entra llega
+   desde abajo. El desenfoque funde las dos para que se lea como UNA cifra que
+   gira y no como dos números que se cruzan. La salida es más corta que la
+   entrada: lo que se va no debe robarle tiempo a lo que llega. */
+@keyframes digit-in {
+  from { opacity: 0; transform: translate3d(0, 0.36em, 0); filter: blur(5px); }
+}
+@keyframes digit-out {
+  to { opacity: 0; transform: translate3d(0, -0.36em, 0); filter: blur(5px); }
+}
+@utility digit-in {
+  animation: digit-in 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+@utility digit-out {
+  animation: digit-out 0.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+/* Tira de días: las barras se levantan una tras otra, de hoy hacia la fecha.
+   Solo `from`: cada barra termina en su propia opacidad (pasada, hoy o futura)
+   sin tener que repetirla en el keyframe. */
+@keyframes day-bar {
+  from { opacity: 0; transform: scaleY(0.2); }
+}
+@utility day-bar {
+  transform-origin: bottom;
+  animation: day-bar 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(480ms + var(--i, 0) * 14ms);
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
 }
