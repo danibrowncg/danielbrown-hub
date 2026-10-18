@@ -11,7 +11,7 @@ export const YT_URL = "https://youtube.com/@danielbrown_ia";
 
 // Comunidad gratuita de WhatsApp (grupo donde enseñas Claude/IA) — botón del hub
 export const COMMUNITY_WA_URL =
-  "https://chat.whatsapp.com/DA6NZzJobZxAwAKSp2a8QM?mode=gi_t";
+  "https://chat.whatsapp.com/HoCAESuKORP9ddAiUb8ikv?s=cl&p=i&mlu=4&ilr=4";
 
 // Masterclass gratuita. Todo lo que la página dice sobre la fecha (el contador,
 // "2 de noviembre", la etiqueta "2 nov") sale de estas dos constantes: si
